@@ -13,6 +13,9 @@
 
 
 @interface MAImagePickerController ()
+@property (nonatomic , assign) CGFloat beginGestureScale;//开始的缩放比例
+@property (nonatomic , assign) CGFloat effectiveScale;//最后的缩放比例
+
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
 @end
 
@@ -140,6 +143,7 @@
         [_cameraPictureTakenFlash setUserInteractionEnabled:NO];
         [_cameraPictureTakenFlash setAlpha:0.0f];
         [self.view addSubview:_cameraPictureTakenFlash];
+        [self addSliderBar];
     }
     else
     {
@@ -330,5 +334,32 @@
 {
     return NO;
 }
+
+
+//添加sliderbar到主视图上
+- (void)addSliderBar{
+    _enlargeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 30, self.view.bounds.size.height/2 - 105, 40, 20)];
+    [_enlargeLabel setFont:[UIFont systemFontOfSize:9]];
+    [self.view addSubview:_enlargeLabel];
+    _slider = [[UISlider alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 120,self.view.bounds.size.height/2, 200, 20)];
+    //UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(100, 450, 200, 20)];
+    _slider.minimumValue = 1.0;
+    _slider.maximumValue = 6.0;
+    _slider.value = 1.0;
+    _slider.transform =CGAffineTransformMakeRotation(3*M_PI/2);
+    
+    [_enlargeLabel setText:[NSString stringWithFormat:@"%.1fX",_slider.value]];
+    [_slider addTarget:self action:@selector(focusDisdance) forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:_slider];
+    
+}
+#pragma mark 调整焦距
+
+- (void)focusDisdance{
+    [_enlargeLabel setText:[NSString stringWithFormat:@"%.1fX",_slider.value]];
+    [_captureManager focusDisdanceWithSliderValue:_slider.value];
+}
+
 
 @end

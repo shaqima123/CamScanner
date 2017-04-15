@@ -8,6 +8,13 @@
 
 #import "MACaptureSession.h"
 #import <ImageIO/ImageIO.h>
+@interface MACaptureSession ()
+
+@property (nonatomic , assign) CGFloat beginGestureScale;//开始的缩放比例
+@property (nonatomic , assign) CGFloat effectiveScale;//最后的缩放比例
+
+@end
+
 
 @implementation MACaptureSession
 
@@ -21,6 +28,8 @@
 	if ((self = [super init]))
     {
 		[self setCaptureSession:[[AVCaptureSession alloc] init]];
+        self.beginGestureScale = 1.0f;
+        self.effectiveScale = 1.0f;
 	}
 	return self;
 }
@@ -161,6 +170,42 @@
          }
      }];
 }
+
+#pragma mark 调整焦距
+/** 调整焦距 */
+- (void)focusDisdanceWithSliderValue:(float)sliderValue{
+    self.effectiveScale = self.beginGestureScale * sliderValue;
+    if (self.effectiveScale < 1.0f) {
+        self.effectiveScale = 1.0f;
+    }
+    CGFloat maxScaleAndCropFactor = 6.0f;
+    if (self.effectiveScale > maxScaleAndCropFactor)
+        self.effectiveScale = maxScaleAndCropFactor;
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:.025];
+    NSError *error;
+    
+    NSArray *devices = [AVCaptureDevice devices];
+    
+    for (AVCaptureDevice *device in devices)
+    {
+        if ([device hasMediaType:AVMediaTypeVideo])
+        {
+            if ([device position] == AVCaptureDevicePositionBack)
+            {
+                if([device lockForConfiguration:&error]){
+                    [device setVideoZoomFactor:self.effectiveScale];
+                    [device unlockForConfiguration];
+                }
+                else {
+                    NSLog(@"ERROR = %@", error);
+                }
+                [CATransaction commit];
+            }
+        }
+    }
+}
+
 
 - (void)dealloc {
     

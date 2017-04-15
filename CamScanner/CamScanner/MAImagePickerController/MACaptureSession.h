@@ -26,5 +26,6 @@
 - (void)addVideoInputFromCamera;
 
 - (void)setFlashOn:(BOOL)boolWantsFlash;
+- (void)focusDisdanceWithSliderValue:(float)sliderValue;
 
 @end

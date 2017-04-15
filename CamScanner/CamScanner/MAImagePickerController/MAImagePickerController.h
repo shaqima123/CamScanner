@@ -38,6 +38,9 @@ typedef NS_ENUM(NSInteger, MAImagePickerControllerSourceType)
 @property (strong, nonatomic) UIBarButtonItem *flashButton;
 @property (strong, nonatomic) UIBarButtonItem *pictureButton;
 @property (strong, nonatomic) UIView *cameraPictureTakenFlash;
+@property (strong ,nonatomic) UISlider *slider;//焦距调整条
+@property (strong ,nonatomic) UILabel *enlargeLabel;//放大倍数
+
 
 @property (strong ,nonatomic) UIImagePickerController *invokeCamera;
 
