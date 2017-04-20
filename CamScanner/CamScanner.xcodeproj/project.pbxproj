@@ -80,6 +80,10 @@
 		22F46B5D16A2B94F0078DFDE /* MAOpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F46B5216A2B94F0078DFDE /* MAOpenCV.mm */; };
 		22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F46B5416A2B94F0078DFDE /* UIImage+fixOrientation.m */; };
 		22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F46B5616A2B94F0078DFDE /* UIImageView+ContentFrame.m */; };
+		628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */; };
+		628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */; };
+		628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */; };
+		628259F01EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 628259EC1EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +174,12 @@
 		22F46B5416A2B94F0078DFDE /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+fixOrientation.m"; path = "MAImagePickerController/UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 		22F46B5516A2B94F0078DFDE /* UIImageView+ContentFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+ContentFrame.h"; path = "MAImagePickerController/UIImageView+ContentFrame.h"; sourceTree = "<group>"; };
 		22F46B5616A2B94F0078DFDE /* UIImageView+ContentFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+ContentFrame.m"; path = "MAImagePickerController/UIImageView+ContentFrame.m"; sourceTree = "<group>"; };
+		628259E71EA8CD4E004BCCB8 /* CSFileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileCollectionViewCell.h; path = FileManager/CSFileCollectionViewCell.h; sourceTree = "<group>"; };
+		628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFileCollectionViewCell.m; path = FileManager/CSFileCollectionViewCell.m; sourceTree = "<group>"; };
+		628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CSFileCollectionViewCell.xib; path = FileManager/CSFileCollectionViewCell.xib; sourceTree = "<group>"; };
+		628259EA1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileManagerCollectionViewController.h; path = FileManager/CSFileManagerCollectionViewController.h; sourceTree = "<group>"; };
+		628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFileManagerCollectionViewController.m; path = FileManager/CSFileManagerCollectionViewController.m; sourceTree = "<group>"; };
+		628259EC1EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FileManagerStoryboard.storyboard; path = FileManager/FileManagerStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +242,7 @@
 		2237CA1B1647E85000B77E0E /* CamScanner */ = {
 			isa = PBXGroup;
 			children = (
+				628259E61EA8CD1D004BCCB8 /* FileManager */,
 				2237CA241647E85000B77E0E /* MAAppDelegate.h */,
 				2237CA251647E85000B77E0E /* MAAppDelegate.m */,
 				2237CA2D1647E85000B77E0E /* MAViewController.h */,
@@ -335,6 +346,51 @@
 			name = assets;
 			sourceTree = "<group>";
 		};
+		628259E61EA8CD1D004BCCB8 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				628259F41EA8CD77004BCCB8 /* Storyboard */,
+				628259F31EA8CD64004BCCB8 /* Model */,
+				628259F21EA8CD5A004BCCB8 /* Controller */,
+				628259F11EA8CD52004BCCB8 /* View */,
+			);
+			name = FileManager;
+			sourceTree = "<group>";
+		};
+		628259F11EA8CD52004BCCB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				628259E71EA8CD4E004BCCB8 /* CSFileCollectionViewCell.h */,
+				628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */,
+				628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		628259F21EA8CD5A004BCCB8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				628259EA1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.h */,
+				628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		628259F31EA8CD64004BCCB8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		628259F41EA8CD77004BCCB8 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				628259EC1EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -396,11 +452,13 @@
 				2237CA281647E85000B77E0E /* Default.png in Resources */,
 				2237CA2A1647E85000B77E0E /* Default@2x.png in Resources */,
 				2237CA2C1647E85000B77E0E /* Default-568h@2x.png in Resources */,
+				628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */,
 				2237CA321647E85000B77E0E /* MAViewController.xib in Resources */,
 				2237CA551648115E00B77E0E /* camera-bottom-bar.png in Resources */,
 				2237CA561648115E00B77E0E /* camera-button.png in Resources */,
 				2237CA571648115E00B77E0E /* camera-button-pressed.png in Resources */,
 				2237CA581648115E00B77E0E /* camera-bottom-bar@2x.png in Resources */,
+				628259F01EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard in Resources */,
 				2237CA591648115E00B77E0E /* camera-button-pressed@2x.png in Resources */,
 				2237CA5A1648115E00B77E0E /* camera-button@2x.png in Resources */,
 				2237CA5B1648115E00B77E0E /* camera-grid@2x.png in Resources */,
@@ -458,12 +516,14 @@
 				22F46B5716A2B94F0078DFDE /* MACaptureSession.m in Sources */,
 				22F46B5816A2B94F0078DFDE /* MAConstants.m in Sources */,
 				22F46B5916A2B94F0078DFDE /* MADrawRect.m in Sources */,
+				628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */,
 				22F46B5A16A2B94F0078DFDE /* MAImagePickerController.m in Sources */,
 				22F46B5B16A2B94F0078DFDE /* MAImagePickerControllerAdjustViewController.mm in Sources */,
 				22F46B5C16A2B94F0078DFDE /* MAImagePickerFinalViewController.mm in Sources */,
 				22F46B5D16A2B94F0078DFDE /* MAOpenCV.mm in Sources */,
 				22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */,
 				22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */,
+				628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

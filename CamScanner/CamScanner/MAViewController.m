@@ -45,7 +45,7 @@
 
 - (void)imagePickerDidChooseImageWithPath:(NSString *)path
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+   // [self dismissViewControllerAnimated:YES completion:nil];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:path])
     {

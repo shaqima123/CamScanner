@@ -7,7 +7,7 @@
 //
 
 #import "MAImagePickerFinalViewController.h"
-
+#import "CSFileManagerCollectionViewController.h"
 #import <CoreImage/CoreImage.h>
 #import <QuartzCore/QuartzCore.h>
 #import "MAOpenCV.h"
@@ -118,8 +118,10 @@
 - (void)comfirmFinishedImage
 {
     [self storeImageToCache];
+    UIStoryboard *fileStoryboard = [UIStoryboard storyboardWithName:@"FileManagerStoryboard" bundle:nil];
+    CSFileManagerCollectionViewController * fileVC = [fileStoryboard instantiateViewControllerWithIdentifier:@"CSFileManagerCollectionViewController"];
+    [self.navigationController pushViewController:fileVC animated:YES];
 }
-
 - (void)adjustPreviewImage
 {
     
