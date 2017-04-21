@@ -12,6 +12,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MAOpenCV.h"
 
+#import "FileManageDataAPI.h"
+#import <CoreData/CoreData.h>
+
 @interface MAImagePickerFinalViewController ()
 
 @end
@@ -118,9 +121,46 @@
 - (void)comfirmFinishedImage
 {
     [self storeImageToCache];
+    [self saveToDataBase];
+    [self getInfoFromDataBase];
     UIStoryboard *fileStoryboard = [UIStoryboard storyboardWithName:@"FileManagerStoryboard" bundle:nil];
     CSFileManagerCollectionViewController * fileVC = [fileStoryboard instantiateViewControllerWithIdentifier:@"CSFileManagerCollectionViewController"];
     [self.navigationController pushViewController:fileVC animated:YES];
+}
+
+- (void)saveToDataBase{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    
+    NSDate *datenow = [NSDate date];
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    
+        NSString * fileName = [NSString stringWithFormat:@"NewFile_%@",currentTimeString];
+        NSString * fileSize = @"1M";
+        NSString * fileType = @"png";
+        NSString * fileLabel = @"无";
+        NSData * fileContent = UIImagePNGRepresentation(_adjustedImage);
+        NSString * fileUrlPath = @"path";
+        NSData * fileAdjustImage = UIImageJPEGRepresentation(_adjustedImage, 1.0);
+        NSDate * fileCreatedTime = datenow;
+        NSData * fileOriginImage = UIImagePNGRepresentation(_sourceImage);
+        NSDictionary *dict = NSDictionaryOfVariableBindings(fileName,fileSize,fileType,fileLabel,fileType,fileContent,fileUrlPath,fileAdjustImage,fileCreatedTime,fileOriginImage);
+   
+    [[FileManageDataAPI sharedInstance] insertFileModel:dict success:^{
+        NSLog(@"insert successfully~\n\n\n");
+    } fail:^(NSError *error) {
+        NSLog(@"fail to insert!!\n\n\n");
+    }];
+}
+
+- (void)getInfoFromDataBase{
+    [[FileManageDataAPI sharedInstance] readAllFileModel:^(NSArray *finishArray) {
+        NSLog(@"%d",[finishArray count]);
+        NSLog(@"%@",[finishArray objectAtIndex:0]);
+    } fail:^(NSError *error) {
+        NSLog(@"fail to read");
+    }];
 }
 - (void)adjustPreviewImage
 {

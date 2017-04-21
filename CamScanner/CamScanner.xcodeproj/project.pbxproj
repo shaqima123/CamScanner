@@ -84,6 +84,12 @@
 		628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */; };
 		628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */; };
 		628259F01EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 628259EC1EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard */; };
+		628259F61EA8CF24004BCCB8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628259F51EA8CF24004BCCB8 /* CoreData.framework */; };
+		628259F91EA99EB0004BCCB8 /* FileModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 628259F71EA99EB0004BCCB8 /* FileModel.xcdatamodeld */; };
+		62E107511EA9A36500851EE5 /* FileModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E1074E1EA9A36500851EE5 /* FileModel+CoreDataClass.m */; };
+		62E107521EA9A36500851EE5 /* FileModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107501EA9A36500851EE5 /* FileModel+CoreDataProperties.m */; };
+		62E107571EA9A3E600851EE5 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107541EA9A3E600851EE5 /* DataBase.m */; };
+		62E107581EA9A3E600851EE5 /* FileManageDataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107561EA9A3E600851EE5 /* FileManageDataAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +186,16 @@
 		628259EA1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileManagerCollectionViewController.h; path = FileManager/CSFileManagerCollectionViewController.h; sourceTree = "<group>"; };
 		628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFileManagerCollectionViewController.m; path = FileManager/CSFileManagerCollectionViewController.m; sourceTree = "<group>"; };
 		628259EC1EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FileManagerStoryboard.storyboard; path = FileManager/FileManagerStoryboard.storyboard; sourceTree = "<group>"; };
+		628259F51EA8CF24004BCCB8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		628259F81EA99EB0004BCCB8 /* FileModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FileModel.xcdatamodel; sourceTree = "<group>"; };
+		62E1074D1EA9A36500851EE5 /* FileModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileModel+CoreDataClass.h"; path = "CamScanner/FileManager/FileModel+CoreDataClass.h"; sourceTree = "<group>"; };
+		62E1074E1EA9A36500851EE5 /* FileModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FileModel+CoreDataClass.m"; path = "CamScanner/FileManager/FileModel+CoreDataClass.m"; sourceTree = "<group>"; };
+		62E1074F1EA9A36500851EE5 /* FileModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileModel+CoreDataProperties.h"; path = "CamScanner/FileManager/FileModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		62E107501EA9A36500851EE5 /* FileModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FileModel+CoreDataProperties.m"; path = "CamScanner/FileManager/FileModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		62E107531EA9A3E600851EE5 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataBase.h; path = FileManager/DataBase.h; sourceTree = "<group>"; };
+		62E107541EA9A3E600851EE5 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataBase.m; path = FileManager/DataBase.m; sourceTree = "<group>"; };
+		62E107551EA9A3E600851EE5 /* FileManageDataAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileManageDataAPI.h; path = FileManager/FileManageDataAPI.h; sourceTree = "<group>"; };
+		62E107561EA9A3E600851EE5 /* FileManageDataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileManageDataAPI.m; path = FileManager/FileManageDataAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628259F61EA8CF24004BCCB8 /* CoreData.framework in Frameworks */,
 				22BA6A931704498F00B111E4 /* MediaPlayer.framework in Frameworks */,
 				22BA6A911704497A00B111E4 /* AudioToolbox.framework in Frameworks */,
 				22078047164F1F1F0081E1E8 /* CoreImage.framework in Frameworks */,
@@ -207,6 +224,10 @@
 		2237CA061647E85000B77E0E = {
 			isa = PBXGroup;
 			children = (
+				62E1074D1EA9A36500851EE5 /* FileModel+CoreDataClass.h */,
+				62E1074E1EA9A36500851EE5 /* FileModel+CoreDataClass.m */,
+				62E1074F1EA9A36500851EE5 /* FileModel+CoreDataProperties.h */,
+				62E107501EA9A36500851EE5 /* FileModel+CoreDataProperties.m */,
 				2237CA1B1647E85000B77E0E /* CamScanner */,
 				2237CA141647E85000B77E0E /* Frameworks */,
 				2237CA121647E85000B77E0E /* Products */,
@@ -224,6 +245,7 @@
 		2237CA141647E85000B77E0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				628259F51EA8CF24004BCCB8 /* CoreData.framework */,
 				22BA6A921704498F00B111E4 /* MediaPlayer.framework */,
 				22BA6A901704497A00B111E4 /* AudioToolbox.framework */,
 				22078046164F1F1E0081E1E8 /* CoreImage.framework */,
@@ -242,6 +264,7 @@
 		2237CA1B1647E85000B77E0E /* CamScanner */ = {
 			isa = PBXGroup;
 			children = (
+				62825A001EA99F6F004BCCB8 /* System */,
 				628259E61EA8CD1D004BCCB8 /* FileManager */,
 				2237CA241647E85000B77E0E /* MAAppDelegate.h */,
 				2237CA251647E85000B77E0E /* MAAppDelegate.m */,
@@ -264,6 +287,7 @@
 				2237CA271647E85000B77E0E /* Default.png */,
 				2237CA291647E85000B77E0E /* Default@2x.png */,
 				2237CA2B1647E85000B77E0E /* Default-568h@2x.png */,
+				628259F71EA99EB0004BCCB8 /* FileModel.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -391,6 +415,17 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
+		62825A001EA99F6F004BCCB8 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				62E107531EA9A3E600851EE5 /* DataBase.h */,
+				62E107541EA9A3E600851EE5 /* DataBase.m */,
+				62E107551EA9A3E600851EE5 /* FileManageDataAPI.h */,
+				62E107561EA9A3E600851EE5 /* FileManageDataAPI.m */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -510,16 +545,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62E107521EA9A36500851EE5 /* FileModel+CoreDataProperties.m in Sources */,
 				2237CA221647E85000B77E0E /* main.m in Sources */,
 				2237CA261647E85000B77E0E /* MAAppDelegate.m in Sources */,
 				2237CA2F1647E85000B77E0E /* MAViewController.m in Sources */,
 				22F46B5716A2B94F0078DFDE /* MACaptureSession.m in Sources */,
+				62E107581EA9A3E600851EE5 /* FileManageDataAPI.m in Sources */,
 				22F46B5816A2B94F0078DFDE /* MAConstants.m in Sources */,
 				22F46B5916A2B94F0078DFDE /* MADrawRect.m in Sources */,
 				628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */,
+				62E107571EA9A3E600851EE5 /* DataBase.m in Sources */,
 				22F46B5A16A2B94F0078DFDE /* MAImagePickerController.m in Sources */,
 				22F46B5B16A2B94F0078DFDE /* MAImagePickerControllerAdjustViewController.mm in Sources */,
+				62E107511EA9A36500851EE5 /* FileModel+CoreDataClass.m in Sources */,
 				22F46B5C16A2B94F0078DFDE /* MAImagePickerFinalViewController.mm in Sources */,
+				628259F91EA99EB0004BCCB8 /* FileModel.xcdatamodeld in Sources */,
 				22F46B5D16A2B94F0078DFDE /* MAOpenCV.mm in Sources */,
 				22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */,
 				22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */,
@@ -683,6 +723,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		628259F71EA99EB0004BCCB8 /* FileModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				628259F81EA99EB0004BCCB8 /* FileModel.xcdatamodel */,
+			);
+			currentVersion = 628259F81EA99EB0004BCCB8 /* FileModel.xcdatamodel */;
+			path = FileModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2237CA081647E85000B77E0E /* Project object */;
 }

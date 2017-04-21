@@ -9,6 +9,8 @@
 #import "MAAppDelegate.h"
 
 #import "MAViewController.h"
+#import <CoreData/CoreData.h>
+#import "FileManager/FileManageDataAPI.h"
 
 @implementation MAAppDelegate
 
@@ -17,6 +19,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[MAViewController alloc] initWithNibName:@"MAViewController" bundle:nil];
+    self.fileArray = [NSMutableArray array];
+    
+    dispatch_queue_t queue=dispatch_get_main_queue();
+    dispatch_async(queue, ^{
+        __weak typeof(self) weakSelf = self;
+        [[FileManageDataAPI sharedInstance] readAllFileModel:^(NSArray *finishArray) {
+            NSLog(@"%d",[finishArray count]);
+            [weakSelf.fileArray addObjectsFromArray:finishArray];
+        } fail:^(NSError *error) {
+            NSLog(@"fail to read");
+        }];
+    });
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

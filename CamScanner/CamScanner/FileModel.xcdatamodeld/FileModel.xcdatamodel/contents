@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="FileModel" representedClassName="FileModel" syncable="YES">
+        <attribute name="fileAdjustImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="fileContent" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="fileCreatedTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fileLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileOriginImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="fileSize" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileUrlPath" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FileModel" positionX="-45" positionY="0" width="128" height="180"/>
+    </elements>
+</model>
