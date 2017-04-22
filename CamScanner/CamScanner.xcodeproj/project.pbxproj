@@ -90,6 +90,7 @@
 		62E107521EA9A36500851EE5 /* FileModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107501EA9A36500851EE5 /* FileModel+CoreDataProperties.m */; };
 		62E107571EA9A3E600851EE5 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107541EA9A3E600851EE5 /* DataBase.m */; };
 		62E107581EA9A3E600851EE5 /* FileManageDataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107561EA9A3E600851EE5 /* FileManageDataAPI.m */; };
+		62E1075B1EAB039100851EE5 /* CSPDFMangager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E1075A1EAB039100851EE5 /* CSPDFMangager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +197,8 @@
 		62E107541EA9A3E600851EE5 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataBase.m; path = FileManager/DataBase.m; sourceTree = "<group>"; };
 		62E107551EA9A3E600851EE5 /* FileManageDataAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileManageDataAPI.h; path = FileManager/FileManageDataAPI.h; sourceTree = "<group>"; };
 		62E107561EA9A3E600851EE5 /* FileManageDataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileManageDataAPI.m; path = FileManager/FileManageDataAPI.m; sourceTree = "<group>"; };
+		62E107591EAB039100851EE5 /* CSPDFMangager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSPDFMangager.h; path = FileManager/CSPDFMangager.h; sourceTree = "<group>"; };
+		62E1075A1EAB039100851EE5 /* CSPDFMangager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSPDFMangager.m; path = FileManager/CSPDFMangager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +425,8 @@
 				62E107541EA9A3E600851EE5 /* DataBase.m */,
 				62E107551EA9A3E600851EE5 /* FileManageDataAPI.h */,
 				62E107561EA9A3E600851EE5 /* FileManageDataAPI.m */,
+				62E107591EAB039100851EE5 /* CSPDFMangager.h */,
+				62E1075A1EAB039100851EE5 /* CSPDFMangager.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -561,6 +566,7 @@
 				22F46B5C16A2B94F0078DFDE /* MAImagePickerFinalViewController.mm in Sources */,
 				628259F91EA99EB0004BCCB8 /* FileModel.xcdatamodeld in Sources */,
 				22F46B5D16A2B94F0078DFDE /* MAOpenCV.mm in Sources */,
+				62E1075B1EAB039100851EE5 /* CSPDFMangager.m in Sources */,
 				22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */,
 				22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */,
 				628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */,

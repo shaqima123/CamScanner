@@ -14,6 +14,7 @@
 
 #import "FileManageDataAPI.h"
 #import <CoreData/CoreData.h>
+#import "CSPDFMangager.h"
 
 @interface MAImagePickerFinalViewController ()
 
@@ -131,27 +132,37 @@
 - (void)saveToDataBase{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
-    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    [formatter setDateFormat:@"YYYY_MM_dd HH.mm.ss"];
     
     NSDate *datenow = [NSDate date];
     NSString *currentTimeString = [formatter stringFromDate:datenow];
     
-        NSString * fileName = [NSString stringWithFormat:@"NewFile_%@",currentTimeString];
-        NSString * fileSize = @"1M";
-        NSString * fileType = @"png";
-        NSString * fileLabel = @"无";
-        NSData * fileContent = UIImagePNGRepresentation(_adjustedImage);
-        NSString * fileUrlPath = @"path";
-        NSData * fileAdjustImage = UIImageJPEGRepresentation(_adjustedImage, 1.0);
-        NSDate * fileCreatedTime = datenow;
-        NSData * fileOriginImage = UIImagePNGRepresentation(_sourceImage);
-        NSDictionary *dict = NSDictionaryOfVariableBindings(fileName,fileSize,fileType,fileLabel,fileType,fileContent,fileUrlPath,fileAdjustImage,fileCreatedTime,fileOriginImage);
+    NSString * fileName = [NSString stringWithFormat:@"NewFile_%@",currentTimeString];
+    
+    NSData *adjustImageData = UIImageJPEGRepresentation(_adjustedImage, 1.0);
+    NSData *originImageData = UIImagePNGRepresentation(_sourceImage);
+    
+    NSString * fileSize = [CSPDFMangager getFileSizeFromData:adjustImageData];
+    NSString * fileType = @"pdf";
+    NSString * fileLabel = @"无";
+    NSData * fileContent = UIImagePNGRepresentation(_adjustedImage);
+    NSString * fileUrlPath = [CSPDFMangager filePath:[NSString stringWithFormat:@"%@.pdf",fileName]];
+    NSData * fileAdjustImage = adjustImageData;
+    NSDate * fileCreatedTime = datenow;
+    NSData * fileOriginImage = originImageData;
+    NSDictionary *dict = NSDictionaryOfVariableBindings(fileName,fileSize,fileType,fileLabel,fileType,fileContent,fileUrlPath,fileAdjustImage,fileCreatedTime,fileOriginImage);
    
-    [[FileManageDataAPI sharedInstance] insertFileModel:dict success:^{
-        NSLog(@"insert successfully~\n\n\n");
-    } fail:^(NSError *error) {
-        NSLog(@"fail to insert!!\n\n\n");
-    }];
+    dispatch_queue_t queue=dispatch_get_main_queue();
+    dispatch_async(queue, ^{
+
+        [CSPDFMangager createPDFFileWithSrc:adjustImageData toDestFile:[NSString stringWithFormat:@"%@.pdf",fileName] withPassword:nil];
+        
+        [[FileManageDataAPI sharedInstance] insertFileModel:dict success:^{
+            NSLog(@"insert successfully~\n\n\n");
+        } fail:^(NSError *error) {
+            NSLog(@"fail to insert!!\n\n\n");
+        }];
+    });
 }
 
 - (void)getInfoFromDataBase{
@@ -162,6 +173,8 @@
         NSLog(@"fail to read");
     }];
 }
+
+
 - (void)adjustPreviewImage
 {
     
