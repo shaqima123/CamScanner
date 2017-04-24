@@ -9,6 +9,7 @@
 #import "MAViewController.h"
 #import "CSFileCollectionViewCell.h"
 #import "MAAppDelegate.h"
+#import "MJRefresh.h"
 
 @interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
@@ -39,6 +40,26 @@
     _fileCollectionView.alwaysBounceVertical=YES;
     _fileCollectionView.dataSource = self;
     _fileCollectionView.delegate = self;
+    
+    _fileCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 增加数据
+        [_fileCollectionView.mj_header beginRefreshing];
+        
+        //网络请求
+        NSLog(@"下拉刷新");
+        [_fileCollectionView.mj_header endRefreshing];
+        
+    }];
+    
+    _fileCollectionView.mj_footer = [MJRefreshAutoNormalFooter  footerWithRefreshingBlock:^{
+        [_fileCollectionView.mj_footer  beginRefreshing];
+        NSLog(@"上拉加载");
+        //网络请求
+        // 结束刷新
+        [_fileCollectionView.mj_footer  endRefreshing];
+        
+    }];
+    
     NSLog(@"width: %f,height:%f",self.fileCollectionView.frame.size.width,self.fileCollectionView.frame.size.height);
     
     [_fileCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CSFileCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:@"FILECELL"];
