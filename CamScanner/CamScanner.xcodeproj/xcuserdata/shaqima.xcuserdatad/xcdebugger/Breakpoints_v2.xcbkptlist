@@ -68,7 +68,7 @@
                   moduleName = "CamScanner"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shaqima/iOS%EF%BC%8DOpenCV/CamScan/CamScanner/CamScanner/MAImagePickerController/MAImagePickerFinalViewController.mm"
-                  timestampString = "514527309.047861"
+                  timestampString = "514720121.992372"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -83,7 +83,7 @@
                   moduleName = "CamScanner"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shaqima/iOS%EF%BC%8DOpenCV/CamScan/CamScanner/CamScanner/MAImagePickerController/MAImagePickerFinalViewController.mm"
-                  timestampString = "514527309.049238"
+                  timestampString = "514720121.993936"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -99,12 +99,76 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CamScanner/MAAppDelegate.m"
-            timestampString = "514522551.022679"
+            filePath = "CamScanner/MAViewController.m"
+            timestampString = "514720120.931951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/MAViewController.m"
+            timestampString = "514720120.931951"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-initView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/MAAppDelegate.m"
+            timestampString = "514717366.773906"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/MAViewController.m"
+            timestampString = "514720120.931951"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-initData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/MAAppDelegate.m"
+            timestampString = "514720120.931951"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
             <Locations>
@@ -116,12 +180,12 @@
                   moduleName = "CamScanner"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shaqima/iOS%EF%BC%8DOpenCV/CamScan/CamScanner/CamScanner/MAAppDelegate.m"
-                  timestampString = "514527309.052669"
+                  timestampString = "514720122.009064"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "138">
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "284">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -131,12 +195,12 @@
                   moduleName = "CamScanner"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shaqima/iOS%EF%BC%8DOpenCV/CamScan/CamScanner/CamScanner/MAAppDelegate.m"
-                  timestampString = "514527309.054073"
+                  timestampString = "514720122.010502"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "66">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -146,26 +210,26 @@
                   moduleName = "CamScanner"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shaqima/iOS%EF%BC%8DOpenCV/CamScan/CamScanner/CamScanner/MAAppDelegate.m"
-                  timestampString = "514527309.055433"
+                  timestampString = "514720122.011891"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "16">
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__59-[MAAppDelegate application:didFinishLaunchingWithOptions:]_block_invoke.28"
+                  symbolName = "__59-[MAAppDelegate application:didFinishLaunchingWithOptions:]_block_invoke.30"
                   moduleName = "CamScanner"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shaqima/iOS%EF%BC%8DOpenCV/CamScan/CamScanner/CamScanner/MAAppDelegate.m"
-                  timestampString = "514527309.056785"
+                  timestampString = "514720122.013669"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
                   offsetFromSymbolStart = "36">
                </Location>
             </Locations>

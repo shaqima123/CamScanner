@@ -11,6 +11,7 @@
 #import "MAImagePickerController.h"
 
 @interface MAViewController : UIViewController <MAImagePickerControllerDelegate>
+@property (strong, nonatomic) NSMutableArray * fileArray;
 
 - (IBAction)initButton:(id)sender;
 

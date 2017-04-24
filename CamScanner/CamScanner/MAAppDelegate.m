@@ -35,6 +35,7 @@
 //                NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime]);
 //            }
             [weakSelf.fileArray addObjectsFromArray:finishArray];
+            [self.viewController.fileArray addObjectsFromArray:finishArray];
         } fail:^(NSError *error) {
             NSLog(@"fail to read");
         }];
