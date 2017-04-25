@@ -10,6 +10,8 @@
 #import "CSFileCollectionViewCell.h"
 #import "MAAppDelegate.h"
 #import "MJRefresh.h"
+#import "FileModel+CoreDataClass.h"
+#import "FileModel+CoreDataProperties.h"
 
 @interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
@@ -40,13 +42,13 @@
     _fileCollectionView.alwaysBounceVertical=YES;
     _fileCollectionView.dataSource = self;
     _fileCollectionView.delegate = self;
-    
     _fileCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         // 增加数据
         [_fileCollectionView.mj_header beginRefreshing];
         
         //网络请求
         NSLog(@"下拉刷新");
+        [self refreshData];
         [_fileCollectionView.mj_header endRefreshing];
         
     }];
@@ -76,16 +78,36 @@
     
 }
 
+
+- (void)refreshData{
+    NSLog(@"XxXXXXXXX%d",[_fileArray count]);
+    [_fileCollectionView reloadData];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 15;
+    return [_fileArray count];
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CSFileCollectionViewCell *cell = (CSFileCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"FILECELL" forIndexPath:indexPath];
     if (cell) {
-        cell.fileName.text = @"new file";
-        cell.fileName.textColor = [UIColor blackColor];
+        FileModel *fileModel = [_fileArray objectAtIndex:[indexPath row]];
+//        for(FileModel *file in finishArray)
+//        {
+//            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//            [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
+//            
+//            NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime]);
+//        }
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+        UIImage *img = [UIImage imageWithData:fileModel.fileAdjustImage];
+        
+        cell.fileName.text = fileModel.fileName;
+        cell.fileLabel.text = fileModel.fileLabel;
+        cell.fileCreateTime.text = [formatter stringFromDate:fileModel.fileCreatedTime];
+        cell.fileImage.image = img;
         cell.backgroundColor = [UIColor yellowColor];
     }
     return cell;

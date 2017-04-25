@@ -132,12 +132,12 @@
 - (void)saveToDataBase{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
-    [formatter setDateFormat:@"YYYY_MM_dd HH.mm.ss"];
+    [formatter setDateFormat:@"YYYYMMdd_HH.mm.ss"];
     
     NSDate *datenow = [NSDate date];
     NSString *currentTimeString = [formatter stringFromDate:datenow];
     
-    NSString * fileName = [NSString stringWithFormat:@"NewFile_%@",currentTimeString];
+    NSString * fileName = [NSString stringWithFormat:@"新文档%@",currentTimeString];
     
     NSData *adjustImageData = UIImageJPEGRepresentation(_adjustedImage, 1.0);
     NSData *originImageData = UIImagePNGRepresentation(_sourceImage);

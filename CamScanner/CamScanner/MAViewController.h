@@ -15,4 +15,6 @@
 
 - (IBAction)initButton:(id)sender;
 
+- (void)refreshData;
+
 @end

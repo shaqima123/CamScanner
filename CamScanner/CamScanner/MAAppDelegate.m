@@ -26,16 +26,17 @@
     dispatch_async(queue, ^{
         __weak typeof(self) weakSelf = self;
         [[FileManageDataAPI sharedInstance] readAllFileModel:^(NSArray *finishArray) {
-//            NSLog(@"%d",[finishArray count]);
-//            for(FileModel *file in finishArray)
-//            {
-//                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//                [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
-//                
-//                NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime]);
-//            }
+            NSLog(@"%d",[finishArray count]);
+            for(FileModel *file in finishArray)
+            {
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
+                
+                NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime]);
+            }
             [weakSelf.fileArray addObjectsFromArray:finishArray];
-            [self.viewController.fileArray addObjectsFromArray:finishArray];
+            self.viewController.fileArray = weakSelf.fileArray;
+            [self.viewController refreshData];
         } fail:^(NSError *error) {
             NSLog(@"fail to read");
         }];
