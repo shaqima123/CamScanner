@@ -35,12 +35,10 @@
 		2237CA1A1647E85000B77E0E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237CA191647E85000B77E0E /* CoreGraphics.framework */; };
 		2237CA201647E85000B77E0E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2237CA1E1647E85000B77E0E /* InfoPlist.strings */; };
 		2237CA221647E85000B77E0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237CA211647E85000B77E0E /* main.m */; };
-		2237CA261647E85000B77E0E /* MAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237CA251647E85000B77E0E /* MAAppDelegate.m */; };
 		2237CA281647E85000B77E0E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2237CA271647E85000B77E0E /* Default.png */; };
 		2237CA2A1647E85000B77E0E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2237CA291647E85000B77E0E /* Default@2x.png */; };
 		2237CA2C1647E85000B77E0E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2237CA2B1647E85000B77E0E /* Default-568h@2x.png */; };
 		2237CA2F1647E85000B77E0E /* MAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237CA2E1647E85000B77E0E /* MAViewController.m */; };
-		2237CA321647E85000B77E0E /* MAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2237CA301647E85000B77E0E /* MAViewController.xib */; };
 		2237CA391647E8CA00B77E0E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237CA381647E8CA00B77E0E /* AVFoundation.framework */; };
 		2237CA3E1647EA6F00B77E0E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237CA3D1647EA6F00B77E0E /* CoreMedia.framework */; };
 		2237CA411647EC7F00B77E0E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237CA401647EC7F00B77E0E /* ImageIO.framework */; };
@@ -80,6 +78,7 @@
 		22F46B5D16A2B94F0078DFDE /* MAOpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22F46B5216A2B94F0078DFDE /* MAOpenCV.mm */; };
 		22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F46B5416A2B94F0078DFDE /* UIImage+fixOrientation.m */; };
 		22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F46B5616A2B94F0078DFDE /* UIImageView+ContentFrame.m */; };
+		624DA9051EAF3E52008CE2D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 624DA9041EAF3E52008CE2D5 /* AppDelegate.m */; };
 		624F552B1EAE162A00618ED7 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F54FF1EAE162A00618ED7 /* MJRefreshAutoFooter.m */; };
 		624F552C1EAE162A00618ED7 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F55011EAE162A00618ED7 /* MJRefreshBackFooter.m */; };
 		624F552D1EAE162A00618ED7 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F55031EAE162A00618ED7 /* MJRefreshComponent.m */; };
@@ -146,14 +145,11 @@
 		2237CA1F1647E85000B77E0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2237CA211647E85000B77E0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2237CA231647E85000B77E0E /* CamScanner-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CamScanner-Prefix.pch"; sourceTree = "<group>"; };
-		2237CA241647E85000B77E0E /* MAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAAppDelegate.h; sourceTree = "<group>"; };
-		2237CA251647E85000B77E0E /* MAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAAppDelegate.m; sourceTree = "<group>"; };
 		2237CA271647E85000B77E0E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		2237CA291647E85000B77E0E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2237CA2B1647E85000B77E0E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2237CA2D1647E85000B77E0E /* MAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAViewController.h; sourceTree = "<group>"; };
 		2237CA2E1647E85000B77E0E /* MAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAViewController.m; sourceTree = "<group>"; };
-		2237CA311647E85000B77E0E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MAViewController.xib; sourceTree = "<group>"; };
 		2237CA381647E8CA00B77E0E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2237CA3D1647EA6F00B77E0E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2237CA401647EC7F00B77E0E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -202,6 +198,8 @@
 		22F46B5416A2B94F0078DFDE /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+fixOrientation.m"; path = "MAImagePickerController/UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 		22F46B5516A2B94F0078DFDE /* UIImageView+ContentFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+ContentFrame.h"; path = "MAImagePickerController/UIImageView+ContentFrame.h"; sourceTree = "<group>"; };
 		22F46B5616A2B94F0078DFDE /* UIImageView+ContentFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+ContentFrame.m"; path = "MAImagePickerController/UIImageView+ContentFrame.m"; sourceTree = "<group>"; };
+		624DA9031EAF3E52008CE2D5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		624DA9041EAF3E52008CE2D5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		624F54FE1EAE162A00618ED7 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		624F54FF1EAE162A00618ED7 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		624F55001EAE162A00618ED7 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -329,14 +327,13 @@
 		2237CA1B1647E85000B77E0E /* CamScanner */ = {
 			isa = PBXGroup;
 			children = (
+				624DA9031EAF3E52008CE2D5 /* AppDelegate.h */,
+				624DA9041EAF3E52008CE2D5 /* AppDelegate.m */,
 				624F54FC1EAE162A00618ED7 /* MJRefresh */,
 				62825A001EA99F6F004BCCB8 /* System */,
 				628259E61EA8CD1D004BCCB8 /* FileManager */,
-				2237CA241647E85000B77E0E /* MAAppDelegate.h */,
-				2237CA251647E85000B77E0E /* MAAppDelegate.m */,
 				2237CA2D1647E85000B77E0E /* MAViewController.h */,
 				2237CA2E1647E85000B77E0E /* MAViewController.m */,
-				2237CA301647E85000B77E0E /* MAViewController.xib */,
 				2237CA3F1647EC5B00B77E0E /* MAImagePicker */,
 				2237CA1C1647E85000B77E0E /* Supporting Files */,
 			);
@@ -652,7 +649,6 @@
 				2237CA2A1647E85000B77E0E /* Default@2x.png in Resources */,
 				2237CA2C1647E85000B77E0E /* Default-568h@2x.png in Resources */,
 				628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */,
-				2237CA321647E85000B77E0E /* MAViewController.xib in Resources */,
 				2237CA551648115E00B77E0E /* camera-bottom-bar.png in Resources */,
 				2237CA561648115E00B77E0E /* camera-button.png in Resources */,
 				2237CA571648115E00B77E0E /* camera-button-pressed.png in Resources */,
@@ -715,7 +711,7 @@
 				624F553C1EAE162A00618ED7 /* UIScrollView+MJExtension.m in Sources */,
 				624F552B1EAE162A00618ED7 /* MJRefreshAutoFooter.m in Sources */,
 				2237CA221647E85000B77E0E /* main.m in Sources */,
-				2237CA261647E85000B77E0E /* MAAppDelegate.m in Sources */,
+				624DA9051EAF3E52008CE2D5 /* AppDelegate.m in Sources */,
 				2237CA2F1647E85000B77E0E /* MAViewController.m in Sources */,
 				22F46B5716A2B94F0078DFDE /* MACaptureSession.m in Sources */,
 				62E107581EA9A3E600851EE5 /* FileManageDataAPI.m in Sources */,
@@ -762,14 +758,6 @@
 				2237CA1F1647E85000B77E0E /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2237CA301647E85000B77E0E /* MAViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2237CA311647E85000B77E0E /* en */,
-			);
-			name = MAViewController.xib;
 			sourceTree = "<group>";
 		};
 		62E107651EADFC9100851EE5 /* LaunchScreen.storyboard */ = {

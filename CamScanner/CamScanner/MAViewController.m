@@ -8,10 +8,10 @@
 
 #import "MAViewController.h"
 #import "CSFileCollectionViewCell.h"
-#import "MAAppDelegate.h"
 #import "MJRefresh.h"
 #import "FileModel+CoreDataClass.h"
 #import "FileModel+CoreDataProperties.h"
+#import "AppDelegate.h"
 
 @interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
@@ -73,7 +73,7 @@
 }
 
 - (void)initData{
-    MAAppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     _fileArray = myDelegate.fileArray;
     
 }
