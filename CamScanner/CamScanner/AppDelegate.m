@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "FileManager/FileManageDataAPI.h"
 #import "FileModel+CoreDataProperties.h"
+#import "CSFile.h"
 
 @interface AppDelegate ()
 
@@ -22,8 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.fileArray = [NSMutableArray array];
     
-    dispatch_queue_t queue=dispatch_get_main_queue();
-    dispatch_async(queue, ^{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 处理耗时操作的代码块...
         __weak typeof(self) weakSelf = self;
         [[FileManageDataAPI sharedInstance] readAllFileModel:^(NSArray *finishArray) {
             NSLog(@"%d",[finishArray count]);
@@ -33,13 +34,18 @@
                 [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
                 
                 NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime]);
+                CSFile *csfile = [[CSFile alloc] initWithFile:file];
+                [weakSelf.fileArray addObject:csfile];
             }
-            [weakSelf.fileArray addObjectsFromArray:finishArray];
-            self.viewController.fileArray = weakSelf.fileArray;
-            [self.viewController refreshData];
+           // [weakSelf.fileArray addObjectsFromArray:finishArray];
+            //通知主线程刷新
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+            });
         } fail:^(NSError *error) {
             NSLog(@"fail to read");
         }];
+
     });
     return YES;
 }

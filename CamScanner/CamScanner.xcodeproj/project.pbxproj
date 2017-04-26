@@ -79,6 +79,9 @@
 		22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F46B5416A2B94F0078DFDE /* UIImage+fixOrientation.m */; };
 		22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F46B5616A2B94F0078DFDE /* UIImageView+ContentFrame.m */; };
 		624DA9051EAF3E52008CE2D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 624DA9041EAF3E52008CE2D5 /* AppDelegate.m */; };
+		624DA9091EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 624DA9071EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.m */; };
+		624DA90A1EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 624DA9081EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib */; };
+		624DA90D1EB0365E008CE2D5 /* CSFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 624DA90C1EB0365E008CE2D5 /* CSFile.m */; };
 		624F552B1EAE162A00618ED7 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F54FF1EAE162A00618ED7 /* MJRefreshAutoFooter.m */; };
 		624F552C1EAE162A00618ED7 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F55011EAE162A00618ED7 /* MJRefreshBackFooter.m */; };
 		624F552D1EAE162A00618ED7 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F55031EAE162A00618ED7 /* MJRefreshComponent.m */; };
@@ -200,6 +203,11 @@
 		22F46B5616A2B94F0078DFDE /* UIImageView+ContentFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+ContentFrame.m"; path = "MAImagePickerController/UIImageView+ContentFrame.m"; sourceTree = "<group>"; };
 		624DA9031EAF3E52008CE2D5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		624DA9041EAF3E52008CE2D5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		624DA9061EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileTableViewCellCollectionViewCell.h; path = FileManager/CSFileTableViewCellCollectionViewCell.h; sourceTree = "<group>"; };
+		624DA9071EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFileTableViewCellCollectionViewCell.m; path = FileManager/CSFileTableViewCellCollectionViewCell.m; sourceTree = "<group>"; };
+		624DA9081EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CSFileTableViewCellCollectionViewCell.xib; path = FileManager/CSFileTableViewCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		624DA90B1EB0365E008CE2D5 /* CSFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFile.h; path = FileManager/CSFile.h; sourceTree = "<group>"; };
+		624DA90C1EB0365E008CE2D5 /* CSFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFile.m; path = FileManager/CSFile.m; sourceTree = "<group>"; };
 		624F54FE1EAE162A00618ED7 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		624F54FF1EAE162A00618ED7 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		624F55001EAE162A00618ED7 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -332,8 +340,6 @@
 				624F54FC1EAE162A00618ED7 /* MJRefresh */,
 				62825A001EA99F6F004BCCB8 /* System */,
 				628259E61EA8CD1D004BCCB8 /* FileManager */,
-				2237CA2D1647E85000B77E0E /* MAViewController.h */,
-				2237CA2E1647E85000B77E0E /* MAViewController.m */,
 				2237CA3F1647EC5B00B77E0E /* MAImagePicker */,
 				2237CA1C1647E85000B77E0E /* Supporting Files */,
 			);
@@ -542,9 +548,14 @@
 		628259F11EA8CD52004BCCB8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				624DA90B1EB0365E008CE2D5 /* CSFile.h */,
+				624DA90C1EB0365E008CE2D5 /* CSFile.m */,
 				628259E71EA8CD4E004BCCB8 /* CSFileCollectionViewCell.h */,
 				628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */,
 				628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */,
+				624DA9061EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.h */,
+				624DA9071EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.m */,
+				624DA9081EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -552,6 +563,8 @@
 		628259F21EA8CD5A004BCCB8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2237CA2D1647E85000B77E0E /* MAViewController.h */,
+				2237CA2E1647E85000B77E0E /* MAViewController.m */,
 				628259EA1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.h */,
 				628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */,
 			);
@@ -694,6 +707,7 @@
 				22078040164ED26A0081E1E8 /* f-setting-indicator-active.png in Resources */,
 				22078041164ED26A0081E1E8 /* f-setting-indicator-active@2x.png in Resources */,
 				22078044164ED59C0081E1E8 /* f-setting-tray.png in Resources */,
+				624DA90A1EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib in Resources */,
 				22078045164ED59C0081E1E8 /* f-setting-tray@2x.png in Resources */,
 				220780C61650730E0081E1E8 /* f-setting-rotate@2x.png in Resources */,
 				220780C71650730F0081E1E8 /* f-setting-rotate.png in Resources */,
@@ -717,10 +731,12 @@
 				62E107581EA9A3E600851EE5 /* FileManageDataAPI.m in Sources */,
 				22F46B5816A2B94F0078DFDE /* MAConstants.m in Sources */,
 				624F552D1EAE162A00618ED7 /* MJRefreshComponent.m in Sources */,
+				624DA9091EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.m in Sources */,
 				624F553D1EAE162A00618ED7 /* UIScrollView+MJRefresh.m in Sources */,
 				22F46B5916A2B94F0078DFDE /* MADrawRect.m in Sources */,
 				624F55331EAE162A00618ED7 /* MJRefreshBackGifFooter.m in Sources */,
 				628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */,
+				624DA90D1EB0365E008CE2D5 /* CSFile.m in Sources */,
 				62E107571EA9A3E600851EE5 /* DataBase.m in Sources */,
 				22F46B5A16A2B94F0078DFDE /* MAImagePickerController.m in Sources */,
 				22F46B5B16A2B94F0078DFDE /* MAImagePickerControllerAdjustViewController.mm in Sources */,

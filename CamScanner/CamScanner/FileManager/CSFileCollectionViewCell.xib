@@ -41,7 +41,7 @@
                             <constraint firstAttribute="width" constant="111" id="0f8-ZH-8Xv"/>
                             <constraint firstAttribute="height" constant="12" id="1Rw-re-7kL"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -55,17 +55,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeX-9b-dY0">
+                        <rect key="frame" x="0.0" y="0.0" width="111" height="150"/>
+                        <state key="normal" title="Select"/>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="muK-Iv-ATA" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="3O6-e7-XCD"/>
                 <constraint firstItem="RX9-Se-VuG" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="9aw-n9-EMd"/>
+                <constraint firstItem="PeX-9b-dY0" firstAttribute="top" secondItem="Lqj-hp-Fdw" secondAttribute="top" id="RMB-f7-6N5"/>
                 <constraint firstItem="muK-Iv-ATA" firstAttribute="top" secondItem="RX9-Se-VuG" secondAttribute="bottom" id="T5i-Tk-0oi"/>
                 <constraint firstItem="aUW-m0-UJa" firstAttribute="top" secondItem="gVq-LT-zoI" secondAttribute="bottom" id="VFR-4m-z4i"/>
                 <constraint firstItem="RX9-Se-VuG" firstAttribute="top" secondItem="Lqj-hp-Fdw" secondAttribute="top" id="WKN-JU-5d3"/>
                 <constraint firstItem="gVq-LT-zoI" firstAttribute="top" secondItem="muK-Iv-ATA" secondAttribute="bottom" constant="-1" id="fph-UW-jus"/>
                 <constraint firstItem="gVq-LT-zoI" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="ibd-k6-dSd"/>
                 <constraint firstItem="aUW-m0-UJa" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="jME-m9-iUJ"/>
+                <constraint firstAttribute="bottom" secondItem="PeX-9b-dY0" secondAttribute="bottom" id="m4t-Cf-CVq"/>
+                <constraint firstItem="PeX-9b-dY0" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="mw2-iN-Yuy"/>
+                <constraint firstAttribute="trailing" secondItem="PeX-9b-dY0" secondAttribute="trailing" id="ooi-GL-xvk"/>
             </constraints>
             <size key="customSize" width="149" height="180"/>
             <connections>
@@ -73,6 +81,7 @@
                 <outlet property="fileImage" destination="RX9-Se-VuG" id="Pw2-Ys-3uz"/>
                 <outlet property="fileLabel" destination="aUW-m0-UJa" id="pgh-v5-wRp"/>
                 <outlet property="fileName" destination="muK-Iv-ATA" id="Ytc-Ku-t2N"/>
+                <outlet property="selectButton" destination="PeX-9b-dY0" id="oez-ny-wGA"/>
             </connections>
             <point key="canvasLocation" x="-9.5" y="86"/>
         </collectionViewCell>

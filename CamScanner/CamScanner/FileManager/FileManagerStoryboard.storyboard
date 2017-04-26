@@ -74,7 +74,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="uHI-bl-H6S"/>
                     <connections>
+                        <outlet property="btn_changeLayout" destination="W0e-WQ-5FJ" id="qSu-GR-9yh"/>
+                        <outlet property="btn_select" destination="P5n-h8-mVH" id="KYx-X8-BlT"/>
                         <outlet property="fileCollectionView" destination="5pB-Pd-w3m" id="gmw-lD-GDf"/>
+                        <outlet property="toolbar" destination="dRS-E6-PCO" id="jHf-OG-5aj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlb-rw-KUK" userLabel="First Responder" sceneMemberID="firstResponder"/>

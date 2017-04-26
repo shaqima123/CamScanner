@@ -8,13 +8,23 @@
 
 #import "MAViewController.h"
 #import "CSFileCollectionViewCell.h"
+#import "CSFileTableViewCellCollectionViewCell.h"
+
 #import "MJRefresh.h"
-#import "FileModel+CoreDataClass.h"
-#import "FileModel+CoreDataProperties.h"
+//#import "FileModel+CoreDataClass.h"
+//#import "FileModel+CoreDataProperties.h"
 #import "AppDelegate.h"
+#import "CSFile.h"
 
 @interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_changeLayout;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_select;
+
+
+@property (assign, nonatomic) BOOL isCollectionLayout;
+@property (strong, nonatomic) AppDelegate *mydelegate;
 @end
 
 @implementation MAViewController
@@ -27,17 +37,17 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self refreshData];
+}
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    [self refreshData];
+//}
 - (void)initView{
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    float itemWidth = 111.0;
-    float itemHeight = 150.0;
-    
-    layout.minimumInteritemSpacing = 5.f;// 垂直方向的间距
-    layout.minimumLineSpacing = (self.fileCollectionView.frame.size.width - itemWidth * 3)/2; // 水平方向的间距
-   
-    layout.itemSize = CGSizeMake(itemWidth,itemHeight);
-    [_fileCollectionView setCollectionViewLayout:layout];
+    [self refreshLayout];
     _fileCollectionView.backgroundColor = [UIColor whiteColor];
     _fileCollectionView.alwaysBounceVertical=YES;
     _fileCollectionView.dataSource = self;
@@ -65,6 +75,9 @@
     NSLog(@"width: %f,height:%f",self.fileCollectionView.frame.size.width,self.fileCollectionView.frame.size.height);
     
     [_fileCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CSFileCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:@"FILECELL"];
+    [_fileCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CSFileTableViewCellCollectionViewCell class]) bundle:nil]forCellWithReuseIdentifier:@"TFILECELL"];
+    
+    [_btn_changeLayout setAction:@selector(refreshLayout)];
     
     //    [self.collectionView registerNib:[UINib nibWithNibName:@"WWCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     //
@@ -72,16 +85,52 @@
     //    [self.collectionView registerNib:[UINib nibWithNibName:@"WWCollectionFooterReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
 }
 
+
+
 - (void)initData{
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    _fileArray = myDelegate.fileArray;
-    
+    _mydelegate = [[UIApplication sharedApplication] delegate];
+    _fileArray = _mydelegate.fileArray;
 }
 
 
 - (void)refreshData{
+    _fileArray = _mydelegate.fileArray;
     NSLog(@"XxXXXXXXX%d",[_fileArray count]);
     [_fileCollectionView reloadData];
+}
+
+- (void)refreshLayout{
+    UICollectionViewFlowLayout *layout = [self setCollectionLayout];
+    [_fileCollectionView setCollectionViewLayout:layout];
+    [_fileCollectionView reloadData];
+}
+- (UICollectionViewFlowLayout *)setCollectionLayout{
+    if (_isCollectionLayout) {
+        _isCollectionLayout = NO;
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+        float itemWidth = 375.0;
+        float itemHeight = 80.0;
+        
+        layout.minimumInteritemSpacing = 0.f;// 垂直方向的间距
+        layout.minimumLineSpacing = 1; // 水平方向的间距
+        
+        layout.itemSize = CGSizeMake(itemWidth,itemHeight);
+        return layout;
+    }
+    else{
+        _isCollectionLayout = YES;
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+        float itemWidth = 111.0;
+        float itemHeight = 150.0;
+        
+        layout.minimumInteritemSpacing = 5.f;// 垂直方向的间距
+        layout.minimumLineSpacing = (self.fileCollectionView.frame.size.width - itemWidth * 3)/2; // 水平方向的间距
+        
+        layout.itemSize = CGSizeMake(itemWidth,itemHeight);
+        return layout;
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -90,27 +139,54 @@
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CSFileCollectionViewCell *cell = (CSFileCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"FILECELL" forIndexPath:indexPath];
-    if (cell) {
-        FileModel *fileModel = [_fileArray objectAtIndex:[indexPath row]];
-//        for(FileModel *file in finishArray)
-//        {
-//            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//            [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
-//            
-//            NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime]);
-//        }
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
-        UIImage *img = [UIImage imageWithData:fileModel.fileAdjustImage];
-        
-        cell.fileName.text = fileModel.fileName;
-        cell.fileLabel.text = fileModel.fileLabel;
-        cell.fileCreateTime.text = [formatter stringFromDate:fileModel.fileCreatedTime];
-        cell.fileImage.image = img;
-        cell.backgroundColor = [UIColor yellowColor];
+    if (_isCollectionLayout) {
+         CSFileCollectionViewCell *cell = (CSFileCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"FILECELL" forIndexPath:indexPath];
+        if (cell) {
+            //FileModel *fileModel = [_fileArray objectAtIndex:[indexPath row]];
+            CSFile* fileModel = [_fileArray objectAtIndex:[indexPath row]];
+            //        for(FileModel *file in finishArray)
+            //        {
+            //            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            //            [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
+            //
+            //            NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime]);
+            //        }
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+            UIImage *img = [UIImage imageWithData:fileModel.fileAdjustImage];
+            
+            cell.fileName.text = fileModel.fileName;
+            cell.fileLabel.text = fileModel.fileLabel;
+            cell.fileCreateTime.text = [formatter stringFromDate:fileModel.fileCreatedTime];
+            cell.fileImage.image = img;
+            cell.backgroundColor = [UIColor yellowColor];
+        }
+        return cell;
     }
-    return cell;
+    else{
+        CSFileTableViewCellCollectionViewCell *cell = (CSFileTableViewCellCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"TFILECELL" forIndexPath:indexPath];
+        if (cell) {
+          //  FileModel *fileModel = [_fileArray objectAtIndex:[indexPath row]];
+            CSFile* fileModel = [_fileArray objectAtIndex:[indexPath row]];
+            //        for(FileModel *file in finishArray)
+            //        {
+            //            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            //            [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
+            //
+            //            NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime]);
+            //        }
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+            UIImage *img = [UIImage imageWithData:fileModel.fileAdjustImage];
+            
+            cell.fileName.text = fileModel.fileName;
+            cell.fileLabel.text = fileModel.fileLabel;
+            cell.fileCreateTime.text = [formatter stringFromDate:fileModel.fileCreatedTime];
+            cell.fileImage.image = img;
+            cell.backgroundColor = [UIColor yellowColor];
+        }
+        return cell;
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -145,7 +221,7 @@
 
 - (void)imagePickerDidChooseImageWithPath:(NSString *)path
 {
-   // [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:path])
     {

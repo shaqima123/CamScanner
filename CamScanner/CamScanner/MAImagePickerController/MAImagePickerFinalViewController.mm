@@ -15,8 +15,12 @@
 #import "FileManageDataAPI.h"
 #import <CoreData/CoreData.h>
 #import "CSPDFMangager.h"
+#import "AppDelegate.h"
+#import "CSFile.h"
 
 @interface MAImagePickerFinalViewController ()
+
+@property (strong, nonatomic) AppDelegate *mydelegate;
 
 @end
 
@@ -46,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    _mydelegate = [[UIApplication sharedApplication] delegate];
     [self setupToolbar];
     [self setupEditor];
     
@@ -124,9 +128,9 @@
     [self storeImageToCache];
     [self saveToDataBase];
     [self getInfoFromDataBase];
-    UIStoryboard *fileStoryboard = [UIStoryboard storyboardWithName:@"FileManagerStoryboard" bundle:nil];
-    CSFileManagerCollectionViewController * fileVC = [fileStoryboard instantiateViewControllerWithIdentifier:@"CSFileManagerCollectionViewController"];
-    [self.navigationController pushViewController:fileVC animated:YES];
+//    UIStoryboard *fileStoryboard = [UIStoryboard storyboardWithName:@"FileManagerStoryboard" bundle:nil];
+//    CSFileManagerCollectionViewController * fileVC = [fileStoryboard instantiateViewControllerWithIdentifier:@"CSFileManagerCollectionViewController"];
+//    [self.navigationController pushViewController:fileVC animated:YES];
 }
 
 - (void)saveToDataBase{
@@ -151,16 +155,29 @@
     NSDate * fileCreatedTime = datenow;
     NSData * fileOriginImage = originImageData;
     NSDictionary *dict = NSDictionaryOfVariableBindings(fileName,fileSize,fileType,fileLabel,fileType,fileContent,fileUrlPath,fileAdjustImage,fileCreatedTime,fileOriginImage);
-   
-    dispatch_queue_t queue=dispatch_get_main_queue();
-    dispatch_async(queue, ^{
-
+    
+    CSFile *newModel = [[CSFile alloc] init];
+    newModel.fileName = fileName;
+    newModel.fileSize = fileSize;
+    newModel.fileType = fileType;
+    newModel.fileLabel = fileLabel;
+    newModel.fileContent = fileContent;
+    newModel.fileUrlPath = fileUrlPath;
+    newModel.fileAdjustImage = fileAdjustImage;
+    newModel.fileCreatedTime = fileCreatedTime;
+    newModel.fileOriginImage = fileOriginImage;
+    
+    [_mydelegate.fileArray addObject:newModel];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
         [CSPDFMangager createPDFFileWithSrc:adjustImageData toDestFile:[NSString stringWithFormat:@"%@.pdf",fileName] withPassword:nil];
         
         [[FileManageDataAPI sharedInstance] insertFileModel:dict success:^{
             NSLog(@"insert successfully~\n\n\n");
         } fail:^(NSError *error) {
             NSLog(@"fail to insert!!\n\n\n");
+            [_mydelegate.fileArray removeLastObject];
         }];
     });
 }
@@ -168,7 +185,6 @@
 - (void)getInfoFromDataBase{
     [[FileManageDataAPI sharedInstance] readAllFileModel:^(NSArray *finishArray) {
         NSLog(@"%d",[finishArray count]);
-        NSLog(@"%@",[finishArray objectAtIndex:0]);
     } fail:^(NSError *error) {
         NSLog(@"fail to read");
     }];

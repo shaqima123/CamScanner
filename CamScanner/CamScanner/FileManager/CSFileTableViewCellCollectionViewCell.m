@@ -1,14 +1,14 @@
 //
-//  CSFileCollectionViewCell.m
+//  CSFileTableViewCellCollectionViewCell.m
 //  CamScanner
 //
-//  Created by 沙琪玛 on 2017/4/17.
+//  Created by 沙琪玛 on 2017/4/25.
 //  Copyright © 2017年 mackh ag. All rights reserved.
 //
 
-#import "CSFileCollectionViewCell.h"
+#import "CSFileTableViewCellCollectionViewCell.h"
 
-@implementation CSFileCollectionViewCell
+@implementation CSFileTableViewCellCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
