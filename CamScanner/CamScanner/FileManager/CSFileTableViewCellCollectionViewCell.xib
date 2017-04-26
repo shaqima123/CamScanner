@@ -45,10 +45,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMU-s7-G8R">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                        <state key="normal" title="Button"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA6-iT-v1I">
                         <rect key="frame" x="73" y="35" width="302" height="25"/>
                         <constraints>
@@ -59,13 +55,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMU-s7-G8R">
+                        <rect key="frame" x="340" y="0.0" width="35" height="35"/>
+                        <state key="normal" title="Button" image="cs_checkbox_no.png"/>
+                        <state key="selected" image="cs_checkbox_yes.png"/>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="X9l-4n-yrk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1T5-LH-Yv3"/>
                 <constraint firstItem="ahR-qr-6mU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="40K-3M-q6f"/>
                 <constraint firstItem="PMU-s7-G8R" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="79y-c7-akq"/>
-                <constraint firstAttribute="bottom" secondItem="PMU-s7-G8R" secondAttribute="bottom" id="8I6-i0-yw2"/>
+                <constraint firstAttribute="bottom" secondItem="PMU-s7-G8R" secondAttribute="bottom" constant="45" id="8I6-i0-yw2"/>
                 <constraint firstAttribute="bottom" secondItem="ahR-qr-6mU" secondAttribute="bottom" id="Blw-eh-NiH"/>
                 <constraint firstItem="pA6-iT-v1I" firstAttribute="top" secondItem="X9l-4n-yrk" secondAttribute="bottom" id="JOF-Tr-xA9"/>
                 <constraint firstAttribute="trailing" secondItem="PMU-s7-G8R" secondAttribute="trailing" id="OSv-JH-vmM"/>
@@ -73,7 +74,7 @@
                 <constraint firstItem="5Ww-GP-IjZ" firstAttribute="leading" secondItem="ahR-qr-6mU" secondAttribute="trailing" id="V3d-FK-Ljn"/>
                 <constraint firstItem="5Ww-GP-IjZ" firstAttribute="top" secondItem="pA6-iT-v1I" secondAttribute="bottom" id="gOS-hO-bSb"/>
                 <constraint firstItem="ahR-qr-6mU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kl8-xG-1qY"/>
-                <constraint firstItem="PMU-s7-G8R" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pBq-mi-KAt"/>
+                <constraint firstItem="PMU-s7-G8R" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="340" id="pBq-mi-KAt"/>
                 <constraint firstAttribute="trailing" secondItem="X9l-4n-yrk" secondAttribute="trailing" id="rsm-PP-jr5"/>
                 <constraint firstItem="pA6-iT-v1I" firstAttribute="leading" secondItem="ahR-qr-6mU" secondAttribute="trailing" constant="-2" id="vUv-nM-ulH"/>
             </constraints>
@@ -88,4 +89,8 @@
             <point key="canvasLocation" x="53.5" y="69"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="cs_checkbox_no.png" width="43" height="43"/>
+        <image name="cs_checkbox_yes.png" width="44" height="44"/>
+    </resources>
 </document>

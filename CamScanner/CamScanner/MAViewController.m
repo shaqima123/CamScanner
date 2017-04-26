@@ -21,14 +21,22 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_changeLayout;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_select;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+
 
 
 @property (assign, nonatomic) BOOL isCollectionLayout;
+@property (assign, nonatomic) BOOL isSelecting;
+
 @property (strong, nonatomic) AppDelegate *mydelegate;
+
+@property (nonatomic, strong) NSMutableIndexSet* selectedIndexSet;
+
 @end
 
 @implementation MAViewController
 
+#pragma mark controller func
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,14 +49,13 @@
     [super viewWillAppear:animated];
     [self refreshData];
 }
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    [self refreshData];
-//}
+
+
+#pragma mark init func
+
 - (void)initView{
     [self refreshLayout];
-    _fileCollectionView.backgroundColor = [UIColor whiteColor];
+    _fileCollectionView.backgroundColor = [UIColor lightGrayColor];
     _fileCollectionView.alwaysBounceVertical=YES;
     _fileCollectionView.dataSource = self;
     _fileCollectionView.delegate = self;
@@ -78,6 +85,11 @@
     [_fileCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CSFileTableViewCellCollectionViewCell class]) bundle:nil]forCellWithReuseIdentifier:@"TFILECELL"];
     
     [_btn_changeLayout setAction:@selector(refreshLayout)];
+    [_btn_select setAction:@selector(selectFile)];
+    
+    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
+    
     
     //    [self.collectionView registerNib:[UINib nibWithNibName:@"WWCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     //
@@ -90,10 +102,15 @@
 - (void)initData{
     _mydelegate = [[UIApplication sharedApplication] delegate];
     _fileArray = _mydelegate.fileArray;
+    _selectedIndexSet = [[NSMutableIndexSet alloc] init];
 }
 
 
+#pragma refresh funcs
 - (void)refreshData{
+    if (_isSelecting) {
+        return;
+    }
     _fileArray = _mydelegate.fileArray;
     NSLog(@"XxXXXXXXX%d",[_fileArray count]);
     [_fileCollectionView reloadData];
@@ -104,6 +121,8 @@
     [_fileCollectionView setCollectionViewLayout:layout];
     [_fileCollectionView reloadData];
 }
+
+
 - (UICollectionViewFlowLayout *)setCollectionLayout{
     if (_isCollectionLayout) {
         _isCollectionLayout = NO;
@@ -130,6 +149,131 @@
         
         layout.itemSize = CGSizeMake(itemWidth,itemHeight);
         return layout;
+    }
+}
+
+#pragma mark select funcs
+
+- (void)selectFile{
+    _isSelecting = YES;
+    _fileCollectionView.allowsMultipleSelection = YES;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"全选" style:UIBarButtonItemStylePlain target:self action:@selector(selectAll)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(selectCancel)];
+    [_toolbar setHidden:YES];
+    [_bottomView setHidden:YES];
+    [_fileCollectionView reloadData];
+}
+
+- (void)selectAll{
+    [self.navigationItem.leftBarButtonItem setTitle:@"取消全选"];
+    [self.navigationItem.leftBarButtonItem setAction:@selector(removeAll)];
+    
+    for (NSUInteger i = 0; i < [_fileArray count]; i ++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        [_selectedIndexSet addIndex:i];
+        [self collectionView:_fileCollectionView didSelectItemAtIndexPath:indexPath];
+    }
+}
+
+- (void)removeAll{
+    [self.navigationItem.leftBarButtonItem setTitle:@"全选"];
+    [self.navigationItem.leftBarButtonItem setAction:@selector(selectAll)];
+    
+    for (NSUInteger i = 0; i < [_fileArray count]; i ++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        [_selectedIndexSet removeIndex:i];
+        [self collectionView:_fileCollectionView didDeselectItemAtIndexPath:indexPath];
+    }
+}
+- (void)selectCancel{
+    _isSelecting = NO;
+    _fileCollectionView.allowsMultipleSelection = NO;
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    for (NSUInteger i = 0; i < [_fileArray count]; i ++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        [_selectedIndexSet removeIndex:i];
+        [self collectionView:_fileCollectionView didDeselectItemAtIndexPath:indexPath];
+    }
+    [_toolbar setHidden:NO];
+    [_bottomView setHidden:NO];
+    [_fileCollectionView reloadData];
+}
+#pragma mark collection delegate
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+/**
+ * Cell选中调用该方法
+ */
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (_isCollectionLayout) {
+        CSFileCollectionViewCell * cell = (CSFileCollectionViewCell *)[self.fileCollectionView cellForItemAtIndexPath:indexPath];
+        cell.selected = YES;
+        [self changeSelectStateWithCell:cell];
+    }
+    else{
+        CSFileTableViewCellCollectionViewCell * cell = (CSFileTableViewCellCollectionViewCell *)[self.fileCollectionView cellForItemAtIndexPath:indexPath];
+        cell.selected = YES;
+        [self changeSelectStateWithTableCell:cell];
+    }
+    
+    
+    [_selectedIndexSet addIndex:indexPath.item];
+}
+
+/**
+ * Cell取消选中调用该方法
+ */
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (_isCollectionLayout) {
+        CSFileCollectionViewCell * cell = (CSFileCollectionViewCell *)[self.fileCollectionView cellForItemAtIndexPath:indexPath];
+        cell.selected = NO;
+        [self changeSelectStateWithCell:cell];
+    }
+    else{
+        CSFileTableViewCellCollectionViewCell * cell = (CSFileTableViewCellCollectionViewCell *)[self.fileCollectionView cellForItemAtIndexPath:indexPath];
+        cell.selected = NO;
+        [self changeSelectStateWithTableCell:cell];
+    }
+    [_selectedIndexSet removeIndex:indexPath.item];
+}
+
+/**
+ * Cell根据Cell选中状态来改变Cell上Button按钮的状态
+ */
+- (void) changeSelectStateWithCell: (CSFileCollectionViewCell *) currentSelectCell{
+    
+    currentSelectCell.selectButton.selected = currentSelectCell.selected;
+    
+    if (currentSelectCell.selected == YES){
+        //NSLog(@"第%ld个Section上第%ld个Cell被选中了",indexPath.section ,indexPath.row);
+        
+    }
+    
+    if (currentSelectCell.selected == NO){
+        //NSLog(@"第%ld个Section上第%ld个Cell取消选中",indexPath.section ,indexPath.row);
+    }
+}
+
+- (void) changeSelectStateWithTableCell:(CSFileTableViewCellCollectionViewCell *)currentSelectCell{
+    currentSelectCell.selectButton.selected = currentSelectCell.selected;
+    
+    if (currentSelectCell.selected == YES){
+        //NSLog(@"第%ld个Section上第%ld个Cell被选中了",indexPath.section ,indexPath.row);
+        
+    }
+    
+    if (currentSelectCell.selected == NO){
+        //NSLog(@"第%ld个Section上第%ld个Cell取消选中",indexPath.section ,indexPath.row);
     }
 }
 
@@ -160,6 +304,9 @@
             cell.fileCreateTime.text = [formatter stringFromDate:fileModel.fileCreatedTime];
             cell.fileImage.image = img;
             cell.backgroundColor = [UIColor yellowColor];
+            if (_isSelecting) {
+                [cell.selectButton setHidden:NO];
+            }
         }
         return cell;
     }
@@ -184,14 +331,15 @@
             cell.fileCreateTime.text = [formatter stringFromDate:fileModel.fileCreatedTime];
             cell.fileImage.image = img;
             cell.backgroundColor = [UIColor yellowColor];
+            if (_isSelecting) {
+                [cell.selectButton setHidden:NO];
+            }
         }
         return cell;
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -202,6 +350,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark jump to camera
 - (IBAction)initButton:(id)sender
 {
     MAImagePickerController *imagePicker = [[MAImagePickerController alloc] init];

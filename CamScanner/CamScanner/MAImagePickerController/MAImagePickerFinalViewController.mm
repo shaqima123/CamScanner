@@ -141,7 +141,7 @@
     NSDate *datenow = [NSDate date];
     NSString *currentTimeString = [formatter stringFromDate:datenow];
     
-    NSString * fileName = [NSString stringWithFormat:@"新文档%@",currentTimeString];
+    NSString * fileName = [NSString stringWithFormat:@"File%@",currentTimeString];
     
     NSData *adjustImageData = UIImageJPEGRepresentation(_adjustedImage, 1.0);
     NSData *originImageData = UIImagePNGRepresentation(_sourceImage);

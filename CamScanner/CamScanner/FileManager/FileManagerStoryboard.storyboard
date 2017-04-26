@@ -22,23 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ory-wF-4RM">
-                                <rect key="frame" x="138" y="595" width="96" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="96" id="hcF-9r-pgh"/>
-                                    <constraint firstAttribute="height" constant="60" id="p6o-dx-3cU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="INIT">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="initButton:" destination="3Sn-WW-7O6" eventType="touchUpInside" id="e4c-ob-06n"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5pB-Pd-w3m">
                                 <rect key="frame" x="0.0" y="108" width="375" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,22 +41,50 @@
                                     <barButtonItem title="select" id="P5n-h8-mVH"/>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDm-Sx-7fX">
+                                <rect key="frame" x="0.0" y="585" width="375" height="82"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ory-wF-4RM">
+                                        <rect key="frame" x="139" y="11" width="96" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="INIT">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="initButton:" destination="3Sn-WW-7O6" eventType="touchUpInside" id="e4c-ob-06n"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ory-wF-4RM" secondAttribute="trailing" constant="140" id="GP8-sg-pgi"/>
+                                    <constraint firstAttribute="height" constant="82" id="QK1-iR-RoY"/>
+                                    <constraint firstAttribute="bottom" secondItem="ory-wF-4RM" secondAttribute="bottom" constant="11" id="VUz-Vt-2yw"/>
+                                    <constraint firstItem="ory-wF-4RM" firstAttribute="leading" secondItem="oDm-Sx-7fX" secondAttribute="leading" constant="139" id="iiU-2C-6Sg"/>
+                                    <constraint firstItem="ory-wF-4RM" firstAttribute="top" secondItem="oDm-Sx-7fX" secondAttribute="top" constant="11" id="z7E-6Y-HNP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="oDm-Sx-7fX" firstAttribute="leading" secondItem="v0s-nJ-TTO" secondAttribute="leading" id="6hU-8I-UY0"/>
+                            <constraint firstItem="xAi-hz-Ghd" firstAttribute="top" secondItem="oDm-Sx-7fX" secondAttribute="bottom" id="HQ0-Mc-LZ8"/>
                             <constraint firstItem="5pB-Pd-w3m" firstAttribute="top" secondItem="dRS-E6-PCO" secondAttribute="bottom" id="Nhy-nn-40f"/>
-                            <constraint firstItem="ory-wF-4RM" firstAttribute="centerX" secondItem="v0s-nJ-TTO" secondAttribute="centerX" constant="-1.5" id="Xwm-qR-XSb"/>
                             <constraint firstItem="dRS-E6-PCO" firstAttribute="leading" secondItem="v0s-nJ-TTO" secondAttribute="leadingMargin" constant="-17" id="a4H-5y-6EQ"/>
                             <constraint firstAttribute="bottom" secondItem="5pB-Pd-w3m" secondAttribute="bottom" constant="80" id="iXH-4u-dAX"/>
                             <constraint firstItem="dRS-E6-PCO" firstAttribute="top" secondItem="5oU-n7-xf8" secondAttribute="bottom" id="ko3-aE-tMf"/>
-                            <constraint firstItem="ory-wF-4RM" firstAttribute="centerY" secondItem="v0s-nJ-TTO" secondAttribute="centerY" constant="291.5" id="mOf-eM-B49"/>
                             <constraint firstAttribute="trailing" secondItem="5pB-Pd-w3m" secondAttribute="trailing" id="pig-Dq-RuA"/>
                             <constraint firstItem="5pB-Pd-w3m" firstAttribute="leading" secondItem="v0s-nJ-TTO" secondAttribute="leading" id="s3R-o8-OSi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dRS-E6-PCO" secondAttribute="trailing" constant="-15" id="xTH-Bk-1ch"/>
+                            <constraint firstAttribute="trailing" secondItem="oDm-Sx-7fX" secondAttribute="trailing" id="xh8-9o-m7l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uHI-bl-H6S"/>
                     <connections>
+                        <outlet property="bottomView" destination="oDm-Sx-7fX" id="iVa-qW-wur"/>
                         <outlet property="btn_changeLayout" destination="W0e-WQ-5FJ" id="qSu-GR-9yh"/>
                         <outlet property="btn_select" destination="P5n-h8-mVH" id="KYx-X8-BlT"/>
                         <outlet property="fileCollectionView" destination="5pB-Pd-w3m" id="gmw-lD-GDf"/>
@@ -82,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlb-rw-KUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992.79999999999995" y="-96.7016491754123"/>
+            <point key="canvasLocation" x="888.79999999999995" y="-191.1544227886057"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wXj-a2-hxq">

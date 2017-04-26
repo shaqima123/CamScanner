@@ -82,6 +82,7 @@
 		624DA9091EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 624DA9071EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.m */; };
 		624DA90A1EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 624DA9081EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib */; };
 		624DA90D1EB0365E008CE2D5 /* CSFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 624DA90C1EB0365E008CE2D5 /* CSFile.m */; };
+		624DA9141EB04AF8008CE2D5 /* CSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 624DA9131EB04AF8008CE2D5 /* CSTool.m */; };
 		624F552B1EAE162A00618ED7 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F54FF1EAE162A00618ED7 /* MJRefreshAutoFooter.m */; };
 		624F552C1EAE162A00618ED7 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F55011EAE162A00618ED7 /* MJRefreshBackFooter.m */; };
 		624F552D1EAE162A00618ED7 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F55031EAE162A00618ED7 /* MJRefreshComponent.m */; };
@@ -102,6 +103,8 @@
 		624F553C1EAE162A00618ED7 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F55261EAE162A00618ED7 /* UIScrollView+MJExtension.m */; };
 		624F553D1EAE162A00618ED7 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F55281EAE162A00618ED7 /* UIScrollView+MJRefresh.m */; };
 		624F553E1EAE162A00618ED7 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F552A1EAE162A00618ED7 /* UIView+MJExtension.m */; };
+		62645D6C1EB08432007435CE /* cs_checkbox_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 62645D6A1EB08432007435CE /* cs_checkbox_no.png */; };
+		62645D6D1EB08432007435CE /* cs_checkbox_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 62645D6B1EB08432007435CE /* cs_checkbox_yes.png */; };
 		628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */; };
 		628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */; };
 		628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */; };
@@ -208,6 +211,9 @@
 		624DA9081EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CSFileTableViewCellCollectionViewCell.xib; path = FileManager/CSFileTableViewCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		624DA90B1EB0365E008CE2D5 /* CSFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFile.h; path = FileManager/CSFile.h; sourceTree = "<group>"; };
 		624DA90C1EB0365E008CE2D5 /* CSFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFile.m; path = FileManager/CSFile.m; sourceTree = "<group>"; };
+		624DA9111EB04ACC008CE2D5 /* CSMarco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSMarco.h; sourceTree = "<group>"; };
+		624DA9121EB04AF8008CE2D5 /* CSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSTool.h; sourceTree = "<group>"; };
+		624DA9131EB04AF8008CE2D5 /* CSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSTool.m; sourceTree = "<group>"; };
 		624F54FE1EAE162A00618ED7 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		624F54FF1EAE162A00618ED7 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		624F55001EAE162A00618ED7 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -248,6 +254,8 @@
 		624F55281EAE162A00618ED7 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		624F55291EAE162A00618ED7 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		624F552A1EAE162A00618ED7 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		62645D6A1EB08432007435CE /* cs_checkbox_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cs_checkbox_no.png; sourceTree = "<group>"; };
+		62645D6B1EB08432007435CE /* cs_checkbox_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cs_checkbox_yes.png; sourceTree = "<group>"; };
 		628259E71EA8CD4E004BCCB8 /* CSFileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileCollectionViewCell.h; path = FileManager/CSFileCollectionViewCell.h; sourceTree = "<group>"; };
 		628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFileCollectionViewCell.m; path = FileManager/CSFileCollectionViewCell.m; sourceTree = "<group>"; };
 		628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CSFileCollectionViewCell.xib; path = FileManager/CSFileCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -390,6 +398,8 @@
 		2237CA5D1648116500B77E0E /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				62645D6A1EB08432007435CE /* cs_checkbox_no.png */,
+				62645D6B1EB08432007435CE /* cs_checkbox_yes.png */,
 				220780C41650730E0081E1E8 /* f-setting-rotate@2x.png */,
 				220780C51650730E0081E1E8 /* f-setting-rotate.png */,
 				22078042164ED59C0081E1E8 /* f-setting-tray.png */,
@@ -590,12 +600,15 @@
 		62825A001EA99F6F004BCCB8 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				624DA9111EB04ACC008CE2D5 /* CSMarco.h */,
 				62E107531EA9A3E600851EE5 /* DataBase.h */,
 				62E107541EA9A3E600851EE5 /* DataBase.m */,
 				62E107551EA9A3E600851EE5 /* FileManageDataAPI.h */,
 				62E107561EA9A3E600851EE5 /* FileManageDataAPI.m */,
 				62E107591EAB039100851EE5 /* CSPDFMangager.h */,
 				62E1075A1EAB039100851EE5 /* CSPDFMangager.m */,
+				624DA9121EB04AF8008CE2D5 /* CSTool.h */,
+				624DA9131EB04AF8008CE2D5 /* CSTool.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -657,6 +670,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62645D6C1EB08432007435CE /* cs_checkbox_no.png in Resources */,
 				2237CA201647E85000B77E0E /* InfoPlist.strings in Resources */,
 				2237CA281647E85000B77E0E /* Default.png in Resources */,
 				2237CA2A1647E85000B77E0E /* Default@2x.png in Resources */,
@@ -698,6 +712,7 @@
 				22078038164ED26A0081E1E8 /* f-setting-3-active.png in Resources */,
 				22078039164ED26A0081E1E8 /* f-setting-3-active@2x.png in Resources */,
 				2207803A164ED26A0081E1E8 /* f-setting-3.png in Resources */,
+				62645D6D1EB08432007435CE /* cs_checkbox_yes.png in Resources */,
 				2207803B164ED26A0081E1E8 /* f-setting-3@2x.png in Resources */,
 				2207803C164ED26A0081E1E8 /* f-setting-4-active.png in Resources */,
 				624F55391EAE162A00618ED7 /* MJRefresh.bundle in Resources */,
@@ -762,6 +777,7 @@
 				22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */,
 				22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */,
 				628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */,
+				624DA9141EB04AF8008CE2D5 /* CSTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

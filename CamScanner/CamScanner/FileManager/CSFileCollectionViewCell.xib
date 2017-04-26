@@ -25,18 +25,18 @@
                             <constraint firstAttribute="width" constant="111" id="Lty-Y6-Bve"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新文档" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muK-Iv-ATA">
-                        <rect key="frame" x="0.0" y="110" width="111" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新文档" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muK-Iv-ATA">
+                        <rect key="frame" x="0.0" y="110" width="111" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="111" id="YIV-zW-KJd"/>
-                            <constraint firstAttribute="height" constant="17" id="tKr-aI-rV8"/>
+                            <constraint firstAttribute="height" constant="20" id="tKr-aI-rV8"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哈哈哈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUW-m0-UJa">
-                        <rect key="frame" x="0.0" y="138" width="111" height="12"/>
+                        <rect key="frame" x="0.0" y="139" width="111" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="111" id="0f8-ZH-8Xv"/>
                             <constraint firstAttribute="height" constant="12" id="1Rw-re-7kL"/>
@@ -46,18 +46,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-04-19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVq-LT-zoI">
-                        <rect key="frame" x="0.0" y="126" width="111" height="12"/>
+                        <rect key="frame" x="0.0" y="130" width="111" height="9"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="111" id="abA-Bm-HEz"/>
-                            <constraint firstAttribute="height" constant="12" id="ju5-ot-XGz"/>
+                            <constraint firstAttribute="height" constant="9" id="ju5-ot-XGz"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeX-9b-dY0">
-                        <rect key="frame" x="0.0" y="0.0" width="111" height="150"/>
-                        <state key="normal" title="Select"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeX-9b-dY0">
+                        <rect key="frame" x="81" y="0.0" width="30" height="30"/>
+                        <state key="normal" title="Select" image="cs_checkbox_no.png"/>
+                        <state key="selected" image="cs_checkbox_yes.png"/>
                     </button>
                 </subviews>
             </view>
@@ -68,11 +69,11 @@
                 <constraint firstItem="muK-Iv-ATA" firstAttribute="top" secondItem="RX9-Se-VuG" secondAttribute="bottom" id="T5i-Tk-0oi"/>
                 <constraint firstItem="aUW-m0-UJa" firstAttribute="top" secondItem="gVq-LT-zoI" secondAttribute="bottom" id="VFR-4m-z4i"/>
                 <constraint firstItem="RX9-Se-VuG" firstAttribute="top" secondItem="Lqj-hp-Fdw" secondAttribute="top" id="WKN-JU-5d3"/>
-                <constraint firstItem="gVq-LT-zoI" firstAttribute="top" secondItem="muK-Iv-ATA" secondAttribute="bottom" constant="-1" id="fph-UW-jus"/>
+                <constraint firstItem="gVq-LT-zoI" firstAttribute="top" secondItem="muK-Iv-ATA" secondAttribute="bottom" id="fph-UW-jus"/>
                 <constraint firstItem="gVq-LT-zoI" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="ibd-k6-dSd"/>
                 <constraint firstItem="aUW-m0-UJa" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="jME-m9-iUJ"/>
-                <constraint firstAttribute="bottom" secondItem="PeX-9b-dY0" secondAttribute="bottom" id="m4t-Cf-CVq"/>
-                <constraint firstItem="PeX-9b-dY0" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="mw2-iN-Yuy"/>
+                <constraint firstAttribute="bottom" secondItem="PeX-9b-dY0" secondAttribute="bottom" constant="120" id="m4t-Cf-CVq"/>
+                <constraint firstItem="PeX-9b-dY0" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" constant="81" id="mw2-iN-Yuy"/>
                 <constraint firstAttribute="trailing" secondItem="PeX-9b-dY0" secondAttribute="trailing" id="ooi-GL-xvk"/>
             </constraints>
             <size key="customSize" width="149" height="180"/>
@@ -86,4 +87,8 @@
             <point key="canvasLocation" x="-9.5" y="86"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="cs_checkbox_no.png" width="43" height="43"/>
+        <image name="cs_checkbox_yes.png" width="44" height="44"/>
+    </resources>
 </document>
