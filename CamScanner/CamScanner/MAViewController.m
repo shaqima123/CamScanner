@@ -255,6 +255,36 @@
     }
 }
 
+#pragma mark save to album func
+- (void)saveToAlbum{
+    if (_selectedIndexSet != NULL) {
+        [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%lu", (unsigned long)idx);
+            CSFile * file = [_fileArray objectAtIndex:idx];
+            UIImage * img = [UIImage imageWithData:file.fileAdjustImage];
+            [self loadImageFinished:img];
+        }];
+    }
+}
+- (void)loadImageFinished:(UIImage *)image
+{
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:[NSString stringWithFormat:@"保存到相册失败 error:%@",error] delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        //显示alertView
+        [alertView show];
+    }
+    else{
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"保存成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        //显示alertView
+        [alertView show];
+    }
+}
+
 #pragma mark collection delegate
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
