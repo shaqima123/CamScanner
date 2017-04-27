@@ -43,6 +43,7 @@
  */
 - (void)deleteFileModel:(FileModel *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail;
 
+- (void)deletefileModelWithKeyArray:(NSMutableArray *)keyArray success:(void(^)(void))success fail:(void(^)(NSError *error))fail;
 /**
  *  删除所有上传记录
  *

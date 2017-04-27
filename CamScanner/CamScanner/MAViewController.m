@@ -15,13 +15,20 @@
 //#import "FileModel+CoreDataProperties.h"
 #import "AppDelegate.h"
 #import "CSFile.h"
+#import "FileManageDataAPI.h"
 
-@interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_changeLayout;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_select;
+
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_delete;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_saveToAlbum;
+
 
 
 
@@ -86,10 +93,12 @@
     
     [_btn_changeLayout setAction:@selector(refreshLayout)];
     [_btn_select setAction:@selector(selectFile)];
+    [_btn_delete setAction:@selector(checkDeletefile)];
+    [_btn_saveToAlbum setAction:@selector(saveToAlbum)];
     
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.leftBarButtonItem = nil;
-    
+    [self.bottomToolbar setHidden:YES];
     
     //    [self.collectionView registerNib:[UINib nibWithNibName:@"WWCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     //
@@ -161,6 +170,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(selectCancel)];
     [_toolbar setHidden:YES];
     [_bottomView setHidden:YES];
+    [_bottomToolbar setHidden:NO];
+    
     [_fileCollectionView reloadData];
 }
 
@@ -190,6 +201,7 @@
     _fileCollectionView.allowsMultipleSelection = NO;
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = nil;
+    [_bottomToolbar setHidden:YES];
     
     for (NSUInteger i = 0; i < [_fileArray count]; i ++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
@@ -200,6 +212,49 @@
     [_bottomView setHidden:NO];
     [_fileCollectionView reloadData];
 }
+
+
+#pragma mark delete funcs
+- (void)checkDeletefile{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"确认要删除选中的文件吗" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击取消");
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"是的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self deleteFile];
+    }]];
+    
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)deleteFile{
+    if (_selectedIndexSet != NULL) {
+        NSMutableArray * keyArray = [NSMutableArray array];
+        
+        [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%lu", (unsigned long)idx);
+            CSFile * file = [_fileArray objectAtIndex:idx];
+            [keyArray addObject:file.fileName];
+        }];
+        [[FileManageDataAPI sharedInstance] deletefileModelWithKeyArray:keyArray success:^{
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            //显示alertView
+            [alertView show];
+            [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+                [_fileArray removeObjectAtIndex:idx];
+            }];
+            [self selectCancel];
+        } fail:^(NSError *error) {
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除失败" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            //显示alertView
+            [alertView show];
+            [self selectCancel];
+        }];
+    }
+}
+
 #pragma mark collection delegate
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{

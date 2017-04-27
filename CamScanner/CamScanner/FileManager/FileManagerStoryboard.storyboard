@@ -22,6 +22,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X6O-wX-S04">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="加密" id="UFQ-nx-ViU"/>
+                                    <barButtonItem title="标签" id="fn2-ud-vBx"/>
+                                    <barButtonItem title="删除" id="otI-5b-h1I"/>
+                                    <barButtonItem title="邮件" id="0v7-74-trf"/>
+                                    <barButtonItem title="分享" id="est-pD-GTs"/>
+                                    <barButtonItem title="保存相册" id="a0q-Xc-wfN"/>
+                                </items>
+                            </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5pB-Pd-w3m">
                                 <rect key="frame" x="0.0" y="108" width="375" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,10 +47,10 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-E6-PCO">
                                 <rect key="frame" x="-1" y="64" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="sequence" id="ZYK-e5-IiD"/>
-                                    <barButtonItem title="change" id="W0e-WQ-5FJ"/>
-                                    <barButtonItem title="find" id="Lr0-SQ-Vyh"/>
-                                    <barButtonItem title="select" id="P5n-h8-mVH"/>
+                                    <barButtonItem title="排序" id="ZYK-e5-IiD"/>
+                                    <barButtonItem title="布局" id="W0e-WQ-5FJ"/>
+                                    <barButtonItem title="搜索" id="Lr0-SQ-Vyh"/>
+                                    <barButtonItem title="选择" id="P5n-h8-mVH"/>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDm-Sx-7fX">
@@ -84,8 +96,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="uHI-bl-H6S"/>
                     <connections>
+                        <outlet property="bottomToolbar" destination="X6O-wX-S04" id="sR8-NQ-6a6"/>
                         <outlet property="bottomView" destination="oDm-Sx-7fX" id="iVa-qW-wur"/>
                         <outlet property="btn_changeLayout" destination="W0e-WQ-5FJ" id="qSu-GR-9yh"/>
+                        <outlet property="btn_delete" destination="otI-5b-h1I" id="2st-aA-a1l"/>
+                        <outlet property="btn_saveToAlbum" destination="a0q-Xc-wfN" id="MQy-pu-wm1"/>
                         <outlet property="btn_select" destination="P5n-h8-mVH" id="KYx-X8-BlT"/>
                         <outlet property="fileCollectionView" destination="5pB-Pd-w3m" id="gmw-lD-GDf"/>
                         <outlet property="toolbar" destination="dRS-E6-PCO" id="jHf-OG-5aj"/>
@@ -94,6 +109,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlb-rw-KUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="888.79999999999995" y="-191.1544227886057"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Lpe-uY-uoc">
+            <objects>
+                <viewController id="Z3S-Bz-uXS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hvh-mQ-gKJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lky-YO-lWA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nKi-hr-Vk2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwn-20-hBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="-191"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wXj-a2-hxq">

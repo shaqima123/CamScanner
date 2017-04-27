@@ -149,6 +149,29 @@ static FileManageDataAPI *uploadCoreData = nil;
     }];
 }
 
+- (void)deletefileModelWithKeyArray:(NSMutableArray *)keyArray success:(void(^)(void))success fail:(void(^)(NSError *error))fail{
+    for (NSString *str in keyArray) {
+         NSString *filterStr = [NSString stringWithFormat:@"fileName = '%@'",str];
+        [self.uploadData readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
+            if (results.count>0) {
+                NSManagedObject *obj = [results firstObject];
+                [self.uploadData deleteEntity:obj success:^{
+                    if (success) {
+                        success();
+                    }
+                } fail:^(NSError *error) {
+                    if (fail) {
+                        fail(error);
+                    }
+                }];
+            }
+        } fail:^(NSError *error) {
+            if (fail) {
+                fail(error);
+            }
+        }];
+    }
+}
 #pragma mark - -- 删除所有上传记录
 - (void)deleteAllFileModel:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
