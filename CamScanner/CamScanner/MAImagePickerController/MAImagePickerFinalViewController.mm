@@ -55,9 +55,7 @@
     [self setupEditor];
     
     [self.view setBackgroundColor:[UIColor blackColor]];
-    
     _adjustedImage = _sourceImage;
-    
     _finalImageView = [[UIImageView alloc] init];
     [_finalImageView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - (kCameraToolBarHeight + 70))];
     [_finalImageView setContentMode:UIViewContentModeScaleAspectFit];

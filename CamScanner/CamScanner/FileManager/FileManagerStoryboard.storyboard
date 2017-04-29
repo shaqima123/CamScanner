@@ -104,16 +104,17 @@
                         <outlet property="btn_select" destination="P5n-h8-mVH" id="KYx-X8-BlT"/>
                         <outlet property="fileCollectionView" destination="5pB-Pd-w3m" id="gmw-lD-GDf"/>
                         <outlet property="toolbar" destination="dRS-E6-PCO" id="jHf-OG-5aj"/>
+                        <segue destination="Z3S-Bz-uXS" kind="show" identifier="ShowDetail" id="JIg-gH-wFA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlb-rw-KUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="888.79999999999995" y="-191.1544227886057"/>
         </scene>
-        <!--View Controller-->
+        <!--File Show View Controller-->
         <scene sceneID="Lpe-uY-uoc">
             <objects>
-                <viewController id="Z3S-Bz-uXS" sceneMemberID="viewController">
+                <viewController id="Z3S-Bz-uXS" customClass="CSFileShowViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hvh-mQ-gKJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Lky-YO-lWA"/>
@@ -121,12 +122,87 @@
                     <view key="view" contentMode="scaleToFill" id="nKi-hr-Vk2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gy7-p6-gDL">
+                                <rect key="frame" x="0.0" y="28" width="380" height="531"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMK-Gt-DC5">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="返回" id="2ZT-il-U9k">
+                                        <connections>
+                                            <action selector="back:" destination="Z3S-Bz-uXS" id="5zJ-bK-PZb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="旋转" id="oUP-dm-7SF">
+                                        <connections>
+                                            <action selector="rotate:" destination="Z3S-Bz-uXS" id="uWR-TO-Coi"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="确定" id="WHE-0p-k9V">
+                                        <connections>
+                                            <action selector="updateFile:" destination="Z3S-Bz-uXS" id="k1j-8i-b4c"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AgA-Ws-Xge">
+                                <rect key="frame" x="0.0" y="557" width="375" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-O2-cWL">
+                                        <rect key="frame" x="35" y="1" width="44" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="原图"/>
+                                        <connections>
+                                            <action selector="originFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="6op-21-odL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDW-O6-Bgv">
+                                        <rect key="frame" x="113" y="0.0" width="46" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="黑白"/>
+                                        <connections>
+                                            <action selector="blackFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="JZi-Lo-0Hr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhW-Rj-ThR">
+                                        <rect key="frame" x="192" y="0.0" width="46" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="灰度"/>
+                                        <connections>
+                                            <action selector="grayFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="k7D-I3-3v3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xr-Si-NBZ">
+                                        <rect key="frame" x="271" y="1" width="46" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="增强"/>
+                                        <connections>
+                                            <action selector="colorStrongerFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="Y1O-go-8Cm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="blackImageButton" destination="XDW-O6-Bgv" id="vCN-kU-ye9"/>
+                        <outlet property="colorStrongerButton" destination="4xr-Si-NBZ" id="8yl-XW-ifb"/>
+                        <outlet property="grayImageButton" destination="OhW-Rj-ThR" id="zgg-ie-YSZ"/>
+                        <outlet property="imageView" destination="Gy7-p6-gDL" id="Y0a-92-YHC"/>
+                        <outlet property="rotateButton" destination="oUP-dm-7SF" id="LZD-Jq-5WO"/>
+                        <outlet property="sourceImageButton" destination="VAZ-O2-cWL" id="3LI-xL-ZUD"/>
+                        <outlet property="toolbar" destination="FMK-Gt-DC5" id="InT-8N-oMV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nwn-20-hBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="-191"/>
+            <point key="canvasLocation" x="1764" y="-191.1544227886057"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wXj-a2-hxq">

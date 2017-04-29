@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class FileModel;
-
+@class CSFile;
 @interface FileManageDataAPI : NSObject
 @property (nonatomic,copy,readonly) NSString *coreDataModelName;
 /**
@@ -33,6 +33,7 @@
 
 
 - (void)updateFileModel:(FileModel *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail;
+- (void)updateDataWithFileModel:(CSFile *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail;
 
 /**
  *  删除一条上传记录

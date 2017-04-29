@@ -229,7 +229,73 @@
     }
     
 }
+//修改数据
 
+- (void)updateDataWithFileModel:(CSFile *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSString *filterStr = [NSString stringWithFormat:@"fileName = '%@'",file.fileName];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:filterStr];
+    
+    //首先你需要建立一个request
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:TableName inManagedObjectContext:context]];
+    [request setPredicate:predicate];//这里相当于sqlite中的查询条件，具体格式参考苹果文档
+    
+    NSError *error = nil;
+    NSArray *result = [context executeFetchRequest:request error:&error];//这里获取到的是一个数组，你需要取出你要更新的那个obj
+    for (FileModel *fileModel in result) {
+        if (file.fileName) {
+            fileModel.fileName = file.fileName;
+        }
+        if (file.fileSize) {
+            fileModel.fileSize = file.fileSize;
+        }
+        if (file.fileType) {
+            fileModel.fileType = file.fileType;
+        }
+        if (file.fileLabel) {
+            fileModel.fileLabel = file.fileLabel;
+        }
+        if (file.fileContent) {
+            fileModel.fileContent = file.fileContent;
+        }
+        if (file.fileUrlPath) {
+            fileModel.fileUrlPath = file.fileUrlPath;
+        }
+        if (file.fileCreatedTime) {
+            fileModel.fileCreatedTime = file.fileCreatedTime;
+        }
+        if (file.fileAdjustImage) {
+            fileModel.fileAdjustImage = file.fileAdjustImage;
+        }
+        if (file.fileOriginImage) {
+            fileModel.fileOriginImage = file.fileOriginImage;
+        }
+    }
+    
+    [context save:&error];
+    //保存
+    if (error) {
+        NSLog(@"修改数据失败：%@",error);
+        if (fail) {
+            fail(error);
+        }
+    } else {
+        if (success) {
+            success();
+        }
+    }
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error != NULL) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Image couldn't be saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
 // 删除数据
 - (void)deleteEntity:(NSManagedObject *)entity success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {

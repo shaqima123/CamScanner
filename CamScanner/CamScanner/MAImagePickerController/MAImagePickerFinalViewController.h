@@ -16,7 +16,7 @@
 }
 
 @property BOOL imageFrameEdited;
-
+@property BOOL isCheckImage;
 @property (strong, nonatomic) UIImage *sourceImage;
 @property (strong, nonatomic) UIImage *adjustedImage;
 

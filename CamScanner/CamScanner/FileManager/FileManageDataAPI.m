@@ -9,7 +9,7 @@
 #import "FileManageDataAPI.h"
 #import "DataBase.h"
 #import "FileModel+CoreDataProperties.h"
-
+#import "CSFile.h"
 static NSString * const modelName = @"FileModel";
 static NSString * const entityName = @"FileModel";
 static NSString * const sqliteName = @"FileModel.sqlite";
@@ -125,6 +125,13 @@ static FileManageDataAPI *uploadCoreData = nil;
 //    }];
 //}
 
+- (void)updateDataWithFileModel:(CSFile *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail{
+    [self.uploadData updateDataWithFileModel:file success:^{
+        success();
+    } fail:^(NSError *error) {
+        fail(error);
+    }];
+}
 #pragma mark - -- 删除一条上传记录
 - (void)deleteFileModel:(FileModel *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {

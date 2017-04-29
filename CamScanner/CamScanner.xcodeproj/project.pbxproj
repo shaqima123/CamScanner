@@ -105,6 +105,7 @@
 		624F553E1EAE162A00618ED7 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 624F552A1EAE162A00618ED7 /* UIView+MJExtension.m */; };
 		62645D6C1EB08432007435CE /* cs_checkbox_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 62645D6A1EB08432007435CE /* cs_checkbox_no.png */; };
 		62645D6D1EB08432007435CE /* cs_checkbox_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 62645D6B1EB08432007435CE /* cs_checkbox_yes.png */; };
+		62645D701EB48ACA007435CE /* CSFileShowViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62645D6F1EB48ACA007435CE /* CSFileShowViewController.mm */; };
 		628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */; };
 		628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */; };
 		628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */; };
@@ -256,6 +257,8 @@
 		624F552A1EAE162A00618ED7 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		62645D6A1EB08432007435CE /* cs_checkbox_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cs_checkbox_no.png; sourceTree = "<group>"; };
 		62645D6B1EB08432007435CE /* cs_checkbox_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cs_checkbox_yes.png; sourceTree = "<group>"; };
+		62645D6E1EB48ACA007435CE /* CSFileShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileShowViewController.h; path = FileManager/CSFileShowViewController.h; sourceTree = "<group>"; };
+		62645D6F1EB48ACA007435CE /* CSFileShowViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CSFileShowViewController.mm; path = FileManager/CSFileShowViewController.mm; sourceTree = "<group>"; };
 		628259E71EA8CD4E004BCCB8 /* CSFileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileCollectionViewCell.h; path = FileManager/CSFileCollectionViewCell.h; sourceTree = "<group>"; };
 		628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFileCollectionViewCell.m; path = FileManager/CSFileCollectionViewCell.m; sourceTree = "<group>"; };
 		628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CSFileCollectionViewCell.xib; path = FileManager/CSFileCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -577,6 +580,8 @@
 				2237CA2E1647E85000B77E0E /* MAViewController.m */,
 				628259EA1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.h */,
 				628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */,
+				62645D6E1EB48ACA007435CE /* CSFileShowViewController.h */,
+				62645D6F1EB48ACA007435CE /* CSFileShowViewController.mm */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -762,6 +767,7 @@
 				624F553B1EAE162A00618ED7 /* NSBundle+MJRefresh.m in Sources */,
 				624F553E1EAE162A00618ED7 /* UIView+MJExtension.m in Sources */,
 				624F55371EAE162A00618ED7 /* MJRefreshNormalHeader.m in Sources */,
+				62645D701EB48ACA007435CE /* CSFileShowViewController.mm in Sources */,
 				624F55321EAE162A00618ED7 /* MJRefreshAutoStateFooter.m in Sources */,
 				624F552C1EAE162A00618ED7 /* MJRefreshBackFooter.m in Sources */,
 				624F55361EAE162A00618ED7 /* MJRefreshGifHeader.m in Sources */,

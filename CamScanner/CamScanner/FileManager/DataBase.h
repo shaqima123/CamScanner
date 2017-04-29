@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "FileModel+CoreDataClass.h"
+#import "CSFile.h"
+
 #define TableName @"FileModel"
 
 @interface DataBase : NSObject
@@ -32,5 +34,7 @@
 - (void)deleteEntity:(NSManagedObject *)entity success: (void(^)(void))success fail:(void(^)(NSError *error))fail;
 
 - (void)updateEntitySuccess: (void(^)(void))success fail:(void(^)(NSError *error))fail;
+
+- (void)updateDataWithFileModel:(CSFile *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail;
 
 @end

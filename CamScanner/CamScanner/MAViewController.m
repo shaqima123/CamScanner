@@ -16,6 +16,8 @@
 #import "AppDelegate.h"
 #import "CSFile.h"
 #import "FileManageDataAPI.h"
+#import "MAImagePickerFinalViewController.h"
+#import "CSFileShowViewController.h"
 
 @interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate>
 
@@ -54,6 +56,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
     [self refreshData];
 }
 
@@ -299,20 +302,29 @@
  * Cell选中调用该方法
  */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (_isCollectionLayout) {
-        CSFileCollectionViewCell * cell = (CSFileCollectionViewCell *)[self.fileCollectionView cellForItemAtIndexPath:indexPath];
-        cell.selected = YES;
-        [self changeSelectStateWithCell:cell];
+    if (_isSelecting) {
+        if (_isCollectionLayout) {
+            CSFileCollectionViewCell * cell = (CSFileCollectionViewCell *)[self.fileCollectionView cellForItemAtIndexPath:indexPath];
+            cell.selected = YES;
+            [self changeSelectStateWithCell:cell];
+        }
+        else{
+            CSFileTableViewCellCollectionViewCell * cell = (CSFileTableViewCellCollectionViewCell *)[self.fileCollectionView cellForItemAtIndexPath:indexPath];
+            cell.selected = YES;
+            [self changeSelectStateWithTableCell:cell];
+        }
+        [_selectedIndexSet addIndex:indexPath.item];
     }
     else{
-        CSFileTableViewCellCollectionViewCell * cell = (CSFileTableViewCellCollectionViewCell *)[self.fileCollectionView cellForItemAtIndexPath:indexPath];
-        cell.selected = YES;
-        [self changeSelectStateWithTableCell:cell];
+        [self performSegueWithIdentifier:@"ShowDetail" sender:indexPath];
+        
+//        CATransition* transition = [CATransition animation];
+//        transition.duration = 0.4;
+//        transition.type = kCATransitionFade;
+//        transition.subtype = kCATransitionFromBottom;
+//        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+//        [self.navigationController pushViewController:finalView animated:NO];
     }
-    
-    
-    [_selectedIndexSet addIndex:indexPath.item];
 }
 
 /**
@@ -392,6 +404,9 @@
             if (_isSelecting) {
                 [cell.selectButton setHidden:NO];
             }
+            else{
+                [cell.selectButton setHidden:YES];
+            }
         }
         return cell;
     }
@@ -444,20 +459,23 @@
     [imagePicker setDelegate:self];
     [imagePicker setSourceType:MAImagePickerControllerSourceTypeCamera];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePicker];
+   // UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePicker];
     
-    [self presentViewController:navigationController animated:YES completion:nil];
+    [self.navigationController pushViewController:imagePicker animated:YES];
+    //[self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (void)imagePickerDidCancel
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)imagePickerDidChooseImageWithPath:(NSString *)path
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+   // [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path])
     {
         NSLog(@"File Found at %@", path);
@@ -471,4 +489,15 @@
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"ShowDetail"]){
+        CSFileShowViewController *vc = segue.destinationViewController;
+        CSFile* fileModel = [_fileArray objectAtIndex:[(NSIndexPath *)sender row]];
+        UIImage *sourceImage = [UIImage imageWithData:fileModel.fileOriginImage];
+        UIImage *adjustImage = [UIImage imageWithData:fileModel.fileAdjustImage];
+        vc.sourceImage = sourceImage;
+        vc.adjustedImage = adjustImage;
+        vc.csfile = fileModel;
+    }
+}
 @end
