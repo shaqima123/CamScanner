@@ -22,6 +22,7 @@
         _fileAdjustImage = file.fileAdjustImage;
         _fileOriginImage = file.fileOriginImage;
         _fileCreatedTime = file.fileCreatedTime;
+        _fileNumber = file.fileNumber;
     }
     return self;
 }

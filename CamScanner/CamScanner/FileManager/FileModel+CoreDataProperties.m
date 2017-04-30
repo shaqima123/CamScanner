@@ -2,7 +2,7 @@
 //  FileModel+CoreDataProperties.m
 //  CamScanner
 //
-//  Created by 沙琪玛 on 2017/4/21.
+//  Created by 沙琪玛 on 2017/5/1.
 //  Copyright © 2017年 mackh ag. All rights reserved.
 //
 
@@ -23,5 +23,6 @@
 @dynamic fileSize;
 @dynamic fileType;
 @dynamic fileUrlPath;
+@dynamic fileNumber;
 
 @end

@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/MAImagePickerController/MAImagePickerFinalViewController.mm"
-            timestampString = "515143860.742959"
+            timestampString = "515265140.689361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "-updateImageViewAnimated"
             landmarkType = "7">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/MAImagePickerController/MAImagePickerFinalViewController.mm"
-            timestampString = "515143860.742959"
+            timestampString = "515265140.689361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
+            startingLineNumber = "483"
+            endingLineNumber = "483"
             landmarkName = "-rotateImage"
             landmarkType = "7">
          </BreakpointContent>
@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/MAImagePickerController/MAImagePickerFinalViewController.mm"
-            timestampString = "515143860.742959"
+            timestampString = "515265140.689361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "511"
-            endingLineNumber = "511"
+            startingLineNumber = "527"
+            endingLineNumber = "527"
             landmarkName = "-shouldAutorotateToInterfaceOrientation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,6 +234,22 @@
             startingLineNumber = "249"
             endingLineNumber = "249"
             landmarkName = "-updateDataWithFileModel:success:fail:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/MAImagePickerController/MAImagePickerFinalViewController.mm"
+            timestampString = "515265140.689361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "-saveToDataBase"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

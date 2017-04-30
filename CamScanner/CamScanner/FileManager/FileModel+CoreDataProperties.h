@@ -2,7 +2,7 @@
 //  FileModel+CoreDataProperties.h
 //  CamScanner
 //
-//  Created by 沙琪玛 on 2017/4/21.
+//  Created by 沙琪玛 on 2017/5/1.
 //  Copyright © 2017年 mackh ag. All rights reserved.
 //
 
@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *fileSize;
 @property (nullable, nonatomic, copy) NSString *fileType;
 @property (nullable, nonatomic, copy) NSString *fileUrlPath;
+@property (nonatomic) int16_t fileNumber;
 
 @end
 

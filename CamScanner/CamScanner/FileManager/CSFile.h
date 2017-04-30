@@ -19,6 +19,6 @@
 @property (nullable, nonatomic, copy) NSString *fileSize;
 @property (nullable, nonatomic, copy) NSString *fileType;
 @property (nullable, nonatomic, copy) NSString *fileUrlPath;
-
+@property (nonatomic) int16_t fileNumber;
 - (instancetype _Nullable )initWithFile:(FileModel *_Nullable)file;
 @end

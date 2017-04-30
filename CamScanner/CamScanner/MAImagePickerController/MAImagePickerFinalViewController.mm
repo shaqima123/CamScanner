@@ -152,7 +152,23 @@
     NSData * fileAdjustImage = adjustImageData;
     NSDate * fileCreatedTime = datenow;
     NSData * fileOriginImage = originImageData;
-    NSDictionary *dict = NSDictionaryOfVariableBindings(fileName,fileSize,fileType,fileLabel,fileType,fileContent,fileUrlPath,fileAdjustImage,fileCreatedTime,fileOriginImage);
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSNumber *number = [user objectForKey:@"fileNumber"];
+    if (!number) {
+        NSNumber *fileNumber = @1;
+        [user setObject:fileNumber forKey:@"fileNumber"];
+        number = [NSNumber numberWithInt:1];
+    }else{
+        int tmp = [number intValue];
+        tmp++;
+        number = [NSNumber numberWithInt:tmp];
+        [user setObject:number forKey:@"fileNumber"];
+    }
+    //NSDictionary *dict = NSDictionaryOfVariableBindings(fileName,fileSize,fileType,fileLabel,fileType,fileContent,fileUrlPath,fileAdjustImage,fileCreatedTime,fileOriginImage,fileNumber);
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:fileName,@"fileName",fileSize,@"fileSize",fileType,@"fileType",fileLabel,@"fileLabel",fileContent,@"fileContent",fileUrlPath,@"fileUrlPath",fileAdjustImage,@"fileAdjustImage",fileCreatedTime,@"fileCreatedTime",fileOriginImage,@"fileOriginImage",number,@"fileNumber",nil];
+
     
     CSFile *newModel = [[CSFile alloc] init];
     newModel.fileName = fileName;
@@ -164,7 +180,7 @@
     newModel.fileAdjustImage = fileAdjustImage;
     newModel.fileCreatedTime = fileCreatedTime;
     newModel.fileOriginImage = fileOriginImage;
-    
+    newModel.fileNumber = [number intValue];
     [_mydelegate.fileArray addObject:newModel];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
