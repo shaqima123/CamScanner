@@ -16,7 +16,7 @@
 #import "AppDelegate.h"
 #import "CSPDFMangager.h"
 
-@interface CSFileShowViewController ()
+@interface CSFileShowViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *sourceImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *blackImageButton;
@@ -24,14 +24,20 @@
 @property (weak, nonatomic) IBOutlet UIButton *colorStrongerButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rotateButton;
-
+@property (strong, nonatomic) UITextField *textfield;
 @end
 
 @implementation CSFileShowViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES];
+    _textfield = [[UITextField alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 50, 0, 100, 50)];
+    [_textfield setDelegate:self];
+    [self.navigationItem setTitleView:_textfield];
+    [_textfield setText:_csfile.fileName];
+    [_textfield setTextAlignment:NSTextAlignmentCenter];
+
+    //  [self.navigationController setNavigationBarHidden:YES];
     [_imageView setImage:_adjustedImage];
     // Do any additional setup after loading the view.
 }
@@ -56,6 +62,7 @@
     file.fileOriginImage = fileOriginImage;
     file.fileContent = fileContent;
     file.fileSize = fileSize;
+//    file.fileName = _textfield.text;
     [self.navigationController popViewControllerAnimated:YES];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -163,6 +170,13 @@
     new_image.release();
     [_imageView setNeedsDisplay];
     [_imageView setImage:_adjustedImage];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    //返回一个BOOL值，指明是否允许在按下回车键时结束编辑
+    //如果允许要调用resignFirstResponder 方法，这回导致结束编辑，而键盘会被收起
+    [textField resignFirstResponder];//查一下resign这个单词的意思就明白这个方法了
+    return YES;
 }
 
 /*
