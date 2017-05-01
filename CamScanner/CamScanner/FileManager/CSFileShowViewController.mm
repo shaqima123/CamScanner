@@ -63,7 +63,7 @@
     file.fileOriginImage = fileOriginImage;
     file.fileContent = fileContent;
     file.fileSize = fileSize;
-//    file.fileName = _textfield.text;
+    file.fileName = _textfield.text;
     [self.navigationController popViewControllerAnimated:YES];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
