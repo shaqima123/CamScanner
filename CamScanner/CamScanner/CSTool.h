@@ -10,4 +10,7 @@
 
 @interface CSTool : NSObject
 
++ (void)saveToAlbumWithData:(NSData *)data;
++ (void)loadImageFinished:(UIImage *)image;
+
 @end

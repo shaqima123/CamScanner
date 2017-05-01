@@ -21,7 +21,6 @@
 @interface MAImagePickerFinalViewController ()
 
 @property (strong, nonatomic) AppDelegate *mydelegate;
-
 @end
 
 @implementation MAImagePickerFinalViewController
@@ -56,7 +55,9 @@
     
     [self.view setBackgroundColor:[UIColor blackColor]];
     _adjustedImage = _sourceImage;
+    
     _finalImageView = [[UIImageView alloc] init];
+    
     [_finalImageView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - (kCameraToolBarHeight + 70))];
     [_finalImageView setContentMode:UIViewContentModeScaleAspectFit];
     [_finalImageView setUserInteractionEnabled:YES];
@@ -142,16 +143,18 @@
     NSString * fileName = [NSString stringWithFormat:@"File%@",currentTimeString];
     
     NSData *adjustImageData = UIImageJPEGRepresentation(_adjustedImage, 1.0);
-    NSData *originImageData = UIImagePNGRepresentation(_sourceImage);
+    NSData *originImageData = UIImageJPEGRepresentation(_sourceImage, 1.0);
     
     NSString * fileSize = [CSPDFMangager getFileSizeFromData:adjustImageData];
     NSString * fileType = @"pdf";
     NSString * fileLabel = @"无";
     NSData * fileContent = UIImagePNGRepresentation(_adjustedImage);
+    
     NSString * fileUrlPath = [CSPDFMangager filePath:[NSString stringWithFormat:@"%@.pdf",fileName]];
     NSData * fileAdjustImage = adjustImageData;
     NSDate * fileCreatedTime = datenow;
     NSData * fileOriginImage = originImageData;
+    
     
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSNumber *number = [user objectForKey:@"fileNumber"];

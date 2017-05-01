@@ -239,7 +239,8 @@
         [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
             NSLog(@"%lu", (unsigned long)idx);
             CSFile * file = [_fileArray objectAtIndex:idx];
-            [keyArray addObject:file.fileName];
+            NSNumber *fileNumber = [NSNumber numberWithInt:file.fileNumber];
+            [keyArray addObject:fileNumber];
         }];
         [[FileManageDataAPI sharedInstance] deletefileModelWithKeyArray:keyArray success:^{
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];

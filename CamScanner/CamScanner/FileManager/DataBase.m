@@ -234,7 +234,7 @@
 - (void)updateDataWithFileModel:(CSFile *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSString *filterStr = [NSString stringWithFormat:@"fileName = '%@'",file.fileName];
+    NSString *filterStr = [NSString stringWithFormat:@"fileNumber = '%d'",file.fileNumber];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:filterStr];
     

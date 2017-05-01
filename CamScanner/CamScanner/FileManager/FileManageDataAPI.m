@@ -135,7 +135,7 @@ static FileManageDataAPI *uploadCoreData = nil;
 #pragma mark - -- 删除一条上传记录
 - (void)deleteFileModel:(FileModel *)file success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
-    NSString *filterStr = [NSString stringWithFormat:@"fileName = '%@'",file.fileName];
+    NSString *filterStr = [NSString stringWithFormat:@"fileNumber = '%d'",file.fileNumber];
     [self.uploadData readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
         if (results.count>0) {
             NSManagedObject *obj = [results firstObject];
@@ -157,8 +157,9 @@ static FileManageDataAPI *uploadCoreData = nil;
 }
 
 - (void)deletefileModelWithKeyArray:(NSMutableArray *)keyArray success:(void(^)(void))success fail:(void(^)(NSError *error))fail{
-    for (NSString *str in keyArray) {
-         NSString *filterStr = [NSString stringWithFormat:@"fileName = '%@'",str];
+    for (NSNumber *keynumber in keyArray) {
+        int key = [keynumber intValue];
+         NSString *filterStr = [NSString stringWithFormat:@"fileNumber = '%d'",key];
         [self.uploadData readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
             if (results.count>0) {
                 NSManagedObject *obj = [results firstObject];

@@ -39,6 +39,7 @@
 
     //  [self.navigationController setNavigationBarHidden:YES];
     [_imageView setImage:_adjustedImage];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -52,7 +53,7 @@
 - (IBAction)updateFile:(id)sender {
     CSFile * file = _csfile;
     NSData *adjustImageData = UIImageJPEGRepresentation(_adjustedImage, 1.0);
-    NSData *originImageData = UIImagePNGRepresentation(_sourceImage);
+    NSData *originImageData = UIImageJPEGRepresentation(_sourceImage, 1.0);
     NSString * fileSize = [CSPDFMangager getFileSizeFromData:adjustImageData];
     NSData * fileContent = UIImagePNGRepresentation(_adjustedImage);
     NSData * fileAdjustImage = adjustImageData;
@@ -131,12 +132,14 @@
 
 
 - (IBAction)originFilter:(id)sender {
+    _adjustedImage = _sourceImage;
     [_imageView setImage:_sourceImage];
 }
 
 - (IBAction)blackFilter:(id)sender {
     cv::Mat original;
-    original = [MAOpenCV cvMatGrayFromAdjustedUIImage:_sourceImage];
+    original = [MAOpenCV cvMatGrayFromUIImage:_sourceImage];
+    
     cv::GaussianBlur(original, original, cvSize(11,11), 0);
     cv::adaptiveThreshold(original, original, 255, cv::ADAPTIVE_THRESH_MEAN_C, cv::THRESH_BINARY, 5, 2);
     _adjustedImage = [MAOpenCV UIImageFromCVMat:original];
@@ -147,7 +150,7 @@
 
 - (IBAction)grayFilter:(id)sender {
     cv::Mat original;
-    original = [MAOpenCV cvMatGrayFromAdjustedUIImage:_sourceImage];
+    original = [MAOpenCV cvMatGrayFromUIImage:_sourceImage];
     cv::Mat new_image = cv::Mat::zeros( original.size(), original.type() );
     original.convertTo(new_image, -1, 1.4, -50);
     _adjustedImage = [MAOpenCV UIImageFromCVMat:new_image];
@@ -159,7 +162,7 @@
 
 - (IBAction)colorStrongerFilter:(id)sender {
     cv::Mat original;
-    original = [MAOpenCV cvMatFromAdjustedUIImage:_sourceImage];
+    original = [MAOpenCV cvMatFromUIImage:_sourceImage];
     cv::Mat new_image = cv::Mat::zeros( original.size(), original.type() );
     
     original.convertTo(new_image, -1, 1.9, -80);
@@ -171,6 +174,7 @@
     [_imageView setNeedsDisplay];
     [_imageView setImage:_adjustedImage];
 }
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     //返回一个BOOL值，指明是否允许在按下回车键时结束编辑

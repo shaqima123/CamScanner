@@ -268,6 +268,27 @@
     [self.navigationController pushViewController:finalView animated:NO];
 }
 
+//- (void)loadImageFinished:(UIImage *)image
+//{
+//    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+//}
+//
+//- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+//{
+//    if (error) {
+//        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:[NSString stringWithFormat:@"保存到相册失败 error:%@",error] delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+//        //显示alertView
+//        [alertView show];
+//    }
+//    else{
+//        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"保存成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+//        //显示alertView
+//        [alertView show];
+//    }
+//}
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
