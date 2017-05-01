@@ -20,11 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSDate *fileCreatedTime;
 @property (nullable, nonatomic, copy) NSString *fileLabel;
 @property (nullable, nonatomic, copy) NSString *fileName;
+@property (nonatomic) int16_t fileNumber;
 @property (nullable, nonatomic, retain) NSData *fileOriginImage;
 @property (nullable, nonatomic, copy) NSString *fileSize;
 @property (nullable, nonatomic, copy) NSString *fileType;
 @property (nullable, nonatomic, copy) NSString *fileUrlPath;
-@property (nonatomic) int16_t fileNumber;
+@property (nullable, nonatomic, copy) NSString *fileIsEdited;
 
 @end
 

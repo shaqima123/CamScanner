@@ -19,10 +19,11 @@
 @dynamic fileCreatedTime;
 @dynamic fileLabel;
 @dynamic fileName;
+@dynamic fileNumber;
 @dynamic fileOriginImage;
 @dynamic fileSize;
 @dynamic fileType;
 @dynamic fileUrlPath;
-@dynamic fileNumber;
+@dynamic fileIsEdited;
 
 @end

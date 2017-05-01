@@ -33,7 +33,8 @@
                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
                 [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
                 
-                NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,filenumber = %d",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime],file.fileNumber);
+                NSLog(@"name = %@,size = %@,label = %@,type = %@,url = %@,date = %@,filenumber = %d，fileIsEdited = %@",file.fileName,file.fileSize,file.fileLabel,file.fileType,file.fileUrlPath,[formatter stringFromDate:file.fileCreatedTime],file.fileNumber,file.fileIsEdited);
+                
                 CSFile *csfile = [[CSFile alloc] initWithFile:file];
                 [weakSelf.fileArray addObject:csfile];
             }

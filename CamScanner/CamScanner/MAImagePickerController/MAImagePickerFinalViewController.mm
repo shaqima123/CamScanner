@@ -154,7 +154,7 @@
     NSData * fileAdjustImage = adjustImageData;
     NSDate * fileCreatedTime = datenow;
     NSData * fileOriginImage = originImageData;
-    
+    NSString * fileIsEdited = _imageFrameEdited?@"YES":@"NO";
     
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSNumber *number = [user objectForKey:@"fileNumber"];
@@ -170,9 +170,8 @@
     }
     //NSDictionary *dict = NSDictionaryOfVariableBindings(fileName,fileSize,fileType,fileLabel,fileType,fileContent,fileUrlPath,fileAdjustImage,fileCreatedTime,fileOriginImage,fileNumber);
     
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:fileName,@"fileName",fileSize,@"fileSize",fileType,@"fileType",fileLabel,@"fileLabel",fileContent,@"fileContent",fileUrlPath,@"fileUrlPath",fileAdjustImage,@"fileAdjustImage",fileCreatedTime,@"fileCreatedTime",fileOriginImage,@"fileOriginImage",number,@"fileNumber",nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:fileName,@"fileName",fileSize,@"fileSize",fileType,@"fileType",fileLabel,@"fileLabel",fileContent,@"fileContent",fileUrlPath,@"fileUrlPath",fileAdjustImage,@"fileAdjustImage",fileCreatedTime,@"fileCreatedTime",fileOriginImage,@"fileOriginImage",number,@"fileNumber",fileIsEdited,@"fileIsEdited",nil];
 
-    
     CSFile *newModel = [[CSFile alloc] init];
     newModel.fileName = fileName;
     newModel.fileSize = fileSize;
@@ -184,6 +183,7 @@
     newModel.fileCreatedTime = fileCreatedTime;
     newModel.fileOriginImage = fileOriginImage;
     newModel.fileNumber = [number intValue];
+    newModel.fileIsEdited = fileIsEdited;
     [_mydelegate.fileArray addObject:newModel];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{

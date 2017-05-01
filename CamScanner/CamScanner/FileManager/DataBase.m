@@ -273,6 +273,9 @@
         if (file.fileOriginImage) {
             fileModel.fileOriginImage = file.fileOriginImage;
         }
+        if (file.fileIsEdited){
+            fileModel.fileIsEdited = file.fileIsEdited;
+        }
     }
     
     [context save:&error];

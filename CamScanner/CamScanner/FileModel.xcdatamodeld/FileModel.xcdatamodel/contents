@@ -4,6 +4,7 @@
         <attribute name="fileAdjustImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="fileContent" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="fileCreatedTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fileIsEdited" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fileLabel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fileNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -13,6 +14,6 @@
         <attribute name="fileUrlPath" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FileModel" positionX="-45" positionY="0" width="128" height="195"/>
+        <element name="FileModel" positionX="-45" positionY="0" width="128" height="210"/>
     </elements>
 </model>

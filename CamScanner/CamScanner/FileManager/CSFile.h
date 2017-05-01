@@ -20,5 +20,6 @@
 @property (nullable, nonatomic, copy) NSString *fileType;
 @property (nullable, nonatomic, copy) NSString *fileUrlPath;
 @property (nonatomic) int16_t fileNumber;
+@property (nullable, nonatomic, copy) NSString * fileIsEdited;
 - (instancetype _Nullable )initWithFile:(FileModel *_Nullable)file;
 @end

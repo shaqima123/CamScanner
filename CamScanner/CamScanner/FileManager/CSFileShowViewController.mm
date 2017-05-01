@@ -138,8 +138,12 @@
 
 - (IBAction)blackFilter:(id)sender {
     cv::Mat original;
-    original = [MAOpenCV cvMatGrayFromUIImage:_sourceImage];
-    
+    if ([_csfile.fileIsEdited isEqualToString:@"YES"]) {
+        original = [MAOpenCV cvMatGrayFromAdjustedUIImage:_sourceImage];
+    }
+    else{
+        original = [MAOpenCV cvMatGrayFromUIImage:_sourceImage];
+    }
     cv::GaussianBlur(original, original, cvSize(11,11), 0);
     cv::adaptiveThreshold(original, original, 255, cv::ADAPTIVE_THRESH_MEAN_C, cv::THRESH_BINARY, 5, 2);
     _adjustedImage = [MAOpenCV UIImageFromCVMat:original];
@@ -150,7 +154,12 @@
 
 - (IBAction)grayFilter:(id)sender {
     cv::Mat original;
-    original = [MAOpenCV cvMatGrayFromUIImage:_sourceImage];
+    if ([_csfile.fileIsEdited isEqualToString:@"YES"]) {
+        original = [MAOpenCV cvMatGrayFromAdjustedUIImage:_sourceImage];
+    }
+    else{
+        original = [MAOpenCV cvMatGrayFromUIImage:_sourceImage];
+    }
     cv::Mat new_image = cv::Mat::zeros( original.size(), original.type() );
     original.convertTo(new_image, -1, 1.4, -50);
     _adjustedImage = [MAOpenCV UIImageFromCVMat:new_image];
@@ -162,7 +171,12 @@
 
 - (IBAction)colorStrongerFilter:(id)sender {
     cv::Mat original;
-    original = [MAOpenCV cvMatFromUIImage:_sourceImage];
+    if ([_csfile.fileIsEdited isEqualToString:@"YES"]) {
+        original = [MAOpenCV cvMatFromAdjustedUIImage:_sourceImage];
+    }
+    else{
+        original = [MAOpenCV cvMatFromUIImage:_sourceImage];
+    }
     cv::Mat new_image = cv::Mat::zeros( original.size(), original.type() );
     
     original.convertTo(new_image, -1, 1.9, -80);

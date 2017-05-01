@@ -23,6 +23,7 @@
         _fileOriginImage = file.fileOriginImage;
         _fileCreatedTime = file.fileCreatedTime;
         _fileNumber = file.fileNumber;
+        _fileIsEdited = file.fileIsEdited;
     }
     return self;
 }
