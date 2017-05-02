@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_delete;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_saveToAlbum;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_addLabel;
 
 
 
@@ -98,6 +99,7 @@
     [_btn_select setAction:@selector(selectFile)];
     [_btn_delete setAction:@selector(checkDeletefile)];
     [_btn_saveToAlbum setAction:@selector(saveToAlbum)];
+    [_btn_addLabel setAction:@selector(addLabel)];
     
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.leftBarButtonItem = nil;
@@ -288,7 +290,43 @@
         [alertView show];
     }
 }
+#pragma mark addLabel func
 
+- (BOOL)addLabel{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"标签" message:@"请输入标签" preferredStyle:UIAlertControllerStyleAlert];
+   
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        // 可以在这里对textfield进行定制，例如改变背景色
+        textField.backgroundColor = [UIColor orangeColor];
+    }];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击取消");
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%lu", (unsigned long)idx);
+            CSFile * file = [_fileArray objectAtIndex:idx];
+            UITextField *label = alertController.textFields.firstObject;
+            file.fileLabel = label.text;
+            if (!label.text) {
+                file.fileLabel = @"无";
+            }
+            [_fileArray replaceObjectAtIndex:idx withObject:file];
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+
+                [[FileManageDataAPI sharedInstance] updateDataWithFileModel:file success:^{
+                    NSLog(@"update successfully~\n\n\n");
+                }fail:^(NSError *error){
+                    NSLog(@"fail to update!!\n\n\n");
+                }];
+            });
+        }];
+        [self selectCancel];
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 #pragma mark collection delegate
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{

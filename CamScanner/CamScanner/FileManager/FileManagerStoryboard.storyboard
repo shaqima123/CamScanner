@@ -98,6 +98,7 @@
                     <connections>
                         <outlet property="bottomToolbar" destination="X6O-wX-S04" id="sR8-NQ-6a6"/>
                         <outlet property="bottomView" destination="oDm-Sx-7fX" id="iVa-qW-wur"/>
+                        <outlet property="btn_addLabel" destination="fn2-ud-vBx" id="bbn-h5-SSV"/>
                         <outlet property="btn_changeLayout" destination="W0e-WQ-5FJ" id="qSu-GR-9yh"/>
                         <outlet property="btn_delete" destination="otI-5b-h1I" id="2st-aA-a1l"/>
                         <outlet property="btn_saveToAlbum" destination="a0q-Xc-wfN" id="MQy-pu-wm1"/>
