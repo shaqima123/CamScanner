@@ -19,44 +19,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CamScanner/MAImagePickerController/MAImagePickerFinalViewController.mm"
-            timestampString = "515305195.639462"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "-saveToDataBase"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CamScanner/MAViewController.m"
-            timestampString = "515328187.84086"
+            timestampString = "515400971.711015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "-selectAll"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CamScanner/MAViewController.m"
-            timestampString = "515328187.84086"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-removeAll"
             landmarkType = "7">
          </BreakpointContent>
@@ -116,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/FileManager/DataBase.m"
-            timestampString = "515171077.292018"
+            timestampString = "515409497.739538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "-updateDataWithFileModel:success:fail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -132,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/FileManager/DataBase.m"
-            timestampString = "515171078.824775"
+            timestampString = "515409497.739538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
             landmarkName = "-updateDataWithFileModel:success:fail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/FileManager/DataBase.m"
-            timestampString = "515171082.154591"
+            timestampString = "515409497.739538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "-updateDataWithFileModel:success:fail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -164,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/FileManager/DataBase.m"
-            timestampString = "515312789.418121"
+            timestampString = "515409497.739538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "-updateDataWithFileModel:success:fail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -180,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/FileManager/DataBase.m"
-            timestampString = "515172959.918742"
+            timestampString = "515409497.739538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "-updateDataWithFileModel:success:fail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,28 +164,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/FileManager/DataBase.m"
-            timestampString = "515173025.760104"
+            timestampString = "515409497.739538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-updateDataWithFileModel:success:fail:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CamScanner/MAImagePickerController/MAImagePickerFinalViewController.mm"
-            timestampString = "515312789.418121"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "-saveToDataBase"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -260,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CamScanner/MAViewController.m"
-            timestampString = "515334440.289532"
+            timestampString = "515413286.998755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "-addLabel"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,6 +234,102 @@
             startingLineNumber = "62"
             endingLineNumber = "62"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/FileManager/FileManageDataAPI.m"
+            timestampString = "515410839.996803"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-deletefileModelWithKeyArray:success:fail:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FileManageDataAPI deletefileModelWithKeyArray:success:fail:]"
+                  moduleName = "CamScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shaqima/iOS%EF%BC%8DOpenCV/CamScan/CamScanner/CamScanner/FileManager/FileManageDataAPI.m"
+                  timestampString = "515411717.483181"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__62-[FileManageDataAPI deletefileModelWithKeyArray:success:fail:]_block_invoke"
+                  moduleName = "CamScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shaqima/iOS%EF%BC%8DOpenCV/CamScan/CamScanner/CamScanner/FileManager/FileManageDataAPI.m"
+                  timestampString = "515411717.485997"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/FileManager/FileManageDataAPI.m"
+            timestampString = "515410935.30333"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "-deletefileModelWithKeyArray:success:fail:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/FileManager/FileManageDataAPI.m"
+            timestampString = "515411663.835258"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "-deletefileModelWithKeyArray:success:fail:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamScanner/FileManager/FileManageDataAPI.m"
+            timestampString = "515411667.598374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "-deletefileModelWithKeyArray:success:fail:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

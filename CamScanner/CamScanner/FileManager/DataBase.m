@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
 @property (strong, nonatomic) NSManagedObjectModel * managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator * persistentStoreCoordinator;
+@property (strong, nonatomic) NSCondition * condition;
 
 @end
 @implementation DataBase
@@ -27,7 +28,7 @@
         _entityName = entityName;
         _modelName = modelName;
         _entityName = entityName;
-        
+        _condition = [[NSCondition alloc] init];
         self.managedObjectContext = [[NSManagedObjectContext alloc] init];
         if (modelName) {
             //获取模型路径
@@ -310,6 +311,7 @@
     if (error) {
         NSLog(@"删除失败：%@",error);
         if (fail) {
+            [_condition unlock];
             fail(error);
         }
     } else {

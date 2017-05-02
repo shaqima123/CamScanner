@@ -157,27 +157,36 @@ static FileManageDataAPI *uploadCoreData = nil;
 }
 
 - (void)deletefileModelWithKeyArray:(NSMutableArray *)keyArray success:(void(^)(void))success fail:(void(^)(NSError *error))fail{
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+
     for (NSNumber *keynumber in keyArray) {
-        int key = [keynumber intValue];
-         NSString *filterStr = [NSString stringWithFormat:@"fileNumber = '%d'",key];
-        [self.uploadData readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
-            if (results.count>0) {
-                NSManagedObject *obj = [results firstObject];
-                [self.uploadData deleteEntity:obj success:^{
-                    if (success) {
-                        success();
-                    }
-                } fail:^(NSError *error) {
-                    if (fail) {
-                        fail(error);
-                    }
-                }];
-            }
-        } fail:^(NSError *error) {
-            if (fail) {
-                fail(error);
-            }
-        }];
+        dispatch_async(queue, ^(){
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+            int key = [keynumber intValue];
+            NSString *filterStr = [NSString stringWithFormat:@"fileNumber = '%d'",key];
+            [self.uploadData readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
+                if (results.count>0) {
+                    NSManagedObject *obj = [results firstObject];
+                    [self.uploadData deleteEntity:obj success:^{
+                        dispatch_semaphore_signal(semaphore);
+                        if (success) {
+                            success();
+                        }
+                    } fail:^(NSError *error) {
+                        dispatch_semaphore_signal(semaphore);
+                        if (fail) {
+                            fail(error);
+                        }
+                    }];
+                }
+            } fail:^(NSError *error) {
+                if (fail) {
+                    dispatch_semaphore_signal(semaphore);
+                    fail(error);
+                }
+            }];
+        });
     }
 }
 #pragma mark - -- 删除所有上传记录

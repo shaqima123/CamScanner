@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_changeLayout;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_select;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_sequence;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_search;
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
@@ -52,6 +54,7 @@
     [super viewDidLoad];
     [self initData];
     [self initView];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -97,6 +100,8 @@
     
     [_btn_changeLayout setAction:@selector(refreshLayout)];
     [_btn_select setAction:@selector(selectFile)];
+    [_btn_sequence setAction:@selector(sequence)];
+    
     [_btn_delete setAction:@selector(checkDeletefile)];
     [_btn_saveToAlbum setAction:@selector(saveToAlbum)];
     [_btn_addLabel setAction:@selector(addLabel)];
@@ -244,13 +249,24 @@
             NSNumber *fileNumber = [NSNumber numberWithInt:file.fileNumber];
             [keyArray addObject:fileNumber];
         }];
+        
         [[FileManageDataAPI sharedInstance] deletefileModelWithKeyArray:keyArray success:^{
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             //显示alertView
             [alertView show];
+           
             [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
-                [_fileArray removeObjectAtIndex:idx];
+                
+                [_fileArray enumerateObjectsUsingBlock:^(CSFile *file, NSUInteger idx, BOOL *stop) {
+                    for (NSNumber * number in keyArray) {
+                        if (file.fileNumber == [number intValue]) {
+                            [_fileArray removeObject:file];
+                            *stop = YES; // 相当于break ; stop控制跳出枚举器.
+                        }
+                    }
+                }];
             }];
+            
             [self selectCancel];
         } fail:^(NSError *error) {
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除失败" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
@@ -297,7 +313,6 @@
    
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         // 可以在这里对textfield进行定制，例如改变背景色
-        textField.backgroundColor = [UIColor orangeColor];
     }];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -305,6 +320,8 @@
     }]];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+        
         [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
             NSLog(@"%lu", (unsigned long)idx);
             CSFile * file = [_fileArray objectAtIndex:idx];
@@ -314,19 +331,64 @@
                 file.fileLabel = @"无";
             }
             [_fileArray replaceObjectAtIndex:idx withObject:file];
+            
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
-
+                dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
                 [[FileManageDataAPI sharedInstance] updateDataWithFileModel:file success:^{
+                    dispatch_semaphore_signal(semaphore);
                     NSLog(@"update successfully~\n\n\n");
                 }fail:^(NSError *error){
+                    dispatch_semaphore_signal(semaphore);
                     NSLog(@"fail to update!!\n\n\n");
                 }];
             });
         }];
         [self selectCancel];
     }]];
+    
     [self presentViewController:alertController animated:YES completion:nil];
 }
+
+#pragma mark sequence
+- (void)sequence{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"排序" message:@"选择需要的排序方法" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击取消");
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"创建时间逆序" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSArray *fileArray = [_fileArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            CSFile * file1 = (CSFile *)obj1;
+            CSFile * file2 = (CSFile *)obj2;
+            NSDate *date1 = file1.fileCreatedTime;
+            NSDate *date2 = file2.fileCreatedTime;
+            NSComparisonResult result = [date1 compare:date2];
+            return result == NSOrderedAscending;
+        }];
+        _fileArray = [fileArray mutableCopy];
+        [_fileCollectionView reloadData];
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"创建时间正序" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSArray *fileArray = [_fileArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            CSFile * file1 = (CSFile *)obj1;
+            CSFile * file2 = (CSFile *)obj2;
+            NSDate *date1 = file1.fileCreatedTime;
+            NSDate *date2 = file2.fileCreatedTime;
+            NSComparisonResult result = [date1 compare:date2];
+            return result == NSOrderedDescending;
+        }];
+        _fileArray = [fileArray mutableCopy];
+        [_fileCollectionView reloadData];
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+
+
 #pragma mark collection delegate
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
