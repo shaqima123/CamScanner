@@ -15,6 +15,7 @@
 #import "CSFile.h"
 #import "AppDelegate.h"
 #import "CSPDFMangager.h"
+#import "MoreOperationViewController.h"
 
 @interface CSFileShowViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -47,9 +48,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be     recreated.
 }
-- (IBAction)back:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 - (IBAction)updateFile:(id)sender {
     CSFile * file = _csfile;
     NSData *adjustImageData = UIImageJPEGRepresentation(_adjustedImage, 1.0);
@@ -76,6 +75,9 @@
             NSLog(@"fail to update!!\n\n\n");
         }];
     });
+}
+- (IBAction)more:(id)sender {
+    [self performSegueWithIdentifier:@"ToMoreOperationViewController" sender:nil];
 }
 - (IBAction)rotate:(id)sender {
     switch (_adjustedImage.imageOrientation)
@@ -197,6 +199,12 @@
     return YES;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"ToMoreOperationViewController"]){
+        MoreOperationViewController *vc = segue.destinationViewController;
+        vc.csfile = _csfile;
+    }
+}
 /*
 #pragma mark - Navigation
 

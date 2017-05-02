@@ -112,6 +112,10 @@
 		628259F01EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 628259EC1EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard */; };
 		628259F61EA8CF24004BCCB8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628259F51EA8CF24004BCCB8 /* CoreData.framework */; };
 		628259F91EA99EB0004BCCB8 /* FileModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 628259F71EA99EB0004BCCB8 /* FileModel.xcdatamodeld */; };
+		62A77ED31EB832AC0021E125 /* MoreOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A77ED21EB832AC0021E125 /* MoreOperationViewController.m */; };
+		62A77ED61EB838D50021E125 /* CSFilePropertyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A77ED51EB838D50021E125 /* CSFilePropertyTableViewController.m */; };
+		62A77EDA1EB843540021E125 /* CSNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A77ED81EB843540021E125 /* CSNormalTableViewCell.m */; };
+		62A77EDB1EB843540021E125 /* CSNormalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62A77ED91EB843540021E125 /* CSNormalTableViewCell.xib */; };
 		62E107511EA9A36500851EE5 /* FileModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E1074E1EA9A36500851EE5 /* FileModel+CoreDataClass.m */; };
 		62E107521EA9A36500851EE5 /* FileModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107501EA9A36500851EE5 /* FileModel+CoreDataProperties.m */; };
 		62E107571EA9A3E600851EE5 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107541EA9A3E600851EE5 /* DataBase.m */; };
@@ -267,6 +271,13 @@
 		628259EC1EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FileManagerStoryboard.storyboard; path = FileManager/FileManagerStoryboard.storyboard; sourceTree = "<group>"; };
 		628259F51EA8CF24004BCCB8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		628259F81EA99EB0004BCCB8 /* FileModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FileModel.xcdatamodel; sourceTree = "<group>"; };
+		62A77ED11EB832AC0021E125 /* MoreOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreOperationViewController.h; path = FileManager/MoreOperationViewController.h; sourceTree = "<group>"; };
+		62A77ED21EB832AC0021E125 /* MoreOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreOperationViewController.m; path = FileManager/MoreOperationViewController.m; sourceTree = "<group>"; };
+		62A77ED41EB838D50021E125 /* CSFilePropertyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFilePropertyTableViewController.h; path = FileManager/CSFilePropertyTableViewController.h; sourceTree = "<group>"; };
+		62A77ED51EB838D50021E125 /* CSFilePropertyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFilePropertyTableViewController.m; path = FileManager/CSFilePropertyTableViewController.m; sourceTree = "<group>"; };
+		62A77ED71EB843540021E125 /* CSNormalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSNormalTableViewCell.h; path = FileManager/CSNormalTableViewCell.h; sourceTree = "<group>"; };
+		62A77ED81EB843540021E125 /* CSNormalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSNormalTableViewCell.m; path = FileManager/CSNormalTableViewCell.m; sourceTree = "<group>"; };
+		62A77ED91EB843540021E125 /* CSNormalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CSNormalTableViewCell.xib; path = FileManager/CSNormalTableViewCell.xib; sourceTree = "<group>"; };
 		62E1074D1EA9A36500851EE5 /* FileModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileModel+CoreDataClass.h"; path = "CamScanner/FileManager/FileModel+CoreDataClass.h"; sourceTree = "<group>"; };
 		62E1074E1EA9A36500851EE5 /* FileModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FileModel+CoreDataClass.m"; path = "CamScanner/FileManager/FileModel+CoreDataClass.m"; sourceTree = "<group>"; };
 		62E1074F1EA9A36500851EE5 /* FileModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileModel+CoreDataProperties.h"; path = "CamScanner/FileManager/FileModel+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -569,6 +580,9 @@
 				624DA9061EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.h */,
 				624DA9071EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.m */,
 				624DA9081EAF498B008CE2D5 /* CSFileTableViewCellCollectionViewCell.xib */,
+				62A77ED71EB843540021E125 /* CSNormalTableViewCell.h */,
+				62A77ED81EB843540021E125 /* CSNormalTableViewCell.m */,
+				62A77ED91EB843540021E125 /* CSNormalTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -582,6 +596,10 @@
 				628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */,
 				62645D6E1EB48ACA007435CE /* CSFileShowViewController.h */,
 				62645D6F1EB48ACA007435CE /* CSFileShowViewController.mm */,
+				62A77ED11EB832AC0021E125 /* MoreOperationViewController.h */,
+				62A77ED21EB832AC0021E125 /* MoreOperationViewController.m */,
+				62A77ED41EB838D50021E125 /* CSFilePropertyTableViewController.h */,
+				62A77ED51EB838D50021E125 /* CSFilePropertyTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -679,6 +697,7 @@
 				2237CA201647E85000B77E0E /* InfoPlist.strings in Resources */,
 				2237CA281647E85000B77E0E /* Default.png in Resources */,
 				2237CA2A1647E85000B77E0E /* Default@2x.png in Resources */,
+				62A77EDB1EB843540021E125 /* CSNormalTableViewCell.xib in Resources */,
 				2237CA2C1647E85000B77E0E /* Default-568h@2x.png in Resources */,
 				628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */,
 				2237CA551648115E00B77E0E /* camera-bottom-bar.png in Resources */,
@@ -778,12 +797,15 @@
 				628259F91EA99EB0004BCCB8 /* FileModel.xcdatamodeld in Sources */,
 				624F55351EAE162A00618ED7 /* MJRefreshBackStateFooter.m in Sources */,
 				22F46B5D16A2B94F0078DFDE /* MAOpenCV.mm in Sources */,
+				62A77ED61EB838D50021E125 /* CSFilePropertyTableViewController.m in Sources */,
+				62A77EDA1EB843540021E125 /* CSNormalTableViewCell.m in Sources */,
 				624F552F1EAE162A00618ED7 /* MJRefreshHeader.m in Sources */,
 				62E1075B1EAB039100851EE5 /* CSPDFMangager.m in Sources */,
 				22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */,
 				22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */,
 				628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */,
 				624DA9141EB04AF8008CE2D5 /* CSTool.m in Sources */,
+				62A77ED31EB832AC0021E125 /* MoreOperationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
