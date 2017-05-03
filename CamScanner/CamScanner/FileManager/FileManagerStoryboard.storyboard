@@ -79,13 +79,21 @@
                                     <constraint firstItem="ory-wF-4RM" firstAttribute="top" secondItem="oDm-Sx-7fX" secondAttribute="top" constant="11" id="z7E-6Y-HNP"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Nic-5P-Z30">
+                                <rect key="frame" x="-1" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oDm-Sx-7fX" firstAttribute="leading" secondItem="v0s-nJ-TTO" secondAttribute="leading" id="6hU-8I-UY0"/>
+                            <constraint firstItem="Nic-5P-Z30" firstAttribute="top" secondItem="5oU-n7-xf8" secondAttribute="bottom" id="AjF-B0-Rlp"/>
                             <constraint firstItem="xAi-hz-Ghd" firstAttribute="top" secondItem="oDm-Sx-7fX" secondAttribute="bottom" id="HQ0-Mc-LZ8"/>
+                            <constraint firstAttribute="trailing" secondItem="Nic-5P-Z30" secondAttribute="trailing" constant="1" id="I65-oE-QTE"/>
+                            <constraint firstItem="5pB-Pd-w3m" firstAttribute="top" secondItem="Nic-5P-Z30" secondAttribute="bottom" id="Msq-0U-iJZ"/>
                             <constraint firstItem="5pB-Pd-w3m" firstAttribute="top" secondItem="dRS-E6-PCO" secondAttribute="bottom" id="Nhy-nn-40f"/>
                             <constraint firstItem="dRS-E6-PCO" firstAttribute="leading" secondItem="v0s-nJ-TTO" secondAttribute="leadingMargin" constant="-17" id="a4H-5y-6EQ"/>
+                            <constraint firstItem="Nic-5P-Z30" firstAttribute="leading" secondItem="v0s-nJ-TTO" secondAttribute="leading" constant="-1" id="dCv-93-qAI"/>
                             <constraint firstAttribute="bottom" secondItem="5pB-Pd-w3m" secondAttribute="bottom" constant="80" id="iXH-4u-dAX"/>
                             <constraint firstItem="dRS-E6-PCO" firstAttribute="top" secondItem="5oU-n7-xf8" secondAttribute="bottom" id="ko3-aE-tMf"/>
                             <constraint firstAttribute="trailing" secondItem="5pB-Pd-w3m" secondAttribute="trailing" id="pig-Dq-RuA"/>
@@ -106,6 +114,7 @@
                         <outlet property="btn_select" destination="P5n-h8-mVH" id="KYx-X8-BlT"/>
                         <outlet property="btn_sequence" destination="ZYK-e5-IiD" id="s8j-mo-ihm"/>
                         <outlet property="fileCollectionView" destination="5pB-Pd-w3m" id="gmw-lD-GDf"/>
+                        <outlet property="searchBar" destination="Nic-5P-Z30" id="g5Q-VP-J32"/>
                         <outlet property="toolbar" destination="dRS-E6-PCO" id="jHf-OG-5aj"/>
                         <segue destination="Z3S-Bz-uXS" kind="show" identifier="ShowDetail" id="JIg-gH-wFA"/>
                     </connections>

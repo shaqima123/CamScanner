@@ -19,7 +19,7 @@
 #import "MAImagePickerFinalViewController.h"
 #import "CSFileShowViewController.h"
 
-@interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate>
+@interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -34,8 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_saveToAlbum;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_addLabel;
 
-
-
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (assign, nonatomic) BOOL isCollectionLayout;
 @property (assign, nonatomic) BOOL isSelecting;
@@ -101,6 +100,7 @@
     [_btn_changeLayout setAction:@selector(refreshLayout)];
     [_btn_select setAction:@selector(selectFile)];
     [_btn_sequence setAction:@selector(sequence)];
+    [_btn_search setAction:@selector(search)];
     
     [_btn_delete setAction:@selector(checkDeletefile)];
     [_btn_saveToAlbum setAction:@selector(saveToAlbum)];
@@ -109,7 +109,7 @@
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.leftBarButtonItem = nil;
     [self.bottomToolbar setHidden:YES];
-    
+    [self.searchBar setHidden:YES];
     //    [self.collectionView registerNib:[UINib nibWithNibName:@"WWCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     //
     //    // 注册collectionview底部的view,需要注意的是这里的view需要继承自UICollectionReusableView
@@ -122,6 +122,7 @@
     _mydelegate = [[UIApplication sharedApplication] delegate];
     _fileArray = _mydelegate.fileArray;
     _selectedIndexSet = [[NSMutableIndexSet alloc] init];
+    _searchBar.delegate = self;
 }
 
 
@@ -242,7 +243,7 @@
 - (void)deleteFile{
     if (_selectedIndexSet != NULL) {
         NSMutableArray * keyArray = [NSMutableArray array];
-        
+        __weak typeof(self) weakSelf = self;
         [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
             NSLog(@"%lu", (unsigned long)idx);
             CSFile * file = [_fileArray objectAtIndex:idx];
@@ -251,7 +252,7 @@
         }];
         
         [[FileManageDataAPI sharedInstance] deletefileModelWithKeyArray:keyArray success:^{
-            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除成功" delegate:weakSelf cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             //显示alertView
             [alertView show];
            
@@ -261,18 +262,19 @@
                     for (NSNumber * number in keyArray) {
                         if (file.fileNumber == [number intValue]) {
                             [_fileArray removeObject:file];
+                            [_mydelegate.fileArray removeObject:file];
                             *stop = YES; // 相当于break ; stop控制跳出枚举器.
                         }
                     }
                 }];
             }];
             
-            [self selectCancel];
+            [weakSelf selectCancel];
         } fail:^(NSError *error) {
-            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除失败" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"删除失败" delegate:weakSelf cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             //显示alertView
             [alertView show];
-            [self selectCancel];
+            [weakSelf selectCancel];
         }];
     }
 }
@@ -386,9 +388,39 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+#pragma mark search
 
+- (void)search{
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    searchBar.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:searchBar];
+    [_searchBar setHidden:NO];
+    _searchBar.showsCancelButton = YES;
+    _searchBar.placeholder = @"搜索文件名或者标签";
+    
+    [_toolbar setHidden:YES];
+}
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSString * searchStr = searchBar.text;
+    NSMutableArray * searchArray = [NSMutableArray array];
+    for (CSFile * file in _fileArray) {
+        if (([file.fileName rangeOfString:searchStr].location != NSNotFound) ||([file.fileLabel rangeOfString:searchStr].location != NSNotFound)) {
+            [searchArray addObject:file];
+        }
+    }
+    _fileArray = [searchArray mutableCopy];
+    [_fileCollectionView reloadData];
+    [_searchBar resignFirstResponder];
+    [_searchBar setHidden:YES];
+    [_toolbar setHidden:NO];
+}
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar{
+    [_searchBar setHidden:YES];
+    [_toolbar setHidden:NO];
+    [_searchBar resignFirstResponder];
+}
 #pragma mark collection delegate
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
