@@ -150,7 +150,7 @@
     NSString * fileLabel = @"无";
     NSData * fileContent = UIImagePNGRepresentation(_adjustedImage);
     
-    NSString * fileUrlPath = [CSPDFMangager filePath:[NSString stringWithFormat:@"%@.pdf",fileName]];
+    NSString * fileUrlPath = [NSString stringWithFormat:@"%@.pdf",fileName];
     NSData * fileAdjustImage = adjustImageData;
     NSDate * fileCreatedTime = datenow;
     NSData * fileOriginImage = originImageData;

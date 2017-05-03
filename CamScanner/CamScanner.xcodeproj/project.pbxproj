@@ -116,6 +116,7 @@
 		62A77ED61EB838D50021E125 /* CSFilePropertyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A77ED51EB838D50021E125 /* CSFilePropertyTableViewController.m */; };
 		62A77EDA1EB843540021E125 /* CSNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A77ED81EB843540021E125 /* CSNormalTableViewCell.m */; };
 		62A77EDB1EB843540021E125 /* CSNormalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62A77ED91EB843540021E125 /* CSNormalTableViewCell.xib */; };
+		62A77EDD1EB9DEAF0021E125 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A77EDC1EB9DEAF0021E125 /* MessageUI.framework */; };
 		62E107511EA9A36500851EE5 /* FileModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E1074E1EA9A36500851EE5 /* FileModel+CoreDataClass.m */; };
 		62E107521EA9A36500851EE5 /* FileModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107501EA9A36500851EE5 /* FileModel+CoreDataProperties.m */; };
 		62E107571EA9A3E600851EE5 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E107541EA9A3E600851EE5 /* DataBase.m */; };
@@ -278,6 +279,7 @@
 		62A77ED71EB843540021E125 /* CSNormalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSNormalTableViewCell.h; path = FileManager/CSNormalTableViewCell.h; sourceTree = "<group>"; };
 		62A77ED81EB843540021E125 /* CSNormalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSNormalTableViewCell.m; path = FileManager/CSNormalTableViewCell.m; sourceTree = "<group>"; };
 		62A77ED91EB843540021E125 /* CSNormalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CSNormalTableViewCell.xib; path = FileManager/CSNormalTableViewCell.xib; sourceTree = "<group>"; };
+		62A77EDC1EB9DEAF0021E125 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		62E1074D1EA9A36500851EE5 /* FileModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileModel+CoreDataClass.h"; path = "CamScanner/FileManager/FileModel+CoreDataClass.h"; sourceTree = "<group>"; };
 		62E1074E1EA9A36500851EE5 /* FileModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FileModel+CoreDataClass.m"; path = "CamScanner/FileManager/FileModel+CoreDataClass.m"; sourceTree = "<group>"; };
 		62E1074F1EA9A36500851EE5 /* FileModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileModel+CoreDataProperties.h"; path = "CamScanner/FileManager/FileModel+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A77EDD1EB9DEAF0021E125 /* MessageUI.framework in Frameworks */,
 				628259F61EA8CF24004BCCB8 /* CoreData.framework in Frameworks */,
 				22BA6A931704498F00B111E4 /* MediaPlayer.framework in Frameworks */,
 				22BA6A911704497A00B111E4 /* AudioToolbox.framework in Frameworks */,
@@ -338,6 +341,7 @@
 		2237CA141647E85000B77E0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62A77EDC1EB9DEAF0021E125 /* MessageUI.framework */,
 				628259F51EA8CF24004BCCB8 /* CoreData.framework */,
 				22BA6A921704498F00B111E4 /* MediaPlayer.framework */,
 				22BA6A901704497A00B111E4 /* AudioToolbox.framework */,
