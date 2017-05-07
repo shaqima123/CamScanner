@@ -12,6 +12,7 @@
 #import "MAOpenCV.h"
 #import "UIImageView+ContentFrame.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CSMarco.h"
 
 @interface MAImagePickerControllerAdjustViewController ()
 
@@ -40,7 +41,7 @@
     [super viewDidLoad];
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
-    [backgroundView setBackgroundColor:[UIColor blackColor]];
+    [backgroundView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:backgroundView];
     
     _sourceImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kCameraToolBarHeight)];
@@ -55,16 +56,19 @@
     [self.view addSubview:_adjustRect];
     
     _adjustToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - kCameraToolBarHeight, self.view.bounds.size.width, kCameraToolBarHeight)];
-    [_adjustToolBar setBackgroundImage:[UIImage imageNamed:@"camera-bottom-bar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [_adjustToolBar setBackgroundImage:[UIImage imageNamed:@"cs_camera_bottom_bar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close-button"] style:UIBarButtonItemStylePlain target:self action:@selector(popCurrentViewController)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_close_button"] style:UIBarButtonItemStylePlain target:self action:@selector(popCurrentViewController)];
+    [cancelButton setTintColor:[UIColor whiteColor]];
     cancelButton.accessibilityLabel = @"Return to Camera Viewer";
     
-    UIBarButtonItem *undoButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbar-icon-crop"] style:UIBarButtonItemStylePlain target:self action:@selector(resetRectFrame)];
+    UIBarButtonItem *undoButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_crop"] style:UIBarButtonItemStylePlain target:self action:@selector(resetRectFrame)];
+    [undoButton setTintColor:[UIColor whiteColor]];
     undoButton.accessibilityLabel = @"Reset Frame";
     
-    UIBarButtonItem *confirmButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"confirm-button"] style:UIBarButtonItemStylePlain target:self action:@selector(confirmedImage)];
+    UIBarButtonItem *confirmButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_confirm_button"] style:UIBarButtonItemStylePlain target:self action:@selector(confirmedImage)];
     confirmButton.accessibilityLabel = @"Confirm adjusted Image";
+    [confirmButton setTintColor:[UIColor whiteColor]];
     
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];

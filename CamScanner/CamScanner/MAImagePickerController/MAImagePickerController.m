@@ -38,7 +38,6 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     
-    
     if (_sourceType == MAImagePickerControllerSourceTypeCamera && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MAImagePickerChosen:) name:@"MAIPCSuccessInternal" object:nil];
@@ -76,11 +75,11 @@
         
         if ([[UIScreen mainScreen] bounds].size.height == 568.000000)
         {
-            gridImage = [UIImage imageNamed:@"camera-grid-1136@2x.png"];
+            gridImage = [UIImage imageNamed:@"cs_camera_grid_1136@2x.png"];
         }
         else
         {
-            gridImage = [UIImage imageNamed:@"camera-grid"];
+            gridImage = [UIImage imageNamed:@"cs_camera_grid@2x.png"];
         }
         
         UIImageView *gridCameraView = [[UIImageView alloc] initWithImage:gridImage];
@@ -93,13 +92,14 @@
         [[self view] addSubview:gridCameraView];
         
         _cameraToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - kCameraToolBarHeight, self.view.bounds.size.width, kCameraToolBarHeight)];
-        [_cameraToolbar setBackgroundImage:[UIImage imageNamed:@"camera-bottom-bar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+        [_cameraToolbar setBackgroundImage:[UIImage imageNamed:@"cs_camera_bottom_bar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
         
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close-button"] style:UIBarButtonItemStylePlain target:self action:@selector(dismissMAImagePickerController)];
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_close_button"] style:UIBarButtonItemStylePlain target:self action:@selector(dismissMAImagePickerController)];
+        [cancelButton setTintColor:[UIColor whiteColor]];
         cancelButton.accessibilityLabel = @"Close Camera Viewer";
         
-        UIImage *cameraButtonImage = [UIImage imageNamed:@"camera-button"];
-        UIImage *cameraButtonImagePressed = [UIImage imageNamed:@"camera-button-pressed"];
+        UIImage *cameraButtonImage = [UIImage imageNamed:@"cs_camera_button"];
+        UIImage *cameraButtonImagePressed = [UIImage imageNamed:@"cs_camera_button_press"];
         UIButton *pictureButtonRaw = [UIButton buttonWithType:UIButtonTypeCustom];
         [pictureButtonRaw setImage:cameraButtonImage forState:UIControlStateNormal];
         [pictureButtonRaw setImage:cameraButtonImagePressed forState:UIControlStateHighlighted];
@@ -115,14 +115,16 @@
         
         if ([[NSUserDefaults standardUserDefaults] boolForKey:kCameraFlashDefaultsKey])
         {
-            _flashButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"flash-on-button"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleFlash)];
+            _flashButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_flash_on"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleFlash)];
+            [_flashButton setTintColor:[UIColor whiteColor]];
             _flashButton.accessibilityLabel = @"Disable Camera Flash";
             flashIsOn = YES;
             [_captureManager setFlashOn:YES];
         }
         else
         {
-            _flashButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"flash-off-button"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleFlash)];
+            _flashButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_flash_off"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleFlash)];
+            [_flashButton setTintColor:[UIColor whiteColor]];
             _flashButton.accessibilityLabel = @"Enable Camera Flash";
             flashIsOn = NO;
             [_captureManager setFlashOn:NO];
@@ -199,7 +201,8 @@
     {
         flashIsOn = NO;
         [_captureManager setFlashOn:NO];
-        [_flashButton setImage:[UIImage imageNamed:@"flash-off-button"]];
+        [_flashButton setImage:[UIImage imageNamed:@"cs_camera_flash_off"]];
+        [_flashButton setTintColor:[UIColor whiteColor]];
         _flashButton.accessibilityLabel = @"Enable Camera Flash";
         [self storeFlashSettingWithBool:NO];
     }
@@ -207,7 +210,8 @@
     {
         flashIsOn = YES;
         [_captureManager setFlashOn:YES];
-        [_flashButton setImage:[UIImage imageNamed:@"flash-on-button"]];
+        [_flashButton setImage:[UIImage imageNamed:@"cs_camera_flash_on"]];
+        [_flashButton setTintColor:[UIColor whiteColor]];
         _flashButton.accessibilityLabel = @"Disable Camera Flash";
         [self storeFlashSettingWithBool:YES];
     }

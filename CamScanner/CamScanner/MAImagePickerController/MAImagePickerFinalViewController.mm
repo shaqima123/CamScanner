@@ -17,6 +17,7 @@
 #import "CSPDFMangager.h"
 #import "AppDelegate.h"
 #import "CSFile.h"
+#import "CSMarco.h"
 
 @interface MAImagePickerFinalViewController ()
 
@@ -53,7 +54,7 @@
     [self setupToolbar];
     [self setupEditor];
     
-    [self.view setBackgroundColor:[UIColor blackColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     _adjustedImage = _sourceImage;
     
     _finalImageView = [[UIImageView alloc] init];
@@ -402,15 +403,15 @@
     UIView *editorView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - (kCameraToolBarHeight + 60), self.view.bounds.size.width, 60)];
     
     UIImageView *editorViewBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 31, self.view.bounds.size.width, 29)];
-    [editorViewBackground setImage:[UIImage imageNamed:@"f-setting-tray"]];
+    [editorViewBackground setImage:[UIImage imageNamed:@"cs_camera_tray"]];
     
     
     UIView *firstSetting = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, editorView.frame.size.height)];
     _firstSettingIcon = [UIButton buttonWithType:UIButtonTypeCustom];
     _firstSettingIcon.accessibilityLabel = @"No Filter";
     [_firstSettingIcon setFrame:CGRectMake(12, 0, 57, 58)];
-    [_firstSettingIcon setBackgroundImage:[UIImage imageNamed:@"f-setting-1"] forState:UIControlStateNormal];
-    [_firstSettingIcon setBackgroundImage:[UIImage imageNamed:@"f-setting-1-active"] forState:UIControlStateHighlighted];
+    [_firstSettingIcon setBackgroundImage:[UIImage imageNamed:@"cs_setting_1"] forState:UIControlStateNormal];
+    [_firstSettingIcon setBackgroundImage:[UIImage imageNamed:@"cs_setting_1_active"] forState:UIControlStateHighlighted];
     [_firstSettingIcon setTag:1];
     [_firstSettingIcon addTarget:self action:@selector(filterChanged:withEvent:) forControlEvents:UIControlEventTouchUpInside];
     [firstSetting addSubview:_firstSettingIcon];
@@ -419,8 +420,8 @@
     _secondSettingIcon = [UIButton buttonWithType:UIButtonTypeCustom];
     _secondSettingIcon.accessibilityLabel = @"Text Only Enhance Filter";
     [_secondSettingIcon setFrame:CGRectMake(12, 0, 57, 58)];
-    [_secondSettingIcon setBackgroundImage:[UIImage imageNamed:@"f-setting-2"] forState:UIControlStateNormal];
-    [_secondSettingIcon setBackgroundImage:[UIImage imageNamed:@"f-setting-2-active"] forState:UIControlStateHighlighted];
+    [_secondSettingIcon setBackgroundImage:[UIImage imageNamed:@"cs_setting_2"] forState:UIControlStateNormal];
+    [_secondSettingIcon setBackgroundImage:[UIImage imageNamed:@"cs_setting_2_active"] forState:UIControlStateHighlighted];
     [_secondSettingIcon setTag:2];
     [_secondSettingIcon addTarget:self action:@selector(filterChanged:withEvent:) forControlEvents:UIControlEventTouchUpInside];
     [secondSetting addSubview:_secondSettingIcon];
@@ -429,8 +430,8 @@
     _thirdSettingIcon = [UIButton buttonWithType:UIButtonTypeCustom];
     _thirdSettingIcon.accessibilityLabel = @"Photo and Text Enhance Filter (Black and White)";
     [_thirdSettingIcon setFrame:CGRectMake(12, 0, 57, 58)];
-    [_thirdSettingIcon setBackgroundImage:[UIImage imageNamed:@"f-setting-3"] forState:UIControlStateNormal];
-    [_thirdSettingIcon setBackgroundImage:[UIImage imageNamed:@"f-setting-3-active"] forState:UIControlStateHighlighted];
+    [_thirdSettingIcon setBackgroundImage:[UIImage imageNamed:@"cs_setting_3"] forState:UIControlStateNormal];
+    [_thirdSettingIcon setBackgroundImage:[UIImage imageNamed:@"cs_setting_3_active"] forState:UIControlStateHighlighted];
     [_thirdSettingIcon setTag:3];
     [_thirdSettingIcon addTarget:self action:@selector(filterChanged:withEvent:) forControlEvents:UIControlEventTouchUpInside];
     [thirdSetting addSubview:_thirdSettingIcon];
@@ -439,13 +440,13 @@
     _fourthSettingIcon = [UIButton buttonWithType:UIButtonTypeCustom];
     _fourthSettingIcon.accessibilityLabel = @"Photo Only Enhance Filter";
     [_fourthSettingIcon setFrame:CGRectMake(12, 0, 57, 58)];
-    [_fourthSettingIcon setBackgroundImage:[UIImage imageNamed:@"f-setting-4"] forState:UIControlStateNormal];
-    [_fourthSettingIcon setBackgroundImage:[UIImage imageNamed:@"f-setting-4-active"] forState:UIControlStateHighlighted];
+    [_fourthSettingIcon setBackgroundImage:[UIImage imageNamed:@"cs_setting_4"] forState:UIControlStateNormal];
+    [_fourthSettingIcon setBackgroundImage:[UIImage imageNamed:@"cs_setting_4_active"] forState:UIControlStateHighlighted];
     [_fourthSettingIcon setTag:4];
     [_fourthSettingIcon addTarget:self action:@selector(filterChanged:withEvent:) forControlEvents:UIControlEventTouchUpInside];
     [fourthSetting addSubview:_fourthSettingIcon];
     
-    _activityIndicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"f-setting-indicator-active"]];
+    _activityIndicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cs_cemera_indicator_active"]];
     
     [editorView addSubview:editorViewBackground];
     
@@ -461,16 +462,19 @@
 - (void)setupToolbar
 {
     UIToolbar *finishToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - kCameraToolBarHeight, self.view.bounds.size.width, kCameraToolBarHeight)];
-    [finishToolBar setBackgroundImage:[UIImage imageNamed:@"camera-bottom-bar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [finishToolBar setBackgroundImage:[UIImage imageNamed:@"cs_camera_bottom_bar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
-    UIBarButtonItem *undoButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbar-icon-crop"] style:UIBarButtonItemStylePlain target:self action:@selector(popCurrentViewController)];
+    UIBarButtonItem *undoButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_crop"] style:UIBarButtonItemStylePlain target:self action:@selector(popCurrentViewController)];
+    [undoButton setTintColor:[UIColor whiteColor]];
     undoButton.accessibilityLabel = @"Return to Frame Adjustment View";
     
-    _rotateButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"f-setting-rotate"] style:UIBarButtonItemStylePlain target:self action:@selector(rotateImage)];
+    _rotateButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_rotate"] style:UIBarButtonItemStylePlain target:self action:@selector(rotateImage)];
     _rotateButton.accessibilityLabel = @"Rotate Image by 90 Degrees";
+    [_rotateButton setTintColor:[UIColor whiteColor]];
     
-    UIBarButtonItem *confirmButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"confirm-button"] style:UIBarButtonItemStylePlain target:self action:@selector(comfirmFinishedImage)];
+    UIBarButtonItem *confirmButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cs_camera_confirm_button"] style:UIBarButtonItemStylePlain target:self action:@selector(comfirmFinishedImage)];
     confirmButton.accessibilityLabel = @"Confirm adjusted Image";
+    [confirmButton setTintColor:[UIColor whiteColor]];
     
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
