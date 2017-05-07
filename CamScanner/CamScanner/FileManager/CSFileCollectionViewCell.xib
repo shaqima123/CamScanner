@@ -31,12 +31,12 @@
                             <constraint firstAttribute="width" constant="111" id="YIV-zW-KJd"/>
                             <constraint firstAttribute="height" constant="20" id="tKr-aI-rV8"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哈哈哈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUW-m0-UJa">
-                        <rect key="frame" x="0.0" y="139" width="111" height="12"/>
+                        <rect key="frame" x="12" y="139" width="111" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="111" id="0f8-ZH-8Xv"/>
                             <constraint firstAttribute="height" constant="12" id="1Rw-re-7kL"/>
@@ -56,24 +56,33 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeX-9b-dY0">
-                        <rect key="frame" x="81" y="0.0" width="30" height="30"/>
+                        <rect key="frame" x="89" y="0.0" width="22" height="22"/>
                         <state key="normal" title="Select" image="cs_checkbox_no.png"/>
                         <state key="selected" image="cs_checkbox_yes.png"/>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cs_file_tag.png" translatesAutoresizingMaskIntoConstraints="NO" id="eca-eO-6LY">
+                        <rect key="frame" x="0.0" y="139" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="XxV-bF-USo"/>
+                            <constraint firstAttribute="height" constant="12" id="YKx-U8-V1U"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="muK-Iv-ATA" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="3O6-e7-XCD"/>
                 <constraint firstItem="RX9-Se-VuG" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="9aw-n9-EMd"/>
+                <constraint firstItem="eca-eO-6LY" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="FdA-IC-s5m"/>
                 <constraint firstItem="PeX-9b-dY0" firstAttribute="top" secondItem="Lqj-hp-Fdw" secondAttribute="top" id="RMB-f7-6N5"/>
                 <constraint firstItem="muK-Iv-ATA" firstAttribute="top" secondItem="RX9-Se-VuG" secondAttribute="bottom" id="T5i-Tk-0oi"/>
+                <constraint firstItem="aUW-m0-UJa" firstAttribute="leading" secondItem="eca-eO-6LY" secondAttribute="trailing" id="TVH-yj-eKe"/>
                 <constraint firstItem="aUW-m0-UJa" firstAttribute="top" secondItem="gVq-LT-zoI" secondAttribute="bottom" id="VFR-4m-z4i"/>
                 <constraint firstItem="RX9-Se-VuG" firstAttribute="top" secondItem="Lqj-hp-Fdw" secondAttribute="top" id="WKN-JU-5d3"/>
                 <constraint firstItem="gVq-LT-zoI" firstAttribute="top" secondItem="muK-Iv-ATA" secondAttribute="bottom" id="fph-UW-jus"/>
+                <constraint firstItem="eca-eO-6LY" firstAttribute="top" secondItem="gVq-LT-zoI" secondAttribute="bottom" id="gfq-kj-ybh"/>
                 <constraint firstItem="gVq-LT-zoI" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="ibd-k6-dSd"/>
-                <constraint firstItem="aUW-m0-UJa" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" id="jME-m9-iUJ"/>
-                <constraint firstAttribute="bottom" secondItem="PeX-9b-dY0" secondAttribute="bottom" constant="120" id="m4t-Cf-CVq"/>
-                <constraint firstItem="PeX-9b-dY0" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" constant="81" id="mw2-iN-Yuy"/>
+                <constraint firstAttribute="bottom" secondItem="PeX-9b-dY0" secondAttribute="bottom" constant="128" id="m4t-Cf-CVq"/>
+                <constraint firstItem="PeX-9b-dY0" firstAttribute="leading" secondItem="Lqj-hp-Fdw" secondAttribute="leading" constant="89" id="mw2-iN-Yuy"/>
                 <constraint firstAttribute="trailing" secondItem="PeX-9b-dY0" secondAttribute="trailing" id="ooi-GL-xvk"/>
             </constraints>
             <size key="customSize" width="149" height="180"/>
@@ -90,5 +99,6 @@
     <resources>
         <image name="cs_checkbox_no.png" width="43" height="43"/>
         <image name="cs_checkbox_yes.png" width="44" height="44"/>
+        <image name="cs_file_tag.png" width="36" height="36"/>
     </resources>
 </document>

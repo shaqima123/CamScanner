@@ -31,12 +31,12 @@
                             <constraint firstAttribute="height" constant="35" id="iwY-Yr-dNg"/>
                             <constraint firstAttribute="width" constant="300" id="lGL-2o-bVn"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ww-GP-IjZ">
-                        <rect key="frame" x="75" y="60" width="302" height="23"/>
+                        <rect key="frame" x="94" y="60" width="302" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="Odj-U2-Abb"/>
                             <constraint firstAttribute="width" constant="302" id="qoc-Gw-HWE"/>
@@ -56,25 +56,34 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMU-s7-G8R">
-                        <rect key="frame" x="340" y="0.0" width="35" height="35"/>
+                        <rect key="frame" x="351" y="0.0" width="24" height="24"/>
                         <state key="normal" title="Button" image="cs_checkbox_no.png"/>
                         <state key="selected" image="cs_checkbox_yes.png"/>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cs_file_tag.png" translatesAutoresizingMaskIntoConstraints="NO" id="JZF-MB-pmy">
+                        <rect key="frame" x="74" y="60" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="RaQ-UX-MGf"/>
+                            <constraint firstAttribute="width" constant="20" id="fUZ-u8-gmj"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="X9l-4n-yrk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1T5-LH-Yv3"/>
                 <constraint firstItem="ahR-qr-6mU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="40K-3M-q6f"/>
                 <constraint firstItem="PMU-s7-G8R" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="79y-c7-akq"/>
-                <constraint firstAttribute="bottom" secondItem="PMU-s7-G8R" secondAttribute="bottom" constant="45" id="8I6-i0-yw2"/>
+                <constraint firstAttribute="bottom" secondItem="PMU-s7-G8R" secondAttribute="bottom" constant="56" id="8I6-i0-yw2"/>
                 <constraint firstAttribute="bottom" secondItem="ahR-qr-6mU" secondAttribute="bottom" id="Blw-eh-NiH"/>
                 <constraint firstItem="pA6-iT-v1I" firstAttribute="top" secondItem="X9l-4n-yrk" secondAttribute="bottom" id="JOF-Tr-xA9"/>
                 <constraint firstAttribute="trailing" secondItem="PMU-s7-G8R" secondAttribute="trailing" id="OSv-JH-vmM"/>
+                <constraint firstItem="5Ww-GP-IjZ" firstAttribute="leading" secondItem="JZF-MB-pmy" secondAttribute="trailing" id="Qbf-tH-24X"/>
                 <constraint firstItem="X9l-4n-yrk" firstAttribute="leading" secondItem="ahR-qr-6mU" secondAttribute="trailing" id="Uob-lk-MaQ"/>
-                <constraint firstItem="5Ww-GP-IjZ" firstAttribute="leading" secondItem="ahR-qr-6mU" secondAttribute="trailing" id="V3d-FK-Ljn"/>
                 <constraint firstItem="5Ww-GP-IjZ" firstAttribute="top" secondItem="pA6-iT-v1I" secondAttribute="bottom" id="gOS-hO-bSb"/>
                 <constraint firstItem="ahR-qr-6mU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kl8-xG-1qY"/>
-                <constraint firstItem="PMU-s7-G8R" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="340" id="pBq-mi-KAt"/>
+                <constraint firstItem="JZF-MB-pmy" firstAttribute="top" secondItem="pA6-iT-v1I" secondAttribute="bottom" id="mYt-11-hRV"/>
+                <constraint firstItem="PMU-s7-G8R" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="351" id="pBq-mi-KAt"/>
+                <constraint firstItem="JZF-MB-pmy" firstAttribute="leading" secondItem="ahR-qr-6mU" secondAttribute="trailing" constant="-1" id="pm9-9L-kGY"/>
                 <constraint firstAttribute="trailing" secondItem="X9l-4n-yrk" secondAttribute="trailing" id="rsm-PP-jr5"/>
                 <constraint firstItem="pA6-iT-v1I" firstAttribute="leading" secondItem="ahR-qr-6mU" secondAttribute="trailing" constant="-2" id="vUv-nM-ulH"/>
             </constraints>
@@ -92,5 +101,6 @@
     <resources>
         <image name="cs_checkbox_no.png" width="43" height="43"/>
         <image name="cs_checkbox_yes.png" width="44" height="44"/>
+        <image name="cs_file_tag.png" width="36" height="36"/>
     </resources>
 </document>

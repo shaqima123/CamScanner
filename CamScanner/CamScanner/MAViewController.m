@@ -19,6 +19,8 @@
 #import "MAImagePickerFinalViewController.h"
 #import "CSFileShowViewController.h"
 
+#import "CSMarco.h"
+
 @interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
@@ -68,7 +70,12 @@
 
 - (void)initView{
     [self refreshLayout];
-    _fileCollectionView.backgroundColor = [UIColor lightGrayColor];
+   // self.navigationController.navigationBar.backgroundColor = RGBAHEX(0xDBE5D5, 1.0);
+    self.navigationController.navigationBar.barTintColor = RGBAHEX(0xDBE5D5, 1.0);
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:22],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
     _fileCollectionView.alwaysBounceVertical=YES;
     _fileCollectionView.dataSource = self;
     _fileCollectionView.delegate = self;
@@ -179,11 +186,34 @@
     _fileCollectionView.allowsMultipleSelection = YES;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"全选" style:UIBarButtonItemStylePlain target:self action:@selector(selectAll)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(selectCancel)];
+
+    [UIView beginAnimations:nil context:nil];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationWillStartSelector:@selector(animationDidStart:)];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop:)];
+    
+    [UIView setAnimationDelay:0.0f];
+    [UIView setAnimationDuration:0.5f];
+    [_toolbar setFrame:CGRectMake(_toolbar.frame.origin.x ,_toolbar.frame.origin.y - 44.f ,_toolbar.frame.size.width, _toolbar.frame.size.height)];
+    [_fileCollectionView setFrame:CGRectMake(_fileCollectionView.frame.origin.x ,_fileCollectionView.frame.origin.y - 44.f , _fileCollectionView.frame.size.width, _fileCollectionView.frame.size.height)];
+    [_bottomView setFrame:CGRectMake(_bottomView.frame.origin.x, self.view.frame.size.height, _bottomView.frame.size.width, _bottomView.frame.size.height)];
+    
+    [_bottomToolbar setFrame:CGRectMake(_bottomToolbar.frame.origin.x, _bottomToolbar.frame.origin.y - 44.f, _bottomToolbar.frame.size.width, _bottomToolbar.frame.size.height)];
+    
+    [UIView commitAnimations];
+    [_fileCollectionView reloadData];
+}
+
+-(void)animationDidStart:(CAAnimation *)anim
+{
+    [_bottomToolbar setHidden:NO];
+}
+
+-(void)animationDidStop:(CAAnimation *)anim
+{
     [_toolbar setHidden:YES];
     [_bottomView setHidden:YES];
-    [_bottomToolbar setHidden:NO];
-    
-    [_fileCollectionView reloadData];
 }
 
 - (void)selectAll{
@@ -212,18 +242,42 @@
     _fileCollectionView.allowsMultipleSelection = NO;
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = nil;
-    [_bottomToolbar setHidden:YES];
+    
+    [UIView beginAnimations:nil context:nil];
+    
+    [UIView setAnimationDelay:0.0f];
+    [UIView setAnimationDuration:0.5f];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationWillStartSelector:@selector(animationCancelDidStart:)];
+    [UIView setAnimationDidStopSelector:@selector(animationCancelDidStop:)];
+    
+    [_toolbar setFrame:CGRectMake(_toolbar.frame.origin.x ,_toolbar.frame.origin.y + 44.f ,_toolbar.frame.size.width, _toolbar.frame.size.height)];
+    [_fileCollectionView setFrame:CGRectMake(_fileCollectionView.frame.origin.x ,_fileCollectionView.frame.origin.y + 44.f , _fileCollectionView.frame.size.width, _fileCollectionView.frame.size.height)];
+    [_bottomView setFrame:CGRectMake(_bottomView.frame.origin.x, self.view.frame.size.height - _bottomView.frame.size.height, _bottomView.frame.size.width, _bottomView.frame.size.height)];
+    
+    [_bottomToolbar setFrame:CGRectMake(_bottomToolbar.frame.origin.x, _bottomToolbar.frame.origin.y + 44.f, _bottomToolbar.frame.size.width, _bottomToolbar.frame.size.height)];
+    
+    [UIView commitAnimations];
     
     for (NSUInteger i = 0; i < [_fileArray count]; i ++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
         [_selectedIndexSet removeIndex:i];
         [self collectionView:_fileCollectionView didDeselectItemAtIndexPath:indexPath];
     }
-    [_toolbar setHidden:NO];
-    [_bottomView setHidden:NO];
+ 
     [_fileCollectionView reloadData];
 }
 
+- (void)animationCancelDidStart:(CAAnimation *)anim{
+    [_toolbar setHidden:NO];
+    [_bottomView setHidden:NO];
+}
+
+- (void)animationCancelDidStop:(CAAnimation *)anim
+{
+    [_bottomToolbar setHidden:YES];
+}
 
 #pragma mark delete funcs
 - (void)checkDeletefile{
@@ -533,7 +587,7 @@
             cell.fileLabel.text = fileModel.fileLabel;
             cell.fileCreateTime.text = [formatter stringFromDate:fileModel.fileCreatedTime];
             cell.fileImage.image = img;
-            cell.backgroundColor = [UIColor yellowColor];
+            cell.backgroundColor = [UIColor whiteColor];
             if (_isSelecting) {
                 [cell.selectButton setHidden:NO];
             }
@@ -563,7 +617,7 @@
             cell.fileLabel.text = fileModel.fileLabel;
             cell.fileCreateTime.text = [formatter stringFromDate:fileModel.fileCreatedTime];
             cell.fileImage.image = img;
-            cell.backgroundColor = [UIColor yellowColor];
+            cell.backgroundColor = [UIColor whiteColor];
             if (_isSelecting) {
                 [cell.selectButton setHidden:NO];
             }
