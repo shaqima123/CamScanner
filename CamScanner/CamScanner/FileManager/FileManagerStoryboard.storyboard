@@ -151,68 +151,75 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gy7-p6-gDL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="495"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMK-Gt-DC5">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <barButtonItem title="更多" id="2ZT-il-U9k">
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="n6U-To-r7j"/>
+                                    <barButtonItem image="cs_file_more.png" id="2ZT-il-U9k">
                                         <connections>
                                             <action selector="more:" destination="Z3S-Bz-uXS" id="lTH-1h-aKk"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="旋转" id="oUP-dm-7SF">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7EF-p1-RsC"/>
+                                    <barButtonItem image="cs_camera_rotate.png" id="oUP-dm-7SF">
                                         <connections>
                                             <action selector="rotate:" destination="Z3S-Bz-uXS" id="uWR-TO-Coi"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="确定" id="WHE-0p-k9V">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="iAR-pt-zoL"/>
+                                    <barButtonItem image="cs_camera_confirm_button.png" id="WHE-0p-k9V">
                                         <connections>
                                             <action selector="updateFile:" destination="Z3S-Bz-uXS" id="k1j-8i-b4c"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="Lam-en-TjC"/>
                                 </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AgA-Ws-Xge">
-                                <rect key="frame" x="0.0" y="557" width="375" height="66"/>
+                                <rect key="frame" x="0.0" y="585" width="375" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-O2-cWL">
-                                        <rect key="frame" x="35" y="1" width="44" height="66"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDW-O6-Bgv">
+                                        <rect key="frame" x="89" y="-27" width="50" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="原图"/>
-                                        <connections>
-                                            <action selector="originFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="6op-21-odL"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDW-O6-Bgv">
-                                        <rect key="frame" x="113" y="0.0" width="46" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="黑白"/>
+                                        <state key="normal" title="黑白" image="cs_setting_2.png"/>
                                         <connections>
                                             <action selector="blackFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="JZi-Lo-0Hr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhW-Rj-ThR">
-                                        <rect key="frame" x="192" y="0.0" width="46" height="65"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhW-Rj-ThR">
+                                        <rect key="frame" x="162" y="-27" width="50" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="灰度"/>
+                                        <state key="normal" title="灰度" image="cs_setting_3.png"/>
                                         <connections>
                                             <action selector="grayFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="k7D-I3-3v3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xr-Si-NBZ">
-                                        <rect key="frame" x="271" y="1" width="46" height="66"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xr-Si-NBZ">
+                                        <rect key="frame" x="235" y="-27" width="50" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="增强"/>
+                                        <state key="normal" title="增强" image="cs_setting_4.png"/>
                                         <connections>
                                             <action selector="colorStrongerFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="Y1O-go-8Cm"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-O2-cWL">
+                                        <rect key="frame" x="17" y="-27" width="50" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="原图" image="cs_setting_1.png"/>
+                                        <connections>
+                                            <action selector="originFilter:" destination="Z3S-Bz-uXS" eventType="touchUpInside" id="6op-21-odL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.74509803919999995" green="0.80000000000000004" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -244,10 +251,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARe-RD-1DH">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARe-RD-1DH">
                                 <rect key="frame" x="0.0" y="64" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="保存到相册"/>
+                                <state key="normal" title="保存到相册">
+                                    <color key="titleColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="saveToAlbum:" destination="Iba-Xy-Zmg" eventType="touchUpInside" id="UZK-Ay-QfN"/>
                                 </connections>
@@ -255,7 +264,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7I-Lw-59H">
                                 <rect key="frame" x="132" y="64" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="文档属性"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="文档属性">
+                                    <color key="titleColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="toFileProperty:" destination="Iba-Xy-Zmg" eventType="touchUpInside" id="EeP-sj-PvC"/>
                                 </connections>
@@ -263,7 +275,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mc-o6-ptq">
                                 <rect key="frame" x="265" y="64" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="邮件发送"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="邮件发送">
+                                    <color key="titleColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="sendEmail:" destination="Iba-Xy-Zmg" eventType="touchUpInside" id="P9r-ot-Ruu"/>
                                 </connections>
@@ -284,7 +299,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaT-9S-oqk">
                                 <rect key="frame" x="0.0" y="198" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="OCR识别"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="OCR识别">
+                                    <color key="titleColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -296,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fh8-Yn-LG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="538"/>
+            <point key="canvasLocation" x="1764" y="537.48125937031489"/>
         </scene>
         <!--File Property Table View Controller-->
         <scene sceneID="ilE-IM-ybc">
@@ -499,16 +517,23 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cs_camera_confirm_button.png" width="25" height="20"/>
+        <image name="cs_camera_rotate.png" width="30" height="25"/>
         <image name="cs_file_changeLayout_collection.png" width="36" height="36"/>
         <image name="cs_file_choose.png" width="36" height="36"/>
         <image name="cs_file_delete.png" width="36" height="36"/>
         <image name="cs_file_email.png" width="36" height="36"/>
         <image name="cs_file_lock.png" width="42" height="42"/>
+        <image name="cs_file_more.png" width="32" height="32"/>
         <image name="cs_file_saveToAlbum.png" width="36" height="36"/>
         <image name="cs_file_search.png" width="40" height="40"/>
         <image name="cs_file_sequence.png" width="36" height="36"/>
         <image name="cs_file_share.png" width="36" height="36"/>
         <image name="cs_file_tag1.png" width="36" height="36"/>
+        <image name="cs_setting_1.png" width="57" height="57"/>
+        <image name="cs_setting_2.png" width="57" height="57"/>
+        <image name="cs_setting_3.png" width="57" height="57"/>
+        <image name="cs_setting_4.png" width="57" height="57"/>
         <image name="cs_takephoto.png" width="90" height="90"/>
     </resources>
 </document>
