@@ -118,6 +118,12 @@
     [_btn_email setAction:@selector(email)];
     [_btn_share setAction:@selector(shareFile)];
     
+    [_btn_share setEnabled:NO];
+    [_btn_email setEnabled:NO];
+    [_btn_delete setEnabled:NO];
+    [_btn_addLabel setEnabled:NO];
+    [_btn_saveToAlbum setEnabled:NO];
+    
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.leftBarButtonItem = nil;
     [self.bottomToolbar setHidden:YES];
@@ -602,6 +608,14 @@
             [self changeSelectStateWithTableCell:cell];
         }
         [_selectedIndexSet addIndex:indexPath.item];
+        if ([_selectedIndexSet count] > 0) {
+            [_btn_share setEnabled:YES];
+            [_btn_email setEnabled:YES];
+            [_btn_delete setEnabled:YES];
+            [_btn_addLabel setEnabled:YES];
+            [_btn_saveToAlbum setEnabled:YES];
+            [_bottomToolbar setNeedsDisplay];
+        }
     }
     else{
         [self performSegueWithIdentifier:@"ShowDetail" sender:indexPath];
@@ -630,6 +644,14 @@
         [self changeSelectStateWithTableCell:cell];
     }
     [_selectedIndexSet removeIndex:indexPath.item];
+    if ([_selectedIndexSet count] == 0) {
+        [_btn_share setEnabled:NO];
+        [_btn_email setEnabled:NO];
+        [_btn_delete setEnabled:NO];
+        [_btn_addLabel setEnabled:NO];
+        [_btn_saveToAlbum setEnabled:NO];
+        [_bottomToolbar setNeedsDisplay];
+    }
 }
 
 /**
