@@ -20,8 +20,9 @@
 #import "CSFileShowViewController.h"
 
 #import "CSMarco.h"
+#import <MessageUI/MessageUI.h>
 
-@interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UISearchBarDelegate>
+@interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UISearchBarDelegate,MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -35,6 +36,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_delete;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_saveToAlbum;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_addLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_email;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btn_share;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -112,6 +115,8 @@
     [_btn_delete setAction:@selector(checkDeletefile)];
     [_btn_saveToAlbum setAction:@selector(saveToAlbum)];
     [_btn_addLabel setAction:@selector(addLabel)];
+    [_btn_email setAction:@selector(email)];
+    [_btn_share setAction:@selector(shareFile)];
     
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.leftBarButtonItem = nil;
@@ -405,6 +410,102 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+
+#pragma mark email
+- (void)email{
+    if ([MFMailComposeViewController canSendMail]) {
+        [self sendEmailAction]; // 调用发送邮件的代码
+    }else{
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:[NSString stringWithFormat:@"未设置邮箱账户，请到系统设置中设置"] delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        //显示alertView
+        [alertView show];
+    }
+}
+
+-(void)sendEmailAction{
+    NSMutableArray *fileArray = [NSMutableArray array];
+    [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"%lu", (unsigned long)idx);
+        CSFile * file = [_fileArray objectAtIndex:idx];
+        [fileArray addObject:file];
+    }];
+    
+    // 创建邮件发送界面
+    MFMailComposeViewController *mailCompose = [[MFMailComposeViewController alloc] init];
+    // 设置邮件代理
+    [mailCompose setTitle:@"发送邮件"];
+    
+    [mailCompose setMailComposeDelegate:self];
+    // 设置收件人
+    [mailCompose setToRecipients:@[@"735042473@qq.com"]];
+    // 设置抄送人
+    [mailCompose setCcRecipients:@[@""]];
+    // 设置密送人
+    [mailCompose setBccRecipients:@[@""]];
+    // 设置邮件主题
+    CSFile * file = [fileArray firstObject];
+    [mailCompose setSubject:file.fileName];
+    //设置邮件的正文内容
+    NSString *emailContent = @"我是来自CamScanner的扫描文档，请多多关照";
+    // 是否为HTML格式
+    [mailCompose setMessageBody:emailContent isHTML:NO];
+    // 如使用HTML格式，则为以下代码
+    // [mailCompose setMessageBody:@"<html><body><p>Hello</p><p>World！</p></body></html>" isHTML:YES];
+    //    //添加附件
+    //    UIImage *image = [UIImage imageNamed:@"qq"];
+    //    NSData *imageData = UIImagePNGRepresentation(image);
+    //    [mailCompose addAttachmentData:imageData mimeType:@"" fileName:@"qq.png"];
+    
+    // NSString *file = [[NSBundle mainBundle] pathForResource:@"EmptyPDF" ofType:@"pdf"];
+    for (CSFile * file in fileArray) {
+        NSFileManager* fm=[NSFileManager defaultManager];
+        NSData *pdf = [NSData data];
+        NSString *pathDocuments = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+        NSString *fileName = file.fileUrlPath;
+        NSString *createPath = [NSString stringWithFormat:@"%@/%@",pathDocuments,fileName];
+        
+        pdf = [fm contentsAtPath:createPath];
+        NSLog(@"\n\n%@",createPath);
+        NSLog(@"\n\n%@",file.fileUrlPath);
+        if (!pdf) {
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:[NSString stringWithFormat:@"未读取到文件！"] delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            //显示alertView
+            [alertView show];
+        }else{
+            // NSData *pdf = [fileManager contentsAtPath:_csfile.fileUrlPath];
+            [mailCompose addAttachmentData:pdf mimeType:@"application/pdf" fileName:fileName];
+        }
+
+    }
+       // 弹出邮件发送视图
+    [self presentViewController:mailCompose animated:YES completion:nil];
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail send canceled: 用户取消编辑");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved: 用户保存邮件");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent: 用户点击发送");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail send errored: %@ : 用户尝试保存或发送邮件失败", [error localizedDescription]);
+            break;
+    }
+    [self selectCancel];
+    // 关闭邮件发送视图
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark share
+- (void)shareFile{
+    
+}
 #pragma mark sequence
 - (void)sequence{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"排序" message:@"选择需要的排序方法" preferredStyle:UIAlertControllerStyleActionSheet];

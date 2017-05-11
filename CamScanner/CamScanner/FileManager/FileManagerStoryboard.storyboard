@@ -63,10 +63,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem width="8" style="plain" systemItem="fixedSpace" id="fs4-k3-Ayf"/>
-                                    <barButtonItem image="cs_file_lock.png" id="UFQ-nx-ViU">
-                                        <color key="tintColor" red="0.99728935956954956" green="0.99092596769332886" blue="0.99357432126998901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hz1-eM-ltb"/>
                                     <barButtonItem image="cs_file_tag1.png" id="fn2-ud-vBx">
                                         <color key="tintColor" red="0.99728935956954956" green="0.99092596769332886" blue="0.99357432126998901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
@@ -124,10 +120,12 @@
                         <outlet property="btn_addLabel" destination="fn2-ud-vBx" id="bbn-h5-SSV"/>
                         <outlet property="btn_changeLayout" destination="W0e-WQ-5FJ" id="qSu-GR-9yh"/>
                         <outlet property="btn_delete" destination="otI-5b-h1I" id="2st-aA-a1l"/>
+                        <outlet property="btn_email" destination="0v7-74-trf" id="e0Z-tF-Cri"/>
                         <outlet property="btn_saveToAlbum" destination="a0q-Xc-wfN" id="MQy-pu-wm1"/>
                         <outlet property="btn_search" destination="Lr0-SQ-Vyh" id="gAH-UB-fhq"/>
                         <outlet property="btn_select" destination="P5n-h8-mVH" id="KYx-X8-BlT"/>
                         <outlet property="btn_sequence" destination="ZYK-e5-IiD" id="s8j-mo-ihm"/>
+                        <outlet property="btn_share" destination="est-pD-GTs" id="f0K-ae-AoA"/>
                         <outlet property="fileCollectionView" destination="5pB-Pd-w3m" id="gmw-lD-GDf"/>
                         <outlet property="searchBar" destination="Nic-5P-Z30" id="g5Q-VP-J32"/>
                         <outlet property="toolbar" destination="dRS-E6-PCO" id="jHf-OG-5aj"/>
@@ -523,7 +521,6 @@
         <image name="cs_file_choose.png" width="36" height="36"/>
         <image name="cs_file_delete.png" width="36" height="36"/>
         <image name="cs_file_email.png" width="36" height="36"/>
-        <image name="cs_file_lock.png" width="42" height="42"/>
         <image name="cs_file_more.png" width="32" height="32"/>
         <image name="cs_file_saveToAlbum.png" width="36" height="36"/>
         <image name="cs_file_search.png" width="40" height="40"/>
