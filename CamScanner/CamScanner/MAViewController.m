@@ -715,13 +715,20 @@
         }
         [_selectedIndexSet addIndex:indexPath.item];
         if ([_selectedIndexSet count] > 0) {
-            [_btn_share setEnabled:YES];
             [_btn_email setEnabled:YES];
             [_btn_delete setEnabled:YES];
             [_btn_addLabel setEnabled:YES];
             [_btn_saveToAlbum setEnabled:YES];
+            if ([_selectedIndexSet count] == 1)
+            {
+                [_btn_share setEnabled:YES];
+            }
+            else
+                [_btn_share setEnabled:NO];
+            
             [_bottomToolbar setNeedsDisplay];
         }
+      
     }
     else{
         [self performSegueWithIdentifier:@"ShowDetail" sender:indexPath];
@@ -751,13 +758,18 @@
     }
     [_selectedIndexSet removeIndex:indexPath.item];
     if ([_selectedIndexSet count] == 0) {
-        [_btn_share setEnabled:NO];
         [_btn_email setEnabled:NO];
         [_btn_delete setEnabled:NO];
         [_btn_addLabel setEnabled:NO];
         [_btn_saveToAlbum setEnabled:NO];
-        [_bottomToolbar setNeedsDisplay];
     }
+    if ([_selectedIndexSet count] == 1)
+    {
+        [_btn_share setEnabled:YES];
+    }
+    else
+        [_btn_share setEnabled:NO];
+    [_bottomToolbar setNeedsDisplay];
 }
 
 /**
