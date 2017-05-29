@@ -22,7 +22,21 @@
 #import "CSMarco.h"
 #import <MessageUI/MessageUI.h>
 
-@interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UISearchBarDelegate,MFMailComposeViewControllerDelegate>
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+// 自定义分享菜单栏需要导入的头文件
+#import <ShareSDKUI/SSUIShareActionSheetStyle.h>
+#import <ShareSDKUI/SSUIEditorViewStyle.h>
+
+#import "WXApiRequestHandler.h"
+#import "WXApiManager.h"
+#import "Constant.h"
+#import "WechatAuthSDK.h"
+#import "UIAlertView+WX.h"
+#import "WXApi.h"
+#import "CSTool.h"
+
+@interface MAViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UISearchBarDelegate,MFMailComposeViewControllerDelegate,WechatAuthAPIDelegate,WXApiManagerDelegate,WXApiDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *fileCollectionView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -116,7 +130,7 @@
     [_btn_saveToAlbum setAction:@selector(saveToAlbum)];
     [_btn_addLabel setAction:@selector(addLabel)];
     [_btn_email setAction:@selector(email)];
-    [_btn_share setAction:@selector(shareFile)];
+    [_btn_share setAction:@selector(shareFileToWX)];
     
     [_btn_share setEnabled:NO];
     [_btn_email setEnabled:NO];
@@ -141,6 +155,7 @@
     _fileArray = _mydelegate.fileArray;
     _selectedIndexSet = [[NSMutableIndexSet alloc] init];
     _searchBar.delegate = self;
+    [WXApiManager sharedManager].delegate = self;
 }
 
 
@@ -509,9 +524,100 @@
 
 
 #pragma mark share
-- (void)shareFile{
+
+- (void)shareFileToWX{
+    
+    NSMutableArray* imageArray = [NSMutableArray array];
+    NSMutableArray *fileArray = [NSMutableArray array];
+    [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"%lu", (unsigned long)idx);
+        CSFile * file = [_fileArray objectAtIndex:idx];
+        [imageArray addObject:file.fileAdjustImage];
+        [fileArray addObject:file];
+    }];
+    CSFile * file = [_fileArray firstObject];
+    UIImage *thumbImg = [CSTool compressImage:[UIImage imageWithData:file.fileAdjustImage] toByte:30000];
+    
+    [WXApiRequestHandler sendImageData:file.fileAdjustImage
+                               TagName:kImageTagName
+                            MessageExt:kMessageExt
+                                Action:kMessageAction
+                            ThumbImage:thumbImg
+                               InScene:WXSceneSession];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"res1" ofType:@"jpg"];
+//    NSData *imageData = [NSData dataWithContentsOfFile:filePath];
+//    
+//    UIImage *thumbImage = [UIImage imageNamed:@"res1thumb.png"];
+//    [WXApiRequestHandler sendImageData:imageData
+//                               TagName:kImageTagName
+//                            MessageExt:kMessageExt
+//                                Action:kMessageAction
+//                            ThumbImage:thumbImage
+//                               InScene:WXSceneSession];
     
 }
+
+- (void)shareFile{
+    //1、创建分享参数
+    NSMutableArray* imageArray = [NSMutableArray array];
+    NSMutableArray *fileArray = [NSMutableArray array];
+    [_selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"%lu", (unsigned long)idx);
+        CSFile * file = [_fileArray objectAtIndex:idx];
+        [imageArray addObject:file.fileAdjustImage];
+        [fileArray addObject:file];
+    }];
+    CSFile * file = [_fileArray firstObject];
+    NSString * fileText = file.fileName;
+    
+    if (imageArray) {
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        
+        [shareParams SSDKSetupShareParamsByText:[NSString stringWithFormat:@"您的好友给你分享了%@等文件",fileText]
+                                         images:imageArray
+                                            url:[NSURL URLWithString:@"http://mob.com"]
+                                          title:@"来自CamScanner的分享"
+                                           type:SSDKContentTypeAuto];
+        [shareParams SSDKEnableUseClientShare];
+        
+        
+       SSUIShareActionSheetController *sheet = [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                           {
+                               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                                   message:nil
+                                                                                  delegate:nil
+                                                                         cancelButtonTitle:@"确定"
+                                                                         otherButtonTitles:nil];
+                               [alertView show];
+                               break;
+                           }
+                           case SSDKResponseStateFail:
+                           {
+                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                               message:[NSString stringWithFormat:@"%@",error]
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"OK"
+                                                                     otherButtonTitles:nil, nil];
+                               [alert show];
+                               break;
+                           }
+                           default:
+                               break;
+                       }
+                   }
+         ];
+        
+    [sheet.directSharePlatforms removeObject:@(SSDKPlatformTypeWechat)];
+    }
+}
+
+
 #pragma mark sequence
 - (void)sequence{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"排序" message:@"选择需要的排序方法" preferredStyle:UIAlertControllerStyleActionSheet];

@@ -115,6 +115,23 @@
 		62645D6C1EB08432007435CE /* cs_checkbox_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 62645D6A1EB08432007435CE /* cs_checkbox_no.png */; };
 		62645D6D1EB08432007435CE /* cs_checkbox_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 62645D6B1EB08432007435CE /* cs_checkbox_yes.png */; };
 		62645D701EB48ACA007435CE /* CSFileShowViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62645D6F1EB48ACA007435CE /* CSFileShowViewController.mm */; };
+		626D322D1EDBFD5300B4E7CF /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D32281EDBFD5300B4E7CF /* libWeChatSDK.a */; };
+		626D322E1EDBFD5300B4E7CF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 626D32291EDBFD5300B4E7CF /* README.txt */; };
+		626D32301EDBFD9200B4E7CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D322F1EDBFD9200B4E7CF /* SystemConfiguration.framework */; };
+		626D32321EDBFDAE00B4E7CF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D32311EDBFDAE00B4E7CF /* CoreTelephony.framework */; };
+		626D32371EDC19B800B4E7CF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D32361EDC19B800B4E7CF /* Security.framework */; };
+		626D32391EDC19C400B4E7CF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D32381EDC19C400B4E7CF /* CFNetwork.framework */; };
+		626D323B1EDC20CF00B4E7CF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D323A1EDC20CF00B4E7CF /* AssetsLibrary.framework */; };
+		626D32421EDC56E800B4E7CF /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 626D323D1EDC56E800B4E7CF /* WXApiManager.m */; };
+		626D32431EDC56E800B4E7CF /* WXApiRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 626D323F1EDC56E800B4E7CF /* WXApiRequestHandler.m */; };
+		626D32441EDC56E800B4E7CF /* WXApiResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 626D32411EDC56E800B4E7CF /* WXApiResponseHandler.m */; };
+		626D324E1EDC571E00B4E7CF /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 626D32471EDC571E00B4E7CF /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */; };
+		626D324F1EDC571E00B4E7CF /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 626D32491EDC571E00B4E7CF /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */; };
+		626D32501EDC571E00B4E7CF /* UIAlertView+WX.m in Sources */ = {isa = PBXBuildFile; fileRef = 626D324B1EDC571E00B4E7CF /* UIAlertView+WX.m */; };
+		626D32511EDC571E00B4E7CF /* WXMediaMessage+messageConstruct.m in Sources */ = {isa = PBXBuildFile; fileRef = 626D324D1EDC571E00B4E7CF /* WXMediaMessage+messageConstruct.m */; };
+		626D32531EDC597F00B4E7CF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D32521EDC597F00B4E7CF /* libc++.tbd */; };
+		626D32561EDC5BF100B4E7CF /* res1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 626D32541EDC5BF100B4E7CF /* res1.jpg */; };
+		626D32571EDC5BF100B4E7CF /* res1thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 626D32551EDC5BF100B4E7CF /* res1thumb.png */; };
 		628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */; };
 		628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */; };
 		628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628259EB1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m */; };
@@ -308,6 +325,34 @@
 		62645D6B1EB08432007435CE /* cs_checkbox_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cs_checkbox_yes.png; sourceTree = "<group>"; };
 		62645D6E1EB48ACA007435CE /* CSFileShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileShowViewController.h; path = FileManager/CSFileShowViewController.h; sourceTree = "<group>"; };
 		62645D6F1EB48ACA007435CE /* CSFileShowViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CSFileShowViewController.mm; path = FileManager/CSFileShowViewController.mm; sourceTree = "<group>"; };
+		626D32281EDBFD5300B4E7CF /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		626D32291EDBFD5300B4E7CF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		626D322A1EDBFD5300B4E7CF /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		626D322B1EDBFD5300B4E7CF /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		626D322C1EDBFD5300B4E7CF /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		626D322F1EDBFD9200B4E7CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		626D32311EDBFDAE00B4E7CF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		626D32361EDC19B800B4E7CF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		626D32381EDC19C400B4E7CF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		626D323A1EDC20CF00B4E7CF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		626D323C1EDC56E800B4E7CF /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiManager.h; path = FileManager/WXApiManager.h; sourceTree = "<group>"; };
+		626D323D1EDC56E800B4E7CF /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WXApiManager.m; path = FileManager/WXApiManager.m; sourceTree = "<group>"; };
+		626D323E1EDC56E800B4E7CF /* WXApiRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiRequestHandler.h; path = FileManager/WXApiRequestHandler.h; sourceTree = "<group>"; };
+		626D323F1EDC56E800B4E7CF /* WXApiRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WXApiRequestHandler.m; path = FileManager/WXApiRequestHandler.m; sourceTree = "<group>"; };
+		626D32401EDC56E800B4E7CF /* WXApiResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiResponseHandler.h; path = FileManager/WXApiResponseHandler.h; sourceTree = "<group>"; };
+		626D32411EDC56E800B4E7CF /* WXApiResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WXApiResponseHandler.m; path = FileManager/WXApiResponseHandler.m; sourceTree = "<group>"; };
+		626D32451EDC571E00B4E7CF /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = FileManager/Constant.h; sourceTree = "<group>"; };
+		626D32461EDC571E00B4E7CF /* GetMessageFromWXResp+responseWithTextOrMediaMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GetMessageFromWXResp+responseWithTextOrMediaMessage.h"; path = "FileManager/GetMessageFromWXResp+responseWithTextOrMediaMessage.h"; sourceTree = "<group>"; };
+		626D32471EDC571E00B4E7CF /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GetMessageFromWXResp+responseWithTextOrMediaMessage.m"; path = "FileManager/GetMessageFromWXResp+responseWithTextOrMediaMessage.m"; sourceTree = "<group>"; };
+		626D32481EDC571E00B4E7CF /* SendMessageToWXReq+requestWithTextOrMediaMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SendMessageToWXReq+requestWithTextOrMediaMessage.h"; path = "FileManager/SendMessageToWXReq+requestWithTextOrMediaMessage.h"; sourceTree = "<group>"; };
+		626D32491EDC571E00B4E7CF /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SendMessageToWXReq+requestWithTextOrMediaMessage.m"; path = "FileManager/SendMessageToWXReq+requestWithTextOrMediaMessage.m"; sourceTree = "<group>"; };
+		626D324A1EDC571E00B4E7CF /* UIAlertView+WX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+WX.h"; path = "FileManager/UIAlertView+WX.h"; sourceTree = "<group>"; };
+		626D324B1EDC571E00B4E7CF /* UIAlertView+WX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+WX.m"; path = "FileManager/UIAlertView+WX.m"; sourceTree = "<group>"; };
+		626D324C1EDC571E00B4E7CF /* WXMediaMessage+messageConstruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WXMediaMessage+messageConstruct.h"; path = "FileManager/WXMediaMessage+messageConstruct.h"; sourceTree = "<group>"; };
+		626D324D1EDC571E00B4E7CF /* WXMediaMessage+messageConstruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WXMediaMessage+messageConstruct.m"; path = "FileManager/WXMediaMessage+messageConstruct.m"; sourceTree = "<group>"; };
+		626D32521EDC597F00B4E7CF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		626D32541EDC5BF100B4E7CF /* res1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = res1.jpg; sourceTree = "<group>"; };
+		626D32551EDC5BF100B4E7CF /* res1thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = res1thumb.png; sourceTree = "<group>"; };
 		628259E71EA8CD4E004BCCB8 /* CSFileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSFileCollectionViewCell.h; path = FileManager/CSFileCollectionViewCell.h; sourceTree = "<group>"; };
 		628259E81EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSFileCollectionViewCell.m; path = FileManager/CSFileCollectionViewCell.m; sourceTree = "<group>"; };
 		628259E91EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CSFileCollectionViewCell.xib; path = FileManager/CSFileCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -371,6 +416,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				626D32531EDC597F00B4E7CF /* libc++.tbd in Frameworks */,
+				626D323B1EDC20CF00B4E7CF /* AssetsLibrary.framework in Frameworks */,
+				626D32391EDC19C400B4E7CF /* CFNetwork.framework in Frameworks */,
+				626D32371EDC19B800B4E7CF /* Security.framework in Frameworks */,
+				626D32321EDBFDAE00B4E7CF /* CoreTelephony.framework in Frameworks */,
+				626D32301EDBFD9200B4E7CF /* SystemConfiguration.framework in Frameworks */,
 				2237CA411647EC7F00B77E0E /* ImageIO.framework in Frameworks */,
 				62A77EDD1EB9DEAF0021E125 /* MessageUI.framework in Frameworks */,
 				62F5DEEA1EBADDC100E49611 /* libsqlite3.tbd in Frameworks */,
@@ -385,6 +436,7 @@
 				22BA6A911704497A00B111E4 /* AudioToolbox.framework in Frameworks */,
 				22078047164F1F1F0081E1E8 /* CoreImage.framework in Frameworks */,
 				62F5DEE01EBADC8000E49611 /* ShareSDKConnector.framework in Frameworks */,
+				626D322D1EDBFD5300B4E7CF /* libWeChatSDK.a in Frameworks */,
 				2255BC5E1649B2D600B3A1C2 /* opencv2.framework in Frameworks */,
 				226D59891648779200A3A98F /* QuartzCore.framework in Frameworks */,
 				62F5DED71EBADC7F00E49611 /* QQConnector.framework in Frameworks */,
@@ -409,6 +461,7 @@
 		2237CA061647E85000B77E0E = {
 			isa = PBXGroup;
 			children = (
+				626D32271EDBFD5300B4E7CF /* OpenSDK1.7.7 */,
 				62F5DEB61EBADC7F00E49611 /* ShareSDK */,
 				62E1074D1EA9A36500851EE5 /* FileModel+CoreDataClass.h */,
 				62E1074E1EA9A36500851EE5 /* FileModel+CoreDataClass.m */,
@@ -431,6 +484,12 @@
 		2237CA141647E85000B77E0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				626D32521EDC597F00B4E7CF /* libc++.tbd */,
+				626D323A1EDC20CF00B4E7CF /* AssetsLibrary.framework */,
+				626D32381EDC19C400B4E7CF /* CFNetwork.framework */,
+				626D32361EDC19B800B4E7CF /* Security.framework */,
+				626D32311EDBFDAE00B4E7CF /* CoreTelephony.framework */,
+				626D322F1EDBFD9200B4E7CF /* SystemConfiguration.framework */,
 				62F5DEE91EBADDC100E49611 /* libsqlite3.tbd */,
 				62F5DEE71EBADD8600E49611 /* JavaScriptCore.framework */,
 				62F5DEE51EBADD7C00E49611 /* libstdc++.tbd */,
@@ -511,6 +570,8 @@
 		2237CA5D1648116500B77E0E /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				626D32541EDC5BF100B4E7CF /* res1.jpg */,
+				626D32551EDC5BF100B4E7CF /* res1thumb.png */,
 				621531561EBDAE5F00A24739 /* cs_takephoto.png */,
 				621531401EBD9A7D00A24739 /* cs_file_tag.png */,
 				6215314E1EBDA85900A24739 /* cs_file_lock.png */,
@@ -671,6 +732,18 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		626D32271EDBFD5300B4E7CF /* OpenSDK1.7.7 */ = {
+			isa = PBXGroup;
+			children = (
+				626D32281EDBFD5300B4E7CF /* libWeChatSDK.a */,
+				626D32291EDBFD5300B4E7CF /* README.txt */,
+				626D322A1EDBFD5300B4E7CF /* WechatAuthSDK.h */,
+				626D322B1EDBFD5300B4E7CF /* WXApi.h */,
+				626D322C1EDBFD5300B4E7CF /* WXApiObject.h */,
+			);
+			path = OpenSDK1.7.7;
+			sourceTree = "<group>";
+		};
 		628259E61EA8CD1D004BCCB8 /* FileManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -703,6 +776,12 @@
 		628259F21EA8CD5A004BCCB8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				626D323C1EDC56E800B4E7CF /* WXApiManager.h */,
+				626D323D1EDC56E800B4E7CF /* WXApiManager.m */,
+				626D323E1EDC56E800B4E7CF /* WXApiRequestHandler.h */,
+				626D323F1EDC56E800B4E7CF /* WXApiRequestHandler.m */,
+				626D32401EDC56E800B4E7CF /* WXApiResponseHandler.h */,
+				626D32411EDC56E800B4E7CF /* WXApiResponseHandler.m */,
 				2237CA2D1647E85000B77E0E /* MAViewController.h */,
 				2237CA2E1647E85000B77E0E /* MAViewController.m */,
 				628259EA1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.h */,
@@ -720,6 +799,15 @@
 		628259F31EA8CD64004BCCB8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				626D32451EDC571E00B4E7CF /* Constant.h */,
+				626D32461EDC571E00B4E7CF /* GetMessageFromWXResp+responseWithTextOrMediaMessage.h */,
+				626D32471EDC571E00B4E7CF /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */,
+				626D32481EDC571E00B4E7CF /* SendMessageToWXReq+requestWithTextOrMediaMessage.h */,
+				626D32491EDC571E00B4E7CF /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */,
+				626D324A1EDC571E00B4E7CF /* UIAlertView+WX.h */,
+				626D324B1EDC571E00B4E7CF /* UIAlertView+WX.m */,
+				626D324C1EDC571E00B4E7CF /* WXMediaMessage+messageConstruct.h */,
+				626D324D1EDC571E00B4E7CF /* WXMediaMessage+messageConstruct.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -897,6 +985,7 @@
 				621531571EBDAE5F00A24739 /* cs_takephoto.png in Resources */,
 				2237CA2C1647E85000B77E0E /* Default-568h@2x.png in Resources */,
 				628259EE1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.xib in Resources */,
+				626D32571EDC5BF100B4E7CF /* res1thumb.png in Resources */,
 				2237CA551648115E00B77E0E /* cs_camera_bottom_bar.png in Resources */,
 				62F5DED51EBADC7F00E49611 /* ShareSDKUI.bundle in Resources */,
 				2237CA561648115E00B77E0E /* cs_camera_button.png in Resources */,
@@ -904,6 +993,7 @@
 				621531481EBDA10A00A24739 /* cs_file_email.png in Resources */,
 				628259F01EA8CD4E004BCCB8 /* FileManagerStoryboard.storyboard in Resources */,
 				6215315A1EBF1DAD00A24739 /* cs_camera_button_press@2x.png in Resources */,
+				626D32561EDC5BF100B4E7CF /* res1.jpg in Resources */,
 				2237CA5B1648115E00B77E0E /* cs_camera_grid@2x.png in Resources */,
 				2237CA5C1648115E00B77E0E /* cs_camera_grid.png in Resources */,
 				2237CA5F16481BDD00B77E0E /* cs_camera_grid_1136@2x.png in Resources */,
@@ -956,6 +1046,7 @@
 				2207803E164ED26A0081E1E8 /* cs_setting_4.png in Resources */,
 				621531411EBD9A7D00A24739 /* cs_file_tag.png in Resources */,
 				62F5DEF41EBC69E800E49611 /* cs_file_search.png in Resources */,
+				626D322E1EDBFD5300B4E7CF /* README.txt in Resources */,
 				2207803F164ED26A0081E1E8 /* cs_setting_4@2x.png in Resources */,
 				621531501EBDA85900A24739 /* cs_file_lock.png in Resources */,
 				22078040164ED26A0081E1E8 /* cs_cemera_indicator_active.png in Resources */,
@@ -990,6 +1081,7 @@
 				624F55331EAE162A00618ED7 /* MJRefreshBackGifFooter.m in Sources */,
 				628259EF1EA8CD4E004BCCB8 /* CSFileManagerCollectionViewController.m in Sources */,
 				624DA90D1EB0365E008CE2D5 /* CSFile.m in Sources */,
+				626D32431EDC56E800B4E7CF /* WXApiRequestHandler.m in Sources */,
 				62E107571EA9A3E600851EE5 /* DataBase.m in Sources */,
 				22F46B5A16A2B94F0078DFDE /* MAImagePickerController.m in Sources */,
 				22F46B5B16A2B94F0078DFDE /* MAImagePickerControllerAdjustViewController.mm in Sources */,
@@ -1001,6 +1093,8 @@
 				624F553E1EAE162A00618ED7 /* UIView+MJExtension.m in Sources */,
 				624F55371EAE162A00618ED7 /* MJRefreshNormalHeader.m in Sources */,
 				62645D701EB48ACA007435CE /* CSFileShowViewController.mm in Sources */,
+				626D32421EDC56E800B4E7CF /* WXApiManager.m in Sources */,
+				626D324E1EDC571E00B4E7CF /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */,
 				624F55321EAE162A00618ED7 /* MJRefreshAutoStateFooter.m in Sources */,
 				624F552C1EAE162A00618ED7 /* MJRefreshBackFooter.m in Sources */,
 				624F55361EAE162A00618ED7 /* MJRefreshGifHeader.m in Sources */,
@@ -1008,6 +1102,8 @@
 				624F553A1EAE162A00618ED7 /* MJRefreshConst.m in Sources */,
 				624F55301EAE162A00618ED7 /* MJRefreshAutoGifFooter.m in Sources */,
 				624F552E1EAE162A00618ED7 /* MJRefreshFooter.m in Sources */,
+				626D32441EDC56E800B4E7CF /* WXApiResponseHandler.m in Sources */,
+				626D32511EDC571E00B4E7CF /* WXMediaMessage+messageConstruct.m in Sources */,
 				628259F91EA99EB0004BCCB8 /* FileModel.xcdatamodeld in Sources */,
 				624F55351EAE162A00618ED7 /* MJRefreshBackStateFooter.m in Sources */,
 				22F46B5D16A2B94F0078DFDE /* MAOpenCV.mm in Sources */,
@@ -1015,6 +1111,8 @@
 				62A77EDA1EB843540021E125 /* CSNormalTableViewCell.m in Sources */,
 				624F552F1EAE162A00618ED7 /* MJRefreshHeader.m in Sources */,
 				62E1075B1EAB039100851EE5 /* CSPDFMangager.m in Sources */,
+				626D324F1EDC571E00B4E7CF /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
+				626D32501EDC571E00B4E7CF /* UIAlertView+WX.m in Sources */,
 				22F46B5E16A2B94F0078DFDE /* UIImage+fixOrientation.m in Sources */,
 				22F46B5F16A2B94F0078DFDE /* UIImageView+ContentFrame.m in Sources */,
 				628259ED1EA8CD4E004BCCB8 /* CSFileCollectionViewCell.m in Sources */,
@@ -1123,8 +1221,15 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/opencv";
 				INFOPLIST_FILE = "CamScanner/CamScanner-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/WeChatSDK";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/OpenSDK1.7.7",
+				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mackhag.CamScanner1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1162,8 +1267,15 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/opencv";
 				INFOPLIST_FILE = "CamScanner/CamScanner-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/WeChatSDK";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/OpenSDK1.7.7",
+				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mackhag.CamScanner1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;

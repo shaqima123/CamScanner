@@ -12,5 +12,5 @@
 
 + (void)saveToAlbumWithData:(NSData *)data;
 + (void)loadImageFinished:(UIImage *)image;
-
++ (UIImage *)compressImage:(UIImage *)image toByte:(NSUInteger)maxLength;
 @end
